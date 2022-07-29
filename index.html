@@ -8,11 +8,13 @@
 </head>
 
 <body>
-  <h1>Summer Swaps 2</h1>
-  <h2>Token Tracker</h2>
-
-
-
+  <div class="header">
+    <h1>Summer Swaps 2</h1>
+    <h2>Token Tracker</h2>
+    <button id="reset" class="btn-standard call-to-action">
+      <span class="button__text">Reset all claimed tokens</span>
+    </button>
+  </div>
   <div id="tokens"></div>
 </body>
 <script>
@@ -85,6 +87,12 @@
     claimed_tokens.push($(this).data('base-id'));
     localStorage.setItem("claimed_tokens", JSON.stringify(claimed_tokens));
   });
+
+  $("#reset").click(function () {
+    localStorage.removeItem("claimed_tokens");
+    location.reload();
+  }
+  );
 
 
 </script>

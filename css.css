@@ -38,6 +38,37 @@
   filter: brightness(1);
 }
 
+.header{
+  display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.btn-standard{
+  background-color: #1a96f6;
+  color: #f2f2f2;
+  height: 2.8rem;
+  line-height: 2.8rem;
+  box-sizing: border-box;
+  display: block;
+  font-family: UltimateTeamCondensed,sans-serif;
+  font-size: 1.6em;
+  overflow: hidden;
+  padding: 0 1rem;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  border: none;
+  font-weight:400;
+  width: 250px;
+  margin-bottom: 1em;
+}
+
+.btn-standard:hover{
+  cursor: pointer;
+}
+
+
 .fifa22.token-claimed.token-claimed, .fifa22.inactive.inactive{
   cursor:default;
 }
@@ -121,7 +152,7 @@ h2 {
   color: white;
   font-size: 2.5em;
   margin-top: -30px;
-  margin-bottom: 1em;
+  margin-bottom: 0;
 }
 h1,
 h2 {
