@@ -1,0 +1,5326 @@
+@font-face {
+  font-family: "MATROSKA";
+  src: url("MATROSKA.ttf.woff") format("woff"),
+    url("MATROSKA.ttf.svg#MATROSKA") format("svg"), url("MATROSKA.ttf.eot"),
+    url("MATROSKA.ttf.eot?#iefix") format("embedded-opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "UltimateTeam-Icons";
+  src: url("UltimateTeam-Icons.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "UltimateTeamCondensed";
+  src: url("UltimateTeamCondensed.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.token-claimed::before{
+  color: #30cd30;
+  content: "\E009";
+  font-family: UltimateTeam-Icons,sans-serif;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    text-decoration: none;
+    text-transform: none;
+    font-size: 3rem;
+  position: absolute;
+  top: 30px;
+  left: 46px;
+  z-index: 3;
+  filter: brightness(1);
+}
+
+.fifa22.token-claimed.token-claimed, .fifa22.inactive.inactive{
+  cursor:default;
+}
+
+.inactive.inactive.inactive .player-card, .token-claimed div.darken {
+  filter: brightness(0.4);
+}
+
+#tokens {
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-width: 97vw;
+}
+
+.token_number {
+  position: absolute;
+  left: -16px;
+  top: -12px;
+  z-index: 10;
+  color: black;
+  font-weight: bold;
+  border-radius: 13px;
+  background: white;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.token_source {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+}
+
+.token_objective {
+  width: 83px;
+  font-size: 20px;
+  color: black;
+  font-weight: 300;
+}
+
+.token_objective_wrapper {
+  display: flex;
+  background: limegreen;
+  padding-left: 27px;
+  margin-left: 17px;
+  width: 85px;
+  margin-top: 11px;
+}
+
+[data-type="objective"]::before{
+  content: '';
+  display: block;
+  background: url("xpLogo.png");
+  width: 40px;
+  aspect-ratio: 1/1;
+  background-size: contain;
+  position: absolute;
+  left: 5px;
+  bottom: -45px;
+}
+
+body {
+  background-image: url("dark-bg.png");
+  font-family: MATROSKA;
+}
+
+h1 {
+  font-size: 4em;
+  color: #d83255;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+h2 {
+  color: white;
+  font-size: 2.5em;
+  margin-top: -30px;
+  margin-bottom: 1em;
+}
+h1,
+h2 {
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+@media (min-width: 1000px) {
+  .card-list-home a:not(:last-child) .card {
+    margin-right: 28px;
+  }
+}
+.workrateLabels.fifa22 {
+  left: -86px;
+}
+.card.fifa22 {
+  font-family: UltimateTeamCondensed, sans-serif;
+  color: white;
+  text-shadow: none !important;
+  max-width: 227px;
+  height: 220px;
+  display: inline-block;
+  cursor: pointer;
+}
+.card.fifa22 .player-card {
+  width: 294px;
+  left: -33px;
+  top: -18px;
+  height: auto;
+  position: relative;
+  filter: drop-shadow(10px 10px 5px rgba(255, 0, 0, 0.5));
+}
+.card.fifa22 .rating-gradient {
+  width: 57px;
+  height: 182px;
+  position: absolute;
+  top: 40px;
+  left: 23px;
+}
+.card.fifa22 .rating {
+  font-family: UltimateTeamCondensed, sans-serif;
+  font-size: 38px;
+  border: 0 !important;
+  top: 54px;
+  left: 29px;
+  width: auto !important;
+  font-weight: 100;
+}
+.card.fifa22.onestowatch {
+  color: #c6f553 !important;
+}
+.card.fifa22.versusice {
+  color: #fff !important;
+}
+.card.fifa22.versusfire {
+  color: #fff !important;
+}
+.card.fifa22.fof {
+  color: #1c1f56 !important;
+}
+.card.fifa22.fof .name {
+  color: #fff !important;
+}
+.card.fifa22.headliners {
+  color: #fc5162 !important;
+}
+.card.fifa22.objective {
+  color: #d9d3e1 !important;
+}
+.card.fifa22.mlsobjective {
+  color: #aebebb !important;
+}
+.card.fifa22.futheadliners {
+  color: #fff !important;
+}
+.card.fifa22.shapeshifters {
+  color: #fff !important;
+}
+.card.fifa22.playermoments {
+  color: #ffd801 !important;
+}
+.card.fifa22.birthday {
+  color: #fff !important;
+}
+.card.fifa22.futcaptains {
+  color: #fff !important;
+}
+.card.fifa22.futcaptainsheroes {
+  color: #ff0 !important;
+}
+.card.fifa22.fantasyblue {
+  color: #99e8f6 !important;
+}
+.card.fifa22.fantasyblue .chemistry {
+  color: #000 !important;
+}
+.card.fifa22.fantasyblue .rating-gradient {
+  background: linear-gradient(
+    to bottom,
+    rgba(24, 38, 62, 0) 0,
+    rgba(24, 38, 62, 0.2) 8%,
+    rgba(24, 38, 62, 0.65) 45%,
+    rgba(24, 38, 62, 0.76) 60%,
+    rgba(24, 38, 62, 0.8) 75%,
+    rgba(24, 38, 62, 0.1) 100%
+  );
+}
+.card.fifa22.fantasypurple {
+  color: #fdff3a !important;
+}
+.card.fifa22.fantasypurple .rating-gradient {
+  background: linear-gradient(
+    to bottom,
+    rgba(24, 38, 62, 0) 0,
+    rgba(24, 38, 62, 0.2) 8%,
+    rgba(24, 38, 62, 0.65) 45%,
+    rgba(24, 38, 62, 0.76) 60%,
+    rgba(24, 38, 62, 0.8) 75%,
+    rgba(24, 38, 62, 0.1) 100%
+  );
+}
+.card.fifa22.bluepurple {
+  color: #fff !important;
+}
+.card.fifa22.futmas {
+  color: #fff !important;
+}
+.card.fifa22.premiumsbc {
+  color: #ff98fc !important;
+}
+.card.fifa22.whitepurple {
+  color: #f1dd7c !important;
+}
+.card.fifa22.united {
+  color: #201c55 !important;
+}
+.card.fifa22.united .rating,
+.card.fifa22.united .position {
+  color: #c0ff36 !important;
+}
+.card.fifa22.marquee {
+  color: #c0ff36 !important;
+}
+.card.fifa22.marquee .rating,
+.card.fifa22.marquee .position {
+  color: #201c55 !important;
+}
+.card.fifa22.marquee .name {
+  color: #e6e6e6 !important;
+}
+.card.fifa22.futurestars {
+  color: #fdfb4b !important;
+}
+.card.fifa22.season1 {
+  color: #f6f31e !important;
+}
+.card.fifa22.fgsswaps1 {
+  color: #000 !important;
+}
+.card.fifa22.iconswaps1 {
+  color: #000 !important;
+}
+.card.fifa22.iconswaps2 {
+  color: #000 !important;
+}
+.card.fifa22.iconswaps4 {
+  color: #f1efee !important;
+}
+.card.fifa22.iconswaps1 .rating,
+.card.fifa22.iconswaps1 .position {
+  color: #000 !important;
+}
+.card.fifa22.iconswaps4 .rating,
+.card.fifa22.iconswaps4 .position {
+  color: #000 !important;
+}
+.card.fifa22.ptg-selected {
+  color: #e6e6e6 !important;
+}
+.card.fifa22.ptg-selected .rating,
+.card.fifa22.ptg-selected .position {
+  color: #201c55 !important;
+}
+.card.fifa22.rtrc {
+  color: #1c2f6a !important;
+}
+.card.fifa22.rtrc .rating,
+.card.fifa22.rtrc .position,
+.card.fifa22.rtrc .name {
+  color: #fff !important;
+}
+.card.fifa22.rtrs {
+  color: #1c2f6a !important;
+}
+.card.fifa22.rtrs .rating,
+.card.fifa22.rtrs .position,
+.card.fifa22.rtrs .name {
+  color: #fff !important;
+}
+.card.fifa22.rtrwgold {
+  color: #f4db8c !important;
+}
+.card.fifa22.rtrwgold .rating,
+.card.fifa22.rtrwgold .position {
+  color: #000 !important;
+}
+.card.fifa22.rtrwsilver {
+  color: #e0e8ec !important;
+}
+.card.fifa22.rtrwsilver .rating,
+.card.fifa22.rtrwsilver .position {
+  color: #000 !important;
+}
+.card.fifa22.redgold {
+  color: #e1cc7f !important;
+}
+.card.fifa22.redsilver {
+  color: #d1d7d9 !important;
+}
+.card.fifa22.redbronze {
+  color: #d0b288 !important;
+}
+.card.fifa22.goldrare {
+  color: #452d19 !important;
+}
+.card.fifa22.clfinal {
+  color: #a8fcff !important;
+}
+.card.fifa22.mlspotm {
+  color: #fff !important;
+}
+.card.fifa22.eredivisiepotm {
+  color: #fff !important;
+}
+.card.fifa22.serieapotm {
+  color: #fff !important;
+}
+.card.fifa22.elfinal {
+  color: #fff !important;
+}
+.card.fifa22.confleague {
+  color: #fff !important;
+}
+.card.fifa22.elmotm {
+  color: #fff !important;
+}
+.card.fifa22.winterrefresh {
+  color: #42ff94 !important;
+}
+.card.fifa22.whatif {
+  color: #fff !important;
+}
+.card.fifa22.silverrare {
+  color: #393c43 !important;
+}
+.card.fifa22.bronzerare {
+  color: #4a3019 !important;
+}
+.card.fifa22.legend {
+  color: #73663b !important;
+}
+.card.fifa22.goldif {
+  color: #e2d17e !important;
+}
+.card.fifa22.silverif {
+  color: #c4c8c9 !important;
+}
+.card.fifa22.silverstars {
+  color: #fff !important;
+}
+.card.fifa22.bronzeif {
+  color: #b78553 !important;
+}
+.card.fifa22.purple {
+  color: #d4c0fc !important;
+}
+.card.fifa22.championsleague {
+  color: #fff !important;
+}
+.card.fifa22.signature {
+  color: #fff !important;
+}
+.card.fifa22.uclmoments {
+  color: #fff !important;
+}
+.card.fifa22.pink {
+  color: #fff !important;
+}
+.card.fifa22.pinkgold {
+  color: #efdc7c !important;
+}
+.card.fifa22.blackgold {
+  color: #fff !important;
+}
+.card.fifa22.blackgold .name,
+.card.fifa22.blackgold .chemistry,
+.card.fifa22.blackgold .chemstyle {
+  color: #000 !important;
+}
+.card.fifa22.proplayer {
+  color: #fff !important;
+}
+.card.fifa22.europaleague {
+  color: #cb8736 !important;
+}
+.card.fifa22.blpotm {
+  color: #fff !important;
+}
+.card.fifa22.totgsel,
+.card.fifa22.totgscl {
+  color: #fff !important;
+}
+.card.fifa22.totgselorange,
+.card.fifa22.totgscl {
+  color: #000 !important;
+}
+.card.fifa22.plpotm {
+  color: #fff !important;
+}
+.card.fifa22.l1potm {
+  color: #c3ca24 !important;
+}
+.card.fifa22.laligapotm {
+  color: #9fdce1 !important;
+}
+.card.fifa22.promo {
+  color: #fff !important;
+}
+.card.fifa22.promo2 {
+  color: #000 !important;
+}
+.card.fifa22.motm {
+  color: #fff !important;
+}
+.card.fifa22.eumotm {
+  color: #fff !important;
+}
+.card.fifa22.bluemotm {
+  color: #fff !important;
+}
+.card.fifa22.swap {
+  color: #fff !important;
+}
+.card.fifa22.swap2 {
+  color: #fff !important;
+}
+.card.fifa22.swap3 {
+  color: #000 !important;
+}
+.card.fifa22.swap3 .rating,
+.card.fifa22.swap3 .position {
+  color: #cfa066 !important;
+}
+.card.fifa22.swap7 .rating,
+.card.fifa22.swap7 .position {
+  color: #d8d8d8 !important;
+}
+.card.fifa22.swap4 .rating,
+.card.fifa22.swap4 .position {
+  color: #000 !important;
+}
+.card.fifa22.swap4 {
+  color: #fff !important;
+}
+.card.fifa22.swap5 {
+  color: #fff !important;
+}
+.card.fifa22.swap6 {
+  color: #f27d2a !important;
+}
+.card.fifa22.showdown {
+  color: #fff !important;
+}
+.card.fifa22.showdownwinner {
+  color: #a3d100 !important;
+}
+.card.fifa22.totwmomentsgold {
+  color: #eed343 !important;
+}
+.card.fifa22.totwmomentssilver {
+  color: #c4c8c9 !important;
+}
+.card.fifa22.totwmomentsbronze {
+  color: #b78553 !important;
+}
+.card.fifa22.swap9 {
+  color: #000 !important;
+}
+.card.fifa22.swap10 {
+  color: #f4ff00 !important;
+}
+.card.fifa22.swap11 {
+  color: #bdeb45 !important;
+}
+.card.fifa22.flashback {
+  color: #fff !important;
+}
+.card.fifa22.swap-reward {
+  color: #fff !important;
+}
+.card.fifa22.bluemotm .rating,
+.card.fifa22.bluemotm .position {
+  color: #003482 !important;
+}
+.card.fifa22.redmotm {
+  color: #fff !important;
+}
+.card.fifa22.redmotm .rating,
+.card.fifa22.redmotm .position {
+  color: #7a0600 !important;
+}
+.card.fifa22.green {
+  color: #fff !important;
+}
+.card.fifa22.green .rating,
+.card.fifa22.green .position {
+  color: #104921 !important;
+}
+.card.fifa22.halloween {
+  color: #c2ea73 !important;
+}
+.card.fifa22.numbersup {
+  color: #fff !important;
+}
+.card.fifa22.nextgen {
+  color: #4ad3bd !important;
+}
+.card.fifa22.wildcard {
+  color: #fcee93 !important;
+}
+.card.fifa22.wildcardtoken {
+  color: #fcee93 !important;
+}
+.card.fifa22.futurestarstoken {
+  color: #fcfe00 !important;
+}
+.card.fifa22.carniball {
+  color: #aeddfa !important;
+}
+.card.fifa22.worldcup {
+  color: #144a8b !important;
+}
+.card.fifa22.worldcup .rating,
+.card.fifa22.worldcup .name,
+.card.fifa22.worldcup .position {
+  color: #e6d3a7 !important;
+}
+.card.fifa22.worldcup-icon {
+  color: #172f52 !important;
+}
+.card.fifa22.worldcup-icon .rating,
+.card.fifa22.worldcup-icon .position {
+  color: #cbc5a5 !important;
+}
+.card.fifa22.worldcup .name,
+.card.fifa22.worldcup-icon .name {
+  font-family: dusha, fjalla one, sans-serif;
+  font-weight: 400 !important;
+}
+.card.fifa22.movember {
+  color: #aea590 !important;
+}
+.card.fifa22.movember .rating,
+.card.fifa22.movember .position,
+.card.fifa22.movember .name,
+.card.fifa22.movember .chemstyle,
+.card.fifa22.movember .chemistry {
+  color: #3c2313 !important;
+}
+.card.fifa22.special {
+  color: #edec07 !important;
+}
+.card.fifa22.imotm {
+  color: #edf5f5 !important;
+}
+.card.fifa22.toty {
+  color: #f9e99e !important;
+}
+.card.fifa22.toty .chemistry {
+  color: #fff !important;
+}
+.card.fifa22.goldblue {
+  color: #e7db98 !important;
+}
+.card.fifa22.totsswaps {
+  color: #fff !important;
+}
+.card.fifa22.silverblue {
+  color: #dce5eb !important;
+}
+.card.fifa22.bronzeblue {
+  color: #cfa57d !important;
+}
+.card.fifa22 .position {
+  top: 87px;
+  left: 26px;
+  font-size: 20px;
+  width: 50px;
+  line-height: 22px;
+}
+.card.fifa22 .avatarholder {
+  top: 46px;
+  left: 71px;
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  z-index: 0;
+}
+.card.fifa22 .avatarholder-custom {
+  top: 30px;
+  left: 2px;
+  width: 98%;
+  position: absolute;
+  z-index: 0;
+}
+.card.fifa22 .avatarholder-custom .avatar {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+}
+.card.fifa22 .avatar {
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 150px;
+}
+.card.fifa22 .clubbadge {
+  top: 152px !important;
+  left: 32px;
+  width: 40px;
+  height: auto;
+  z-index: 1;
+}
+.card.fifa22 .nationflag {
+  top: 119px !important;
+  left: 32px;
+  height: auto;
+  width: 40px;
+  z-index: 1;
+}
+.card.fifa22 .attributes {
+  font-family: lato, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+}
+.card.fifa22 .pace {
+  top: 240px;
+  left: 33px;
+}
+.card.fifa22 .dribbling {
+  top: 240px;
+  left: 140px;
+}
+.card.fifa22 .shooting {
+  top: 265px;
+  left: 33px;
+}
+.card.fifa22 .defending {
+  top: 265px;
+  left: 140px;
+}
+.card.fifa22 .passing {
+  top: 292px;
+  left: 33px;
+}
+.card.fifa22 .heading {
+  top: 292px;
+  left: 140px;
+}
+.card.fifa22 .name {
+  line-height: 28px;
+  text-transform: uppercase;
+  top: 199px;
+  left: inherit;
+  right: 0;
+  width: 100%;
+  font-size: 25px;
+  font-family: UltimateTeamCondensed, sans-serif;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.card.fifa22 .chemstyle {
+  line-height: 28px;
+  text-transform: uppercase;
+  top: 305px;
+  left: 5px;
+  width: 220px;
+  font-size: 20px;
+  position: absolute;
+  text-align: center;
+}
+.card.fifa22 .chemstylename {
+  padding-left: 4px;
+}
+.scard.fifa22 {
+  font-family: UltimateTeamCondensed, sans-serif;
+  text-shadow: none !important;
+}
+.builder .card.fifa22 {
+  height: 200px;
+  width: 135px;
+  margin-left: 2px;
+  margin-top: -6px;
+}
+.scard.fifa22 .player-card {
+  width: 140px;
+  aspect-ratio: 495/545;
+  position: relative;
+  left: 0px;
+  top: -8px;
+}
+.scard.fifa22 .rating-gradient {
+  width: 36px;
+  height: 105px;
+  position: absolute;
+  top: 16px;
+  left: 11px;
+}
+.scard.fifa22 .rating {
+  font-size: 32px;
+  top: -14px;
+  left: 0;
+  font-weight: 300;
+}
+.scard.fifa22 .ratingholder {
+  border: 0;
+  top: 23px;
+  left: 17px;
+}
+.scard.fifa22 .position {
+  top: 42px;
+  left: 15px;
+  font-size: 19px;
+  width: 30px;
+  font-weight: 300;
+}
+.scard.fifa22.goldrare {
+  color: #452d19 !important;
+}
+.scard.fifa22.silverrare {
+  color: #393c43 !important;
+}
+.scard.fifa22.bronzerare {
+  color: #4a3019 !important;
+}
+.scard.fifa22.legend {
+  color: #73663b !important;
+}
+.scard.fifa22.goldif {
+  color: #f9e99e !important;
+}
+.scard.fifa22.silverif {
+  color: #c4c8c9 !important;
+}
+.scard.fifa22.bronzeif {
+  color: #b78553 !important;
+}
+.scard.fifa22.imotm {
+  color: #edf5f5 !important;
+}
+.scard.fifa22.goldblue {
+  color: #ead36e !important;
+}
+.scard.fifa22.silverblue {
+  color: #e1e9ee !important;
+}
+.scard.fifa22.bronzeblue {
+  color: #deb89e !important;
+}
+.scard.fifa22 .clubbadge {
+  top: 83px !important;
+  left: 19px;
+  width: 22px;
+  height: 22px;
+  z-index: 1;
+}
+.scard.fifa22 .nationflag {
+  top: 66px !important;
+  left: 18px;
+  width: 22px;
+  height: auto;
+  z-index: 1;
+}
+.scard.fifa22 .avatarholder {
+  top: 28px;
+  left: 49px;
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  overflow: hidden;
+  z-index: 0;
+}
+.scard.fifa22 .avatarholder-custom {
+  top: 22px;
+  left: 20px;
+  width: 84%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  z-index: 0;
+}
+.scard.fifa22 .avatarholder-custom .avatar {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+}
+.scard.fifa22 .avatar {
+  top: 0;
+  left: 0;
+  width: 80px;
+  height: 80px;
+}
+.scard.fifa22 .name {
+  line-height: 28px;
+  text-transform: uppercase;
+  top: 103px;
+  width: 100%;
+  font-size: 18px;
+  right: 0;
+  left: auto;
+  margin-top: 5px;
+  font-family: UltimateTeamCondensed, sans-serif;
+  font-weight: 500;
+}
+.scard.fifa22 .attributes {
+  font-size: 13px;
+  font-family: lato, sans-serif;
+}
+.scard.fifa22 .pace {
+  top: 127px;
+  left: 19px;
+}
+.scard.fifa22 .dribbling {
+  top: 127px;
+  left: 81px;
+}
+.scard.fifa22 .shooting {
+  top: 142px;
+  left: 19px;
+}
+.scard.fifa22 .defending {
+  top: 142px;
+  left: 81px;
+}
+.scard.fifa22 .passing {
+  top: 157px;
+  left: 19px;
+}
+.scard.fifa22 .heading {
+  top: 157px;
+  left: 81px;
+}
+.scard.fifa22 .chemistry {
+  top: 6px;
+  left: 46px;
+  position: absolute;
+  text-shadow: 0 0 0;
+  font-weight: 700;
+  font-family: knul-bold;
+  font-size: 13px;
+}
+.scard.fifa22 .loyalty {
+  top: 171px;
+  left: 60px;
+}
+.generations .builder-background.squad.fifa17,
+.generations .builder-background.squad.fifa22 {
+  background: url(../images/cardholder-generations.png?18);
+  height: 200px;
+  width: 135px;
+  left: -3px;
+  top: -11px;
+}
+.generations .builder-background.sub.fifa17,
+.generations .builder-background.sub.fifa22 {
+  background: url(../images/cardholder-generations.png?18);
+  height: 200px;
+  width: 135px;
+  margin-left: -3px;
+  margin-top: -11px;
+}
+.builder-background.squad.fifa22 {
+  background: url(../images/fut18/cardholder.png);
+  height: 200px;
+  width: 135px;
+  left: -3px;
+  top: -11px;
+}
+.builder-background.squad.nologo.fifa22 {
+  background: url(../images/fut18/cardholder_nologo.png);
+  height: 200px;
+  width: 135px;
+  left: -3px;
+  top: -11px;
+}
+.builder-background.squad.nologo.fifa17 {
+  background: url(../images/fut17/cardholder_nologo.png);
+  height: 200px;
+  width: 135px;
+  left: -3px;
+  top: -11px;
+}
+.builder-background.sub.fifa22 {
+  background: url(../images/fut18/cardholder.png);
+  height: 200px;
+  width: 135px;
+  margin-left: -3px;
+  margin-top: -11px;
+}
+.card.fifa22 .pace:after,
+.card.fifa22 .shooting:after,
+.card.fifa22 .passing:after,
+.card.fifa22 .dribbling:after,
+.card.fifa22 .defending:after,
+.card.fifa22 .heading:after {
+  font-family: pt sans narrow, sans-serif;
+  font-size: 20px;
+}
+.scard.fifa22 .pace:after,
+.scard.fifa22 .shooting:after,
+.scard.fifa22 .passing:after,
+.scard.fifa22 .dribbling:after,
+.scard.fifa22 .defending:after,
+.scard.fifa22 .heading:after {
+  font-family: pt sans narrow, sans-serif;
+  font-size: 13px;
+}
+
+.card-list .card {
+  width: 158px;
+  min-height: 195px;
+  max-height: 205px;
+  float: left;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+.home .card-list .card {
+  width: 140px;
+  min-height: 195px;
+  max-height: 205px;
+  float: left;
+  margin-bottom: 10px;
+  margin-top: 0;
+  margin-left: 0;
+}
+.card {
+  position: relative;
+  font-family: titillium web, sans-serif;
+}
+.card .clubbadge {
+  position: absolute;
+}
+.card .nationflag {
+  position: absolute;
+}
+.card .avatar {
+  position: absolute;
+}
+.scard .ratingholder {
+  top: 30px;
+  left: 15px;
+  width: 27px;
+  height: 13px;
+  border-right: 1px solid #fff;
+  position: absolute;
+}
+.card .rating {
+  position: absolute;
+  text-align: center;
+  font-weight: 500;
+}
+.card .position {
+  position: absolute;
+  text-align: center;
+}
+.card .name {
+  position: absolute;
+  text-align: center;
+  overflow: hidden;
+}
+.card .name .marquee {
+  position: relative;
+  white-space: nowrap;
+}
+.card .pace {
+  position: absolute;
+}
+.card .pace:after {
+  content: " PAC";
+  font-weight: 400;
+}
+.card .gk .pace:after {
+  content: " DIV";
+  font-weight: 400;
+}
+.card .shooting {
+  position: absolute;
+}
+.card .shooting:after {
+  content: " SHO";
+  font-weight: 400;
+}
+.card .gk .shooting:after {
+  content: " HAN";
+  font-weight: 400;
+}
+.card .passing {
+  position: absolute;
+}
+.card .passing:after {
+  content: " PAS";
+  font-weight: 400;
+}
+.card .gk .passing:after {
+  content: " KIC";
+  font-weight: 400;
+}
+.card .dribbling {
+  position: absolute;
+}
+.card .dribbling:after {
+  content: " DRI";
+  font-weight: 400;
+}
+.card .gk .dribbling:after {
+  content: " REF";
+  font-weight: 400;
+}
+.card .defending {
+  position: absolute;
+}
+.card .defending:after {
+  content: " DEF";
+  font-weight: 400;
+}
+.card .gk .defending:after {
+  content: " SPE";
+  font-weight: 400;
+}
+.card .heading {
+  position: absolute;
+}
+.card .heading:after {
+  content: " PHY";
+  font-weight: 400;
+}
+.card.fifa13 .heading:after,
+.card.fifa14 .heading:after {
+  content: " HEA";
+  font-weight: 400;
+}
+.card .gk .heading:after {
+  content: " POS";
+  font-weight: 400;
+}
+.card .white {
+  color: #fff;
+}
+.card.goldreg,
+.scard.goldreg {
+  color: #4d411d !important;
+  text-shadow: 0 0 0.01px #4d411d !important;
+}
+.card.goldreg .rating,
+.scard.goldreg .ratingholder {
+  border-right: 1px solid #4d411d !important;
+}
+.card.silverreg,
+.scard.silverreg {
+  color: #353535 !important;
+  text-shadow: 0 0 0.01px #353535 !important;
+}
+.card.silverreg .rating,
+.scard.silverreg .ratingholder {
+  border-right: 1px solid #353535 !important;
+}
+.card.bronzereg,
+.scard.bronzereg {
+  color: #312d19 !important;
+  text-shadow: 0 0 0.01px #000 !important;
+}
+.card.bronzereg .rating,
+.scard.bronzereg .ratingholder {
+  border-right: 1px solid #3b2e2a !important;
+}
+.goldif {
+  color: #ffcb35 !important;
+  text-shadow: 0 0 2px #ffe799 !important;
+}
+.silverif {
+  color: #c5ccce !important;
+  text-shadow: 0 0 2px #bdbdbd !important;
+}
+.bronzeif {
+  color: #9e714d !important;
+  text-shadow: 0 0 0.2px #c4a388 !important;
+}
+.card.blue {
+  color: #fff;
+}
+.card.special {
+  color: #fff;
+}
+.card.orange {
+  color: #fff;
+}
+.card.purple {
+  color: #fff;
+}
+.card.goldblue {
+  color: #fff;
+}
+.card.silverblue {
+  color: #fff;
+}
+.card.bronzeblue {
+  color: #fff;
+}
+.scard {
+  display: block;
+  font-size: 14px;
+  text-shadow: 0 0 1px #fff;
+  top: -5px;
+  left: -5px;
+  width: 150px;
+  height: 180px;
+}
+.scard.fifa13,
+.scard.fifa14,
+.scard.fifa15,
+.scard.fifa16 {
+  color: #fff;
+}
+.fifa14.red,
+.fifa14.legend,
+.fifa15.red,
+.fifa15.legend {
+  color: #9b8028;
+  text-shadow: 0 0 2px rgba(155, 128, 40, 0.5);
+}
+.builder .player-card,
+.club .player-card {
+  height: 195px;
+  width: 140px;
+}
+.scard .clubbadge {
+  top: 53px;
+  left: 15px;
+  width: 25px;
+  height: 25px;
+}
+.scard .nationflag {
+  top: 81px;
+  left: 15px;
+  width: 25px;
+}
+.scard.fifa14.worldcup .nationflag {
+  -webkit-mask-image: url(http://wefut.com/assets/images/worldcup/mask.png);
+  -webkit-mask-size: 100%;
+}
+.scard .avatar {
+  top: 30px;
+  left: 64px;
+  width: 70px;
+  height: 70px;
+}
+.goldif .avatar {
+  left: 63px;
+}
+.scard .ratingholder {
+  top: 30px;
+  left: 15px;
+  width: 27px;
+  height: 13px;
+  border-right: 1px solid #fff;
+  position: absolute;
+}
+.scard .rating {
+  font-size: 21px;
+  top: -5px;
+}
+.scard .position {
+  top: 27px;
+  left: 47px;
+  font-size: 12px;
+}
+.scard .name {
+  line-height: 28px;
+  text-transform: uppercase;
+  top: 7px;
+  left: 20px;
+  width: 100px;
+  font-size: 12px;
+  font-weight: 500;
+}
+.scard .nonrare {
+  line-height: 28px;
+  text-transform: uppercase;
+  top: 4px;
+  left: 20px;
+  width: 100px;
+  font-size: 12px;
+  font-weight: 500;
+}
+.scard .attributes {
+  font-size: 12px;
+}
+.scard .chemistry {
+  top: 100px;
+  left: 74px;
+  position: absolute;
+  text-shadow: 0 0 0;
+  font-weight: 700;
+}
+.scard .chemistry:before {
+  content: "Chem: ";
+}
+.red .chemistry,
+.legend .chemistry {
+  top: 98px;
+}
+.scard .loyalty {
+  top: 99px;
+  left: 20px;
+  position: absolute;
+  text-shadow: 0 0 0;
+  font-weight: 700;
+}
+.red .loyalty,
+.legend .loyalty {
+  top: 97px;
+}
+.scard .pace {
+  top: 120px;
+  left: 26px;
+}
+.scard .shooting {
+  top: 140px;
+  left: 26px;
+}
+.scard .passing {
+  top: 159px;
+  left: 26px;
+}
+.scard .dribbling {
+  top: 120px;
+  left: 74px;
+}
+.scard .defending {
+  top: 140px;
+  left: 74px;
+}
+.scard .heading {
+  top: 159px;
+  left: 74px;
+}
+.scard .red .pace,
+.scard.legend .pace {
+  top: 116px;
+  left: 26px;
+}
+.scard .red .shooting,
+.scard.legend .shooting {
+  top: 135px;
+  left: 26px;
+}
+.scard .red .passing,
+.scard.legend .passing {
+  top: 154px;
+  left: 26px;
+}
+.scard .red .dribbling,
+.scard.legend .dribbling {
+  top: 116px;
+  left: 74px;
+}
+.scard .red .defending,
+.scard.legend .defending {
+  top: 135px;
+  left: 74px;
+}
+.scard .red .heading,
+.scard.legend .heading {
+  top: 154px;
+  left: 74px;
+}
+.player .card.fifa13 .clubbadge {
+  top: 113px;
+  left: 25px;
+  width: 60px;
+  height: 60px;
+}
+.player .card.fifa13 .nationflag {
+  top: 180px;
+  left: 25px;
+  width: 60px;
+  height: 36px;
+}
+.player .card.fifa13 .avatar {
+  top: 95px;
+  left: 88px;
+  width: 140px;
+  height: 140px;
+}
+.player .card.fifa13 .rating {
+  top: 30px;
+  left: 15px;
+  width: 64px;
+  font-size: 50px;
+  border: 0;
+}
+.player .card.fifa13 .position {
+  top: 65px;
+  left: 15px;
+  width: 64px;
+}
+.player .card.fifa13 .name {
+  top: 22px;
+  left: 105px;
+  width: 120px;
+  font-size: 20px;
+}
+.player .card.fifa13 .pace {
+  top: 244px;
+  left: 26px;
+}
+.player .card.fifa13 .shooting {
+  top: 280px;
+  left: 26px;
+}
+.player .card.fifa13 .passing {
+  top: 316px;
+  left: 26px;
+}
+.player .card.fifa13 .dribbling {
+  top: 244px;
+  left: 130px;
+}
+.player .card.fifa13 .defending {
+  top: 280px;
+  left: 130px;
+}
+.player .card.fifa13 .heading {
+  top: 316px;
+  left: 130px;
+}
+.scard.fifa13 .player-card {
+  height: 191px;
+  width: 136px;
+}
+.scard.fifa13 .clubbadge {
+  top: 73px;
+  left: 15px;
+  width: 25px;
+  height: 25px;
+}
+.scard.fifa13 .nationflag {
+  top: 106px;
+  left: 15px;
+  width: 25px;
+}
+.scard.fifa13 .avatar {
+  top: 48px;
+  left: 54px;
+  width: 80px;
+  height: 80px;
+}
+.scard.fifa13 .ratingholder {
+  top: 17px;
+  left: 12px;
+  width: 27px;
+  height: 13px;
+  position: absolute;
+  border: 0;
+}
+.scard.fifa13 .rating {
+  font-size: 26px;
+  top: -7px;
+}
+.scard.fifa13 .position {
+  top: 30px;
+  left: 20px;
+  font-size: 12px;
+}
+.scard.fifa13 .name {
+  line-height: 28px;
+  text-transform: uppercase;
+  top: 7px;
+  left: 60px;
+  width: 70px;
+  font-size: 12px;
+  font-weight: 500;
+}
+.scard.fifa13 .pace {
+  top: 128px;
+  left: 16px;
+}
+.scard.fifa13 .shooting {
+  top: 148px;
+  left: 16px;
+}
+.scard.fifa13 .passing {
+  top: 167px;
+  left: 16px;
+}
+.scard.fifa13 .dribbling {
+  top: 128px;
+  left: 79px;
+}
+.scard.fifa13 .defending {
+  top: 148px;
+  left: 79px;
+}
+.scard.fifa13 .heading {
+  top: 167px;
+  left: 79px;
+}
+.scard.fifa13 .chemistry {
+  top: 50px;
+  left: 10px;
+}
+.scard.fifa13 .loyalty {
+  display: none;
+}
+.player .card {
+  display: block;
+  font-size: 22px;
+  width: 238px;
+  color: #fff;
+  text-shadow: 0 0 2px #fff;
+}
+.player .card.red,
+.player .card.legend {
+  display: block;
+  font-size: 22px;
+  width: 238px;
+  color: #9b8028;
+  text-shadow: 0 0 2px rgba(155, 128, 40, 0.5);
+}
+.player .player-card {
+  width: 238px;
+  height: 354px;
+}
+.player .card .clubbadge {
+  top: 102px;
+  left: 42px;
+  width: 45px;
+  height: 45px;
+}
+.player .red .clubbadge,
+.player .legend .clubbadge {
+  top: 92px !important;
+}
+.player .card .nationflag {
+  top: 151px;
+  left: 42px;
+  width: 45px;
+  height: 27px;
+}
+.player .card.fifa14.worldcup .nationflag {
+  -webkit-mask-image: url(http://static.wefut.com/assets/images/worldcup/mask.png);
+  -webkit-mask-size: 100%;
+}
+.player .red .nationflag,
+.player .legend .nationflag {
+  top: 146px !important;
+}
+.player .card .avatar {
+  top: 55px;
+  left: 100px;
+  width: 128px;
+  height: 128px;
+}
+.player .goldif .avatar {
+  left: 98px;
+}
+.player .card .rating {
+  top: 56px;
+  left: 19px;
+  width: 55px;
+  height: 22px;
+  font-size: 36px;
+  border-right: 1px solid #fff;
+}
+.player .red .rating,
+.player .legend .rating {
+  top: 58px;
+  font-size: 33px;
+}
+.player .card .position {
+  top: 56px;
+  left: 77px;
+  font-size: 20px;
+  width: 46px;
+  line-height: 22px;
+}
+.player .red .position,
+.player .legend .position {
+  top: 58px;
+}
+.player .card .name {
+  line-height: 28px;
+  text-transform: uppercase;
+  top: 24px;
+  left: 29px;
+  width: 180px;
+  font-size: 23px;
+  font-weight: 500;
+}
+.player .card .nonrare {
+  line-height: 28px;
+  text-transform: uppercase;
+  top: 20px;
+  left: 29px;
+  width: 180px;
+  font-size: 23px;
+  font-weight: 500;
+}
+.player .card .upgrades {
+  position: absolute;
+  font-size: 12px;
+  top: 182px;
+}
+.player .card .upgrades .paceupgrade {
+  left: 50px;
+  position: absolute;
+  width: 70px;
+}
+.player .card .upgrades .shootingupgrade {
+  left: 50px;
+  top: 17px;
+  position: absolute;
+  width: 70px;
+}
+.player .card .upgrades .passingupgrade {
+  left: 100px;
+  position: absolute;
+  width: 70px;
+}
+.player .card .upgrades .dribblingupgrade {
+  left: 100px;
+  position: absolute;
+  width: 70px;
+  top: 17px;
+}
+.player .card .upgrades .defendingupgrade {
+  left: 150px;
+  position: absolute;
+  width: 70px;
+}
+.player .card .upgrades .headingupgrade {
+  left: 150px;
+  position: absolute;
+  width: 70px;
+  top: 17px;
+}
+.player .card .paceupgrade:after {
+  content: " PAC";
+  font-weight: 400;
+}
+.player .card .gk .paceupgrade:after {
+  content: " DIV";
+  font-weight: 400;
+}
+.player .card .shootingupgrade:after {
+  content: " SHO";
+  font-weight: 400;
+}
+.player .card .gk .shootingupgrade:after {
+  content: " HAN";
+  font-weight: 400;
+}
+.player .card .passingupgrade:after {
+  content: " PAS";
+  font-weight: 400;
+}
+.player .card .gk .passingupgrade:after {
+  content: " KIC";
+  font-weight: 400;
+}
+.player .card .dribblingupgrade:after {
+  content: " DRI";
+  font-weight: 400;
+}
+.player .card .gk .dribblingupgrade:after {
+  content: " REF";
+  font-weight: 400;
+}
+.player .card .defendingupgrade:after {
+  content: " DEF";
+  font-weight: 400;
+}
+.player .card .gk .defendingupgrade:after {
+  content: " SPE";
+  font-weight: 400;
+}
+.player .card .headingupgrade:after {
+  content: " HEA";
+  font-weight: 400;
+}
+.player .card .gk .headingupgrade:after {
+  content: " POS";
+  font-weight: 400;
+}
+.player .card .attributes {
+  font-weight: 500;
+}
+.player .card .pace {
+  top: 226px;
+  left: 46px;
+}
+.player .card .shooting {
+  top: 261px;
+  left: 46px;
+}
+.player .card .passing {
+  top: 296px;
+  left: 46px;
+}
+.player .card .dribbling {
+  top: 226px;
+  left: 130px;
+}
+.player .card .defending {
+  top: 261px;
+  left: 130px;
+}
+.player .card .heading {
+  top: 296px;
+  left: 130px;
+}
+.player .red .pace,
+.player .legend .pace {
+  top: 219px;
+  left: 46px;
+}
+.player .red .shooting,
+.player .legend .shooting {
+  top: 253px;
+  left: 46px;
+}
+.player .red .passing,
+.player .legend .passing {
+  top: 287px;
+  left: 46px;
+}
+.player .red .dribbling,
+.player .legend .dribbling {
+  top: 219px;
+  left: 130px;
+}
+.player .red .defending,
+.player .legend .defending {
+  top: 253px;
+  left: 130px;
+}
+.player .red .heading,
+.player .legend .heading {
+  top: 287px;
+  left: 130px;
+}
+@font-face {
+  font-family: knul-bold;
+  font-style: normal;
+  font-weight: 400;
+  src: url(/assets/fonts/knul-bold-webfont.eot?);
+  src: url(/assets/fonts/knul-bold-webfont.eot?#iefix)
+      format("embedded-opentype"),
+    url(/assets/fonts/knul-bold-webfont.woff?) format("woff"),
+    url(/assets/fonts/knul-bold-webfont.ttf?) format("truetype"),
+    url(/assets/fonts/knul-bold-webfont.svg#svgFontName) format("svg");
+}
+@font-face {
+  font-family: knul-medium;
+  font-style: normal;
+  font-weight: 400;
+  src: url(/assets/fonts/knul-medium-webfont.eot?);
+  src: url(/assets/fonts/knul-medium-webfont.eot?#iefix)
+      format("embedded-opentype"),
+    url(/assets/fonts/knul-medium-webfont.woff?) format("woff"),
+    url(/assets/fonts/knul-medium-webfont.ttf?) format("truetype"),
+    url(/assets/fonts/knul-medium-webfont.svg#svgFontName) format("svg");
+}
+@font-face {
+  font-family: knul-regular;
+  font-style: normal;
+  font-weight: 400;
+  src: url(/assets/fonts/knul-regular-webfont.eot?);
+  src: url(/assets/fonts/knul-regular-webfont.eot?#iefix)
+      format("embedded-opentype"),
+    url(/assets/fonts/knul-regular-webfont.woff?) format("woff"),
+    url(/assets/fonts/knul-regular-webfont.ttf?) format("truetype"),
+    url(/assets/fonts/knul-regular-webfont.svg#svgFontName) format("svg");
+}
+.card.fifa16 {
+  font-family: knul-bold, sans-serif;
+  color: #000;
+  text-shadow: none !important;
+  max-width: 227px;
+}
+.card.fifa16 .player-card {
+  width: 227px;
+  height: auto;
+}
+.card.fifa16 .rating {
+  border: 0 !important;
+  top: 34px;
+  left: 30px;
+  font-size: 32px;
+}
+.card.fifa16.goldif {
+  color: #e7d373 !important;
+}
+.card.fifa16.silverif {
+  color: #dde7f0 !important;
+}
+.card.fifa16.bronzeif {
+  color: #c58a5a !important;
+}
+.card.fifa16.special {
+  color: #edf5f5 !important;
+}
+.card.fifa16.imotm {
+  color: #edf5f5 !important;
+}
+.card.fifa16.toty {
+  color: #d1eaf1 !important;
+}
+.card.fifa16.goldblue {
+  color: #ead36e !important;
+}
+.card.fifa16.silverblue {
+  color: #e1e9ee !important;
+}
+.card.fifa16.bronzeblue {
+  color: #deb89e !important;
+}
+.card.fifa16.goldblue .name,
+.card.fifa16.silverblue .name,
+.card.fifa16.bronzeblue .name {
+  color: #000c35 !important;
+}
+.card.fifa16.goldif .rating,
+.card.fifa16.silverif .rating,
+.card.fifa16.bronzeif .rating {
+  color: #000;
+}
+.card.fifa16.goldif .position,
+.card.fifa16.silverif .position,
+.card.fifa16.bronzeif .position {
+  color: #000;
+}
+.card.fifa16.goldif .avatar,
+.card.fifa16.silverif .avatar,
+.card.fifa16.bronzeif .avatar {
+  top: 40px;
+}
+.card.fifa16 .position {
+  top: 58px;
+  left: 33px;
+  font-size: 18px;
+  width: 47px;
+  line-height: 22px;
+}
+.card.fifa16 .avatar {
+  top: 42px;
+  left: 86px;
+  width: 140px;
+  height: 140px;
+}
+.card.fifa16 .clubbadge {
+  top: 84px;
+  left: 33px;
+  width: 48px;
+  height: 48px;
+}
+.card.fifa16 .nationflag {
+  top: 139px;
+  left: 31px;
+  height: 30px;
+  width: auto;
+}
+.card.fifa16 .pace {
+  top: 212px;
+  left: 36px;
+}
+.card.fifa16 .dribbling {
+  top: 212px;
+  left: 130px;
+}
+.card.fifa16 .shooting {
+  top: 239px;
+  left: 36px;
+}
+.card.fifa16 .defending {
+  top: 239px;
+  left: 130px;
+}
+.card.fifa16 .passing {
+  top: 268px;
+  left: 36px;
+}
+.card.fifa16 .heading {
+  top: 268px;
+  left: 130px;
+}
+.card.fifa16 .name {
+  line-height: 28px;
+  text-transform: uppercase;
+  top: 179px;
+  left: 0;
+  width: 100%;
+  font-size: 21px;
+}
+.card.fifa16 .chemstyle {
+  line-height: 28px;
+  text-transform: uppercase;
+  top: 300px;
+  left: 5px;
+  width: 220px;
+  font-size: 20px;
+  position: absolute;
+  text-align: center;
+  overflow: hidden;
+}
+.card.fifa16.legend .rating,
+.card.fifa16.red .rating {
+  top: 38px;
+}
+.card.fifa16.legend .avatar,
+.card.fifa16.red .avatar {
+  top: 39px;
+}
+.card.fifa16.legend .position,
+.card.fifa16.red .position {
+  top: 62px;
+}
+.card.fifa16.legend .shooting,
+.card.fifa16.red .shooting,
+.card.fifa16.legend .defending,
+.card.fifa16.red .defending {
+  top: 240px;
+}
+.card.fifa16.legend .clubbadge,
+.card.fifa16.red .clubbadge {
+  top: 86px !important;
+}
+.card.fifa16.legend .nationflag,
+.card.fifa16.red .nationflag {
+  top: 140px !important;
+}
+.card.fifa16.legend {
+  color: #6b4a15;
+}
+.scard.fifa16 {
+  font-family: knul-bold, sans-serif;
+  color: #000;
+  text-shadow: 0 0 0 #353535 !important;
+  height: 200px;
+  width: 135px;
+}
+.scard.fifa16.legend {
+  color: #6b4a15;
+}
+.builder .card.fifa16 {
+  height: 200px;
+  width: 135px;
+  margin-left: 2px;
+  top: -6px;
+}
+.scard.fifa16 .player-card {
+  height: 200px;
+  width: 135px;
+}
+.scard.fifa16 .rating {
+  font-size: 21px;
+  top: -13px;
+  left: 5px;
+}
+.scard.fifa16 .ratingholder {
+  border: 0;
+}
+.scard.fifa16 .position {
+  top: 33px;
+  left: 11px;
+  font-size: 12px;
+  width: 40px;
+}
+.scard.fifa16.goldif {
+  color: #f7e17a !important;
+}
+.scard.fifa16.silverif {
+  color: #dde7f0 !important;
+}
+.scard.fifa16.bronzeif {
+  color: #c58a5a !important;
+}
+.scard.fifa16.special {
+  color: #edf5f5 !important;
+}
+.scard.fifa16.imotm {
+  color: #edf5f5 !important;
+}
+.scard.fifa16.toty {
+  color: #d1eaf1 !important;
+}
+.scard.fifa16.goldblue {
+  color: #ead36e !important;
+}
+.scard.fifa16.silverblue {
+  color: #e1e9ee !important;
+}
+.scard.fifa16.bronzeblue {
+  color: #deb89e !important;
+}
+.scard.fifa16.goldblue .name,
+.scard.fifa16.silverblue .name,
+.scard.fifa16.bronzeblue .name {
+  color: #000c35 !important;
+}
+.scard.fifa16.goldif .rating,
+.card.fifa16.silverif .rating,
+.card.fifa16.bronzeif .rating {
+  color: #000;
+}
+.scard.fifa16.goldif .position,
+.card.fifa16.silverif .position,
+.card.fifa16.bronzeif .position {
+  color: #000;
+}
+.scard.fifa16.goldif .avatar,
+.scard.fifa16.silverif .avatar,
+.scard.fifa16.bronzeif .avatar {
+  top: 22px;
+}
+.scard.fifa16 .clubbadge {
+  top: 52px;
+  left: 18px;
+  width: 25px;
+  height: 25px;
+}
+.scard.fifa16 .nationflag {
+  top: 80px;
+  left: 18px;
+  width: 25px;
+  height: auto;
+}
+.scard.fifa16 .avatar {
+  top: 23px;
+  left: 56px;
+  width: 78px;
+  height: 78px;
+}
+.scard.fifa16 .name {
+  line-height: 28px;
+  text-transform: uppercase;
+  top: 94px;
+  width: 100%;
+  font-size: 12px;
+  font-weight: 500;
+}
+.scard.fifa16 .attributes {
+  font-size: 13px;
+}
+.scard.fifa16 .pace {
+  top: 114px;
+  left: 24px;
+}
+.scard.fifa16 .dribbling {
+  top: 114px;
+  left: 79px;
+}
+.scard.fifa16 .shooting {
+  top: 130px;
+  left: 24px;
+}
+.scard.fifa16 .defending {
+  top: 130px;
+  left: 79px;
+}
+.scard.fifa16 .passing {
+  top: 146px;
+  left: 24px;
+}
+.scard.fifa16 .heading {
+  top: 146px;
+  left: 79px;
+}
+.scard.fifa16 .chemistry {
+  top: 164px;
+  left: 60px;
+  position: absolute;
+  text-shadow: 0 0 0;
+  font-weight: 400;
+}
+.scard.fifa16 .loyalty {
+  top: 163px;
+  left: 40px;
+}
+.scard.fifa16.legend .player-card {
+  top: 0;
+}
+.scard.fifa16.legend .avatar,
+.scard.fifa16.red .avatar {
+  top: 22px;
+}
+.scard.fifa16.legend .rating,
+.scard.fifa16.red .rating {
+  top: -9px;
+}
+.scard.fifa16.legend .position,
+.scard.fifa16.red .position {
+  top: 37px;
+}
+.scard.fifa16.legend .clubbadge,
+.scard.fifa16.red .clubbadge {
+  top: 54px !important;
+}
+.scard.fifa16.legend .nationflag,
+.scard.fifa16.red .nationflag {
+  top: 81px !important;
+}
+.scard.fifa16.legend .shooting,
+.scard.fifa16.legend .defending,
+.scard.fifa16.red .shooting,
+.scard.fifa16.red .defending {
+  top: 130px;
+}
+.builder .builder-background {
+  position: absolute;
+  width: 130px;
+  height: 185px;
+  background: url(//static.wefut.com/assets/images/builder-bg.png);
+  z-index: 2;
+}
+.builder-background.squad.fifa16 {
+  background: url(//static.wefut.com/assets/images/fut16/cardholder.png);
+  height: 200px;
+  width: 135px;
+  left: -3px;
+  top: -11px;
+}
+.builder-background.sub.fifa16 {
+  background: url(//static.wefut.com/assets/images/fut16/cardholder.png);
+  height: 200px;
+  width: 135px;
+  margin-left: -3px;
+  margin-top: -11px;
+}
+.card .pace:after,
+.card .shooting:after,
+.card .passing:after,
+.card .dribbling:after,
+.card .defending:after,
+.card .heading:after {
+  font-family: knul-medium;
+}
+.card.fifa17 {
+  font-family: fjalla one, sans-serif;
+  color: #000;
+  text-shadow: none !important;
+  max-width: 227px;
+}
+.card.fifa17 .player-card {
+  width: 227px;
+  height: auto;
+}
+.card.fifa17 .rating {
+  font-family: lato, sans-serif;
+  font-size: 32px;
+  border: 0 !important;
+  top: 37px;
+  left: 42px;
+  width: auto !important;
+  font-weight: 700;
+}
+.card.fifa17.onestowatch {
+  color: #c7cfdb !important;
+}
+.card.fifa17.bluepurple {
+  color: #fff !important;
+}
+.card.fifa17.premiumsbc {
+  color: #fff !important;
+}
+.card.fifa17.whitepurple {
+  color: #fff !important;
+}
+.card.fifa17.whitepurple .name,
+.card.fifa17.whitepurple .chemistry,
+.card.fifa17.whitepurple .chemstyle {
+  color: #754196 !important;
+}
+.card.fifa17.redgold {
+  color: #846525 !important;
+}
+.card.fifa17.redsilver {
+  color: #5f6364 !important;
+}
+.card.fifa17.redbronze {
+  color: #7d5134 !important;
+}
+.card.fifa17.redgold .rating,
+.card.fifa17.redgold .position,
+.card.fifa17.redsilver .rating,
+.card.fifa17.redsilver .position,
+.card.fifa17.redbronze .rating,
+.card.fifa17.redbronze .position {
+  color: #fff !important;
+}
+.card.fifa17.goldrare {
+  color: #452d19 !important;
+}
+.card.fifa17.silverrare {
+  color: #393c43 !important;
+}
+.card.fifa17.bronzerare {
+  color: #4a3019 !important;
+}
+.card.fifa17.legend {
+  color: #5b4722 !important;
+}
+.card.fifa17.goldif {
+  color: #f9e99e !important;
+}
+.card.fifa17.silverif {
+  color: #c4c8c9 !important;
+}
+.card.fifa17.bronzeif {
+  color: #b78553 !important;
+}
+.card.fifa17.purple {
+  color: #9d79e3 !important;
+}
+.card.fifa17.purple .rating,
+.card.fifa17.purple .position {
+  color: #000 !important;
+}
+.card.fifa17.pink {
+  color: #e574a0 !important;
+}
+.card.fifa17.pink .rating,
+.card.fifa17.pink .position {
+  color: #000 !important;
+}
+.card.fifa17.pinkgold {
+  color: #e574a0 !important;
+}
+.card.fifa17.pinkgold .rating,
+.card.fifa17.pinkgold .position,
+.card.fifa17.pinkgold .name,
+.card.fifa17.pinkgold .chemstyle {
+  color: #000 !important;
+}
+.card.fifa17.blackgold {
+  color: #fff !important;
+}
+.card.fifa17.blackgold .name,
+.card.fifa17.blackgold .chemistry,
+.card.fifa17.blackgold .chemstyle {
+  color: #000 !important;
+}
+.card.fifa17.proplayer {
+  color: #66cdcc !important;
+}
+.card.fifa17.proplayer .rating,
+.card.fifa17.proplayer .position {
+  color: #000 !important;
+}
+.card.fifa17.promo {
+  color: #1a1381 !important;
+}
+.card.fifa17.promo .name,
+.card.fifa17.promo .chemstyle,
+.card.fifa17.promo .chemistry {
+  color: #fff !important;
+}
+.card.fifa17.promo2 {
+  color: #fff !important;
+}
+.card.fifa17.promo2 .rating,
+.card.fifa17.promo2 .position {
+  color: #145c9c !important;
+}
+.card.fifa17.motm {
+  color: #fff !important;
+}
+.card.fifa17.motm .rating,
+.card.fifa17.motm .position {
+  color: #8a2c00 !important;
+}
+.card.fifa17.bluemotm {
+  color: #fff !important;
+}
+.card.fifa17.bluemotm .rating,
+.card.fifa17.bluemotm .position {
+  color: #003482 !important;
+}
+.card.fifa17.redmotm {
+  color: #fff !important;
+}
+.card.fifa17.redmotm .rating,
+.card.fifa17.redmotm .position {
+  color: #7a0600 !important;
+}
+.card.fifa17.green {
+  color: #1b6b34 !important;
+}
+.card.fifa17.green .rating,
+.card.fifa17.green .position {
+  color: #104921 !important;
+}
+.card.fifa17.halloween {
+  color: #d36c12 !important;
+}
+.card.fifa17.halloween .name,
+.card.fifa17.halloween .chemstyle,
+.card.fifa17.halloween .chemistry {
+  color: #000 !important;
+}
+.card.fifa17.movember {
+  color: #aea590 !important;
+}
+.card.fifa17.movember .rating,
+.card.fifa17.movember .position,
+.card.fifa17.movember .name,
+.card.fifa17.movember .chemstyle,
+.card.fifa17.movember .chemistry {
+  color: #3c2313 !important;
+}
+.card.fifa17.special {
+  color: #edf5f5 !important;
+}
+.card.fifa17.imotm {
+  color: #edf5f5 !important;
+}
+.card.fifa17.toty {
+  color: #f9e99e !important;
+}
+.card.fifa17.goldblue {
+  color: #f9e99e !important;
+}
+.card.fifa17.silverblue {
+  color: #e1e9ee !important;
+}
+.card.fifa17.bronzeblue {
+  color: #deb89e !important;
+}
+.card.fifa17.goldblue .name,
+.card.fifa17.silverblue .name,
+.card.fifa17.bronzeblue .name,
+.card.fifa17.goldblue .chemistry,
+.card.fifa17.silverblue .chemistry,
+.card.fifa17.bronzeblue .chemistry,
+.card.fifa17.goldblue .chemstyle,
+.card.fifa17.silverblue .chemstyle,
+.card.fifa17.bronzeblue .chemstyle {
+  color: #000c35 !important;
+}
+.card.fifa17.goldif .rating,
+.card.fifa17.goldif .position {
+  color: #4d3624;
+}
+.card.fifa17.goldif .name {
+  color: #f9e99e;
+}
+.card.fifa17.silverif .name {
+  color: #c4c8c9;
+}
+.card.fifa17.bronzeif .name {
+  color: #b78553;
+}
+.card.fifa17.silverif .rating,
+.card.fifa17.silverif .position {
+  color: #3d3e42;
+}
+.card.fifa17.bronzeif .rating,
+.card.fifa17.bronzeif .position {
+  color: #452b1a;
+}
+.card.fifa17 .position {
+  top: 63px;
+  left: 36px;
+  font-size: 20px;
+  width: 47px;
+  line-height: 22px;
+}
+.card.fifa17 .avatarholder {
+  top: 41px;
+  left: 88px;
+  width: 133px;
+  height: 133px;
+  position: absolute;
+}
+.card.fifa17 .avatar {
+  top: 0;
+  left: 0;
+  width: 133px;
+  height: 133px;
+}
+.card.fifa17 .clubbadge {
+  top: 90px !important;
+  left: 39px;
+  width: 46px;
+  height: 46px;
+}
+.card.fifa17 .nationflag {
+  top: 140px !important;
+  left: 38px;
+  height: 29px;
+  width: auto;
+}
+.card.fifa17 .attributes {
+  font-family: lato, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+}
+.card.fifa17 .pace {
+  top: 209px;
+  left: 36px;
+}
+.card.fifa17 .dribbling {
+  top: 209px;
+  left: 136px;
+}
+.card.fifa17 .shooting {
+  top: 235px;
+  left: 36px;
+}
+.card.fifa17 .defending {
+  top: 235px;
+  left: 136px;
+}
+.card.fifa17 .passing {
+  top: 261px;
+  left: 36px;
+}
+.card.fifa17 .heading {
+  top: 261px;
+  left: 136px;
+}
+.card.fifa17 .name {
+  line-height: 28px;
+  text-transform: uppercase;
+  top: 174px;
+  left: 0;
+  width: 100%;
+  font-size: 22px;
+  font-family: open sans condensed, sans-serif;
+  font-weight: 700;
+}
+.card.fifa17 .chemstyle {
+  line-height: 28px;
+  text-transform: uppercase;
+  top: 293px;
+  left: 5px;
+  width: 220px;
+  font-size: 20px;
+  position: absolute;
+  text-align: center;
+}
+.card.fifa17 .chemstylename {
+  padding-left: 4px;
+}
+.scard.fifa17 {
+  font-family: open sans condensed, sans-serif;
+  text-shadow: none !important;
+  height: 200px;
+  width: 135px;
+}
+.scard.fifa17.legend {
+  color: #6b4a15;
+}
+.builder .card.fifa17 {
+  height: 200px;
+  width: 135px;
+  margin-left: 2px;
+  margin-top: -6px;
+}
+.scard.fifa17 .player-card {
+  height: 200px;
+  width: 135px;
+}
+.scard.fifa17 .rating {
+  font-size: 21px;
+  top: -13px;
+  left: 10px;
+}
+.scard.fifa17 .ratingholder {
+  border: 0;
+}
+.scard.fifa17 .position {
+  top: 33px;
+  left: 17px;
+  font-size: 14px;
+  width: 40px;
+  font-weight: 700;
+}
+.scard.fifa17.goldrare {
+  color: #452d19 !important;
+}
+.scard.fifa17.silverrare {
+  color: #393c43 !important;
+}
+.scard.fifa17.bronzerare {
+  color: #4a3019 !important;
+}
+.scard.fifa17.legend {
+  color: #5b4722 !important;
+}
+.scard.fifa17.goldif {
+  color: #f9e99e !important;
+}
+.scard.fifa17.silverif {
+  color: #c4c8c9 !important;
+}
+.scard.fifa17.bronzeif {
+  color: #b78553 !important;
+}
+.scard.fifa17.special {
+  color: #edf5f5 !important;
+}
+.scard.fifa17.imotm {
+  color: #edf5f5 !important;
+}
+.scard.fifa17.goldblue {
+  color: #ead36e !important;
+}
+.scard.fifa17.silverblue {
+  color: #e1e9ee !important;
+}
+.scard.fifa17.bronzeblue {
+  color: #deb89e !important;
+}
+.scard.fifa17.goldblue .name,
+.scard.fifa17.silverblue .name,
+.scard.fifa17.bronzeblue .name {
+  color: #000c35 !important;
+}
+.scard.fifa17 .clubbadge {
+  top: 53px !important;
+  left: 25px;
+  width: 25px;
+  height: 25px;
+}
+.scard.fifa17 .nationflag {
+  top: 81px !important;
+  left: 25px;
+  width: 25px;
+  height: auto;
+}
+.scard.fifa17 .avatarholder {
+  top: 26px;
+  left: 56px;
+  width: 75px;
+  height: 75px;
+  position: absolute;
+  overflow: hidden;
+}
+.scard.fifa17 .avatar {
+  top: 0;
+  left: 0;
+  width: 75px;
+  height: 75px;
+}
+.scard.fifa17 .name {
+  line-height: 28px;
+  text-transform: uppercase;
+  top: 95px;
+  width: 100%;
+  font-size: 13px;
+  font-weight: 700;
+}
+.scard.fifa17 .attributes {
+  font-size: 13px;
+  font-family: lato, sans-serif;
+}
+.scard.fifa17 .pace {
+  top: 116px;
+  left: 24px;
+}
+.scard.fifa17 .dribbling {
+  top: 116px;
+  left: 79px;
+}
+.scard.fifa17 .shooting {
+  top: 132px;
+  left: 24px;
+}
+.scard.fifa17 .defending {
+  top: 132px;
+  left: 79px;
+}
+.scard.fifa17 .passing {
+  top: 148px;
+  left: 24px;
+}
+.scard.fifa17 .heading {
+  top: 148px;
+  left: 79px;
+}
+.scard.fifa17 .chemistry {
+  top: 165px;
+  left: 60px;
+  position: absolute;
+  text-shadow: 0 0 0;
+  font-weight: 700;
+  font-family: knul-bold;
+  font-size: 13px;
+}
+.scard.fifa17 .loyalty {
+  top: 164px;
+  left: 40px;
+}
+.builder-background.squad.fifa17 {
+  background: url(../images/fut17/cardholder.png?172);
+  height: 200px;
+  width: 135px;
+  left: -3px;
+  top: -11px;
+}
+.builder-background.sub.fifa17 {
+  background: url(../images/fut17/cardholder.png?172);
+  height: 200px;
+  width: 135px;
+  margin-left: -3px;
+  margin-top: -11px;
+}
+.card.fifa17 .pace:after,
+.card.fifa17 .shooting:after,
+.card.fifa17 .passing:after,
+.card.fifa17 .dribbling:after,
+.card.fifa17 .defending:after,
+.card.fifa17 .heading:after {
+  font-family: pt sans narrow, sans-serif;
+  font-size: 21px;
+}
+.scard.fifa17 .pace:after,
+.scard.fifa17 .shooting:after,
+.scard.fifa17 .passing:after,
+.scard.fifa17 .dribbling:after,
+.scard.fifa17 .defending:after,
+.scard.fifa17 .heading:after {
+  font-family: pt sans narrow, sans-serif;
+  font-size: 14px;
+}
+.workrateLabels {
+  left: -83px;
+  z-index: -1;
+  position: absolute;
+  top: 72px;
+}
+.workrateLabels.fifa13 {
+  left: -88px;
+}
+.workrateLabels.fifa16,
+.workrateLabels.fifa17 {
+  left: -86px;
+}
+.full-cardoverlay .loyalty-button,
+.full-cardoverlay .remove-button {
+  margin-top: 5px;
+}
+.chem-label.awr .label {
+  border-top-left-radius: 2px !important;
+}
+.chem-label.dwr .label {
+  border-bottom-left-radius: 2px !important;
+}
+.chem-label.dwr {
+  top: 21px;
+}
+@font-face {
+  font-family: dusha;
+  font-style: normal;
+  font-weight: 400;
+  src: url(/assets/fonts/dusha.woff2) format("woff2"),
+    url(/assets/fonts/dusha.woff) format("woff"),
+    url(/assets/fonts/dusha.ttf) format("truetype");
+}
+@media (min-width: 1000px) {
+  .card-list-home a:not(:last-child) .card {
+    margin-right: 28px;
+  }
+}
+.card.fifa18 {
+  font-family: fjalla one, sans-serif;
+  color: #000;
+  text-shadow: none !important;
+  max-width: 227px;
+}
+.card.fifa18 .player-card {
+  width: 247px;
+  left: -10px;
+  top: -4px;
+  height: auto;
+  position: relative;
+}
+.card.fifa18 .rating {
+  font-family: lato, sans-serif;
+  font-size: 32px;
+  border: 0 !important;
+  top: 55px;
+  left: 7px;
+  width: auto !important;
+  font-weight: 700;
+}
+.card.fifa18.onestowatch {
+  color: #c7cfdb !important;
+}
+.card.fifa18.fof {
+  color: #1c1f56 !important;
+}
+.card.fifa18.fof .name {
+  color: #fff !important;
+}
+.card.fifa18.bluepurple {
+  color: #fff !important;
+}
+.card.fifa18.futmas {
+  color: #fff !important;
+}
+.card.fifa18.premiumsbc {
+  color: #fff !important;
+}
+.card.fifa18.whitepurple {
+  color: #f1dd7c !important;
+}
+.card.fifa18.whitepurple .rating,
+.card.fifa18.whitepurple .position {
+  color: #111124 !important;
+}
+.card.fifa18.united {
+  color: #201c55 !important;
+}
+.card.fifa18.united .rating,
+.card.fifa18.united .position {
+  color: #c0ff36 !important;
+}
+.card.fifa18.marquee {
+  color: #c0ff36 !important;
+}
+.card.fifa18.marquee .rating,
+.card.fifa18.marquee .position {
+  color: #201c55 !important;
+}
+.card.fifa18.marquee .name {
+  color: #e6e6e6 !important;
+}
+.card.fifa18.ptg-selected {
+  color: #e6e6e6 !important;
+}
+.card.fifa18.ptg-selected .rating,
+.card.fifa18.ptg-selected .position {
+  color: #201c55 !important;
+}
+.card.fifa18.rtrc {
+  color: #1c2f6a !important;
+}
+.card.fifa18.rtrc .rating,
+.card.fifa18.rtrc .position,
+.card.fifa18.rtrc .name {
+  color: #fff !important;
+}
+.card.fifa18.rtrs {
+  color: #1c2f6a !important;
+}
+.card.fifa18.rtrs .rating,
+.card.fifa18.rtrs .position,
+.card.fifa18.rtrs .name {
+  color: #fff !important;
+}
+.card.fifa18.rtrwgold {
+  color: #f4db8c !important;
+}
+.card.fifa18.rtrwgold .rating,
+.card.fifa18.rtrwgold .position {
+  color: #000 !important;
+}
+.card.fifa18.rtrwsilver {
+  color: #e0e8ec !important;
+}
+.card.fifa18.rtrwsilver .rating,
+.card.fifa18.rtrwsilver .position {
+  color: #000 !important;
+}
+.card.fifa18.redgold {
+  color: #9b8035 !important;
+}
+.card.fifa18.redsilver {
+  color: #83878c !important;
+}
+.card.fifa18.redbronze {
+  color: #9b6835 !important;
+}
+.card.fifa18.redgold .rating,
+.card.fifa18.redgold .position,
+.card.fifa18.redsilver .rating,
+.card.fifa18.redsilver .position,
+.card.fifa18.redbronze .rating,
+.card.fifa18.redbronze .position {
+  color: #6d0e10 !important;
+}
+.card.fifa18.redgold .name,
+.card.fifa18.redsilver .name,
+.card.fifa18.redbronze .name {
+  color: #fff !important;
+}
+.card.fifa18.goldrare {
+  color: #452d19 !important;
+}
+.card.fifa18.silverrare {
+  color: #393c43 !important;
+}
+.card.fifa18.bronzerare {
+  color: #4a3019 !important;
+}
+.card.fifa18.legend {
+  color: #152d59 !important;
+}
+.card.fifa18.goldif {
+  color: #e2d17e !important;
+}
+.card.fifa18.silverif {
+  color: #c4c8c9 !important;
+}
+.card.fifa18.bronzeif {
+  color: #b78553 !important;
+}
+.card.fifa18.purple {
+  color: #d4c0fc !important;
+}
+.card.fifa18.purple .rating,
+.card.fifa18.purple .position {
+  color: #000 !important;
+}
+.card.fifa18.pink {
+  color: #e574a0 !important;
+}
+.card.fifa18.pink .rating,
+.card.fifa18.pink .position {
+  color: #450632 !important;
+}
+.card.fifa18.pinkgold {
+  color: #e574a0 !important;
+}
+.card.fifa18.pinkgold .rating,
+.card.fifa18.pinkgold .position {
+  color: #450632 !important;
+}
+.card.fifa18.pinkgold .name,
+.card.fifa18.pinkgold .attributes,
+.card.fifa18.pinkgold .chemstyle {
+  color: #efdc7c !important;
+}
+.card.fifa18.blackgold {
+  color: #fff !important;
+}
+.card.fifa18.blackgold .name,
+.card.fifa18.blackgold .chemistry,
+.card.fifa18.blackgold .chemstyle {
+  color: #000 !important;
+}
+.card.fifa18.proplayer {
+  color: #c3ffff !important;
+}
+.card.fifa18.proplayer .rating,
+.card.fifa18.proplayer .position {
+  color: #031a1a !important;
+}
+.card.fifa18.promo {
+  color: #201c55 !important;
+}
+.card.fifa18.promo2 {
+  color: #000 !important;
+}
+.card.fifa18.motm {
+  color: #ffe2ca !important;
+}
+.card.fifa18.motm .rating,
+.card.fifa18.motm .position {
+  color: #381a01 !important;
+}
+.card.fifa18.eumotm {
+  color: #003482 !important;
+}
+.card.fifa18.eumotm .name {
+  color: #e6e6e6 !important;
+}
+.card.fifa18.bluemotm {
+  color: #fff !important;
+}
+.card.fifa18.bluemotm .rating,
+.card.fifa18.bluemotm .position {
+  color: #003482 !important;
+}
+.card.fifa18.redmotm {
+  color: #fff !important;
+}
+.card.fifa18.redmotm .rating,
+.card.fifa18.redmotm .position {
+  color: #7a0600 !important;
+}
+.card.fifa18.green {
+  color: #fff !important;
+}
+.card.fifa18.green .rating,
+.card.fifa18.green .position {
+  color: #104921 !important;
+}
+.card.fifa18.halloween {
+  color: #ff6f09 !important;
+}
+.card.fifa18.halloween .name {
+  color: #000 !important;
+}
+.card.fifa18.worldcup {
+  color: #144a8b !important;
+}
+.card.fifa18.worldcup .rating,
+.card.fifa18.worldcup .name,
+.card.fifa18.worldcup .position {
+  color: #e6d3a7 !important;
+}
+.card.fifa18.worldcup-icon {
+  color: #172f52 !important;
+}
+.card.fifa18.worldcup-icon .rating,
+.card.fifa18.worldcup-icon .position {
+  color: #cbc5a5 !important;
+}
+.card.fifa18.worldcup .name,
+.card.fifa18.worldcup-icon .name {
+  font-family: dusha, fjalla one, sans-serif;
+  font-weight: 400 !important;
+}
+.card.fifa18.movember {
+  color: #aea590 !important;
+}
+.card.fifa18.movember .rating,
+.card.fifa18.movember .position,
+.card.fifa18.movember .name,
+.card.fifa18.movember .chemstyle,
+.card.fifa18.movember .chemistry {
+  color: #3c2313 !important;
+}
+.card.fifa18.special {
+  color: #edf5f5 !important;
+}
+.card.fifa18.imotm {
+  color: #edf5f5 !important;
+}
+.card.fifa18.toty {
+  color: #f9e99e !important;
+}
+.card.fifa18.goldblue {
+  color: #e7db98 !important;
+}
+.card.fifa18.silverblue {
+  color: #dce5eb !important;
+}
+.card.fifa18.bronzeblue {
+  color: #cfa57d !important;
+}
+.card.fifa18.goldblue .rating,
+.card.fifa18.silverblue .rating,
+.card.fifa18.bronzeblue .rating,
+.card.fifa18.goldblue .position,
+.card.fifa18.silverblue .position,
+.card.fifa18.bronzeblue .position {
+  color: #00257b !important;
+}
+.card.fifa18.goldif .rating,
+.card.fifa18.goldif .position {
+  color: #4d3624;
+}
+.card.fifa18.silverif .rating,
+.card.fifa18.silverif .position {
+  color: #3d3e42;
+}
+.card.fifa18.bronzeif .rating,
+.card.fifa18.bronzeif .position {
+  color: #452b1a;
+}
+.card.fifa18 .position {
+  top: 78px;
+  left: 0;
+  font-size: 18px;
+  width: 50px;
+  line-height: 22px;
+}
+.card.fifa18 .avatarholder {
+  top: 25px;
+  left: 64px;
+  width: 150px;
+  height: 150px;
+  position: absolute;
+}
+.card.fifa18 .avatar {
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 150px;
+}
+.card.fifa18 .clubbadge {
+  top: 101px !important;
+  left: 5px;
+  width: 40px;
+  height: auto;
+}
+.card.fifa18 .nationflag {
+  top: 146px !important;
+  left: 5px;
+  height: auto;
+  width: 40px;
+}
+.card.fifa18 .attributes {
+  font-family: lato, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+}
+.card.fifa18 .pace {
+  top: 219px;
+  left: 65px;
+}
+.card.fifa18 .dribbling {
+  top: 219px;
+  left: 140px;
+}
+.card.fifa18 .shooting {
+  top: 246px;
+  left: 65px;
+}
+.card.fifa18 .defending {
+  top: 246px;
+  left: 140px;
+}
+.card.fifa18 .passing {
+  top: 274px;
+  left: 65px;
+}
+.card.fifa18 .heading {
+  top: 274px;
+  left: 140px;
+}
+.card.fifa18 .name {
+  line-height: 28px;
+  text-transform: uppercase;
+  top: 178px;
+  left: inherit;
+  right: 0;
+  width: 177px;
+  font-size: 23px;
+  font-family: open sans condensed, sans-serif;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.card.fifa18 .chemstyle {
+  line-height: 28px;
+  text-transform: uppercase;
+  top: 305px;
+  left: 5px;
+  width: 220px;
+  font-size: 20px;
+  position: absolute;
+  text-align: center;
+}
+.card.fifa18 .chemstylename {
+  padding-left: 4px;
+}
+.scard.fifa18 {
+  font-family: open sans condensed, sans-serif;
+  text-shadow: none !important;
+  height: 200px;
+  width: 135px;
+}
+.builder .card.fifa18 {
+  height: 200px;
+  width: 135px;
+  margin-left: 2px;
+  margin-top: -6px;
+}
+.scard.fifa18 .player-card {
+  height: 205px;
+  width: 147px;
+  position: relative;
+  left: -6px;
+  top: -2px;
+}
+.scard.fifa18 .rating {
+  font-size: 19px;
+  top: 0;
+  left: 0;
+}
+.scard.fifa18 .ratingholder {
+  border: 0;
+  top: 26px;
+  left: 4px;
+}
+.scard.fifa18 .position {
+  top: 40px;
+  left: 0;
+  font-size: 14px;
+  width: 30px;
+  font-weight: 700;
+}
+.scard.fifa18.goldrare {
+  color: #452d19 !important;
+}
+.scard.fifa18.silverrare {
+  color: #393c43 !important;
+}
+.scard.fifa18.bronzerare {
+  color: #4a3019 !important;
+}
+.scard.fifa18.legend {
+  color: #152d59 !important;
+}
+.scard.fifa18.goldif {
+  color: #f9e99e !important;
+}
+.scard.fifa18.silverif {
+  color: #c4c8c9 !important;
+}
+.scard.fifa18.bronzeif {
+  color: #b78553 !important;
+}
+.scard.fifa18.special {
+  color: #edf5f5 !important;
+}
+.scard.fifa18.imotm {
+  color: #edf5f5 !important;
+}
+.scard.fifa18.goldblue {
+  color: #ead36e !important;
+}
+.scard.fifa18.silverblue {
+  color: #e1e9ee !important;
+}
+.scard.fifa18.bronzeblue {
+  color: #deb89e !important;
+}
+.scard.fifa18 .clubbadge {
+  top: 58px !important;
+  left: 2px;
+  width: 25px;
+  height: 25px;
+}
+.scard.fifa18 .nationflag {
+  top: 85px !important;
+  left: 2px;
+  width: 25px;
+  height: auto;
+}
+.scard.fifa18 .avatarholder {
+  top: 16px;
+  left: 42px;
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  overflow: hidden;
+}
+.scard.fifa18 .avatar {
+  top: 0;
+  left: 0;
+  width: 80px;
+  height: 80px;
+}
+.scard.fifa18 .name {
+  line-height: 28px;
+  text-transform: uppercase;
+  top: 91px;
+  width: 105px;
+  font-size: 14px;
+  right: 0;
+  left: auto;
+  font-family: open sans condensed, sans-serif;
+  font-weight: 700;
+}
+.scard.fifa18 .attributes {
+  font-size: 13px;
+  font-family: lato, sans-serif;
+}
+.scard.fifa18 .pace {
+  top: 115px;
+  left: 40px;
+}
+.scard.fifa18 .dribbling {
+  top: 115px;
+  left: 85px;
+}
+.scard.fifa18 .shooting {
+  top: 130px;
+  left: 40px;
+}
+.scard.fifa18 .defending {
+  top: 130px;
+  left: 85px;
+}
+.scard.fifa18 .passing {
+  top: 146px;
+  left: 40px;
+}
+.scard.fifa18 .heading {
+  top: 146px;
+  left: 85px;
+}
+.scard.fifa18 .chemistry {
+  top: 165px;
+  left: 60px;
+  position: absolute;
+  text-shadow: 0 0 0;
+  font-weight: 700;
+  font-family: knul-bold;
+  font-size: 13px;
+}
+.scard.fifa18 .loyalty {
+  top: 164px;
+  left: 40px;
+}
+.generations .builder-background.squad.fifa17,
+.generations .builder-background.squad.fifa18 {
+  background: url(../images/cardholder-generations.png?18);
+  height: 200px;
+  width: 135px;
+  left: -3px;
+  top: -11px;
+}
+.generations .builder-background.sub.fifa17,
+.generations .builder-background.sub.fifa18 {
+  background: url(../images/cardholder-generations.png?18);
+  height: 200px;
+  width: 135px;
+  margin-left: -3px;
+  margin-top: -11px;
+}
+.builder-background.squad.fifa18 {
+  background: url(../images/fut18/cardholder.png);
+  height: 200px;
+  width: 135px;
+  left: -3px;
+  top: -11px;
+}
+.builder-background.squad.nologo.fifa18 {
+  background: url(../images/fut18/cardholder_nologo.png);
+  height: 200px;
+  width: 135px;
+  left: -3px;
+  top: -11px;
+}
+.builder-background.squad.nologo.fifa17 {
+  background: url(../images/fut17/cardholder_nologo.png);
+  height: 200px;
+  width: 135px;
+  left: -3px;
+  top: -11px;
+}
+.builder-background.sub.fifa18 {
+  background: url(../images/fut18/cardholder.png);
+  height: 200px;
+  width: 135px;
+  margin-left: -3px;
+  margin-top: -11px;
+}
+.card.fifa18 .pace:after,
+.card.fifa18 .shooting:after,
+.card.fifa18 .passing:after,
+.card.fifa18 .dribbling:after,
+.card.fifa18 .defending:after,
+.card.fifa18 .heading:after {
+  font-family: pt sans narrow, sans-serif;
+  font-size: 20px;
+}
+.scard.fifa18 .pace:after,
+.scard.fifa18 .shooting:after,
+.scard.fifa18 .passing:after,
+.scard.fifa18 .dribbling:after,
+.scard.fifa18 .defending:after,
+.scard.fifa18 .heading:after {
+  font-family: pt sans narrow, sans-serif;
+  font-size: 13px;
+}
+.workrateLabels.fifa19 {
+  left: -86px;
+}
+.card.fifa19 {
+  font-family: fjalla one, sans-serif;
+  color: #000;
+  text-shadow: none !important;
+  max-width: 227px;
+}
+.card.fifa19 .player-card {
+  width: 247px;
+  left: -10px;
+  top: -4px;
+  height: auto;
+  position: relative;
+}
+.card.fifa19 .rating {
+  font-family: lato, sans-serif;
+  font-size: 38px;
+  border: 0 !important;
+  top: 54px;
+  left: 29px;
+  width: auto !important;
+  font-weight: 700;
+}
+.card.fifa19.onestowatch {
+  color: #ff4188 !important;
+}
+.card.fifa19.fof {
+  color: #1c1f56 !important;
+}
+.card.fifa19.fof .name {
+  color: #fff !important;
+}
+.card.fifa19.headliners {
+  color: #fff !important;
+}
+.card.fifa19.birthday {
+  color: #13f9c5 !important;
+}
+.card.fifa19.bluepurple {
+  color: #fff !important;
+}
+.card.fifa19.futmas {
+  color: #fff !important;
+}
+.card.fifa19.premiumsbc {
+  color: #ff98fc !important;
+}
+.card.fifa19.whitepurple {
+  color: #f1dd7c !important;
+}
+.card.fifa19.united {
+  color: #201c55 !important;
+}
+.card.fifa19.united .rating,
+.card.fifa19.united .position {
+  color: #c0ff36 !important;
+}
+.card.fifa19.marquee {
+  color: #c0ff36 !important;
+}
+.card.fifa19.marquee .rating,
+.card.fifa19.marquee .position {
+  color: #201c55 !important;
+}
+.card.fifa19.marquee .name {
+  color: #e6e6e6 !important;
+}
+.card.fifa19.futurestars {
+  color: #b9ef41 !important;
+}
+.card.fifa19.ptg-selected {
+  color: #e6e6e6 !important;
+}
+.card.fifa19.ptg-selected .rating,
+.card.fifa19.ptg-selected .position {
+  color: #201c55 !important;
+}
+.card.fifa19.rtrc {
+  color: #1c2f6a !important;
+}
+.card.fifa19.rtrc .rating,
+.card.fifa19.rtrc .position,
+.card.fifa19.rtrc .name {
+  color: #fff !important;
+}
+.card.fifa19.rtrs {
+  color: #1c2f6a !important;
+}
+.card.fifa19.rtrs .rating,
+.card.fifa19.rtrs .position,
+.card.fifa19.rtrs .name {
+  color: #fff !important;
+}
+.card.fifa19.rtrwgold {
+  color: #f4db8c !important;
+}
+.card.fifa19.rtrwgold .rating,
+.card.fifa19.rtrwgold .position {
+  color: #000 !important;
+}
+.card.fifa19.rtrwsilver {
+  color: #e0e8ec !important;
+}
+.card.fifa19.rtrwsilver .rating,
+.card.fifa19.rtrwsilver .position {
+  color: #000 !important;
+}
+.card.fifa19.redgold {
+  color: #e1cc7f !important;
+}
+.card.fifa19.redsilver {
+  color: #d1d7d9 !important;
+}
+.card.fifa19.redbronze {
+  color: #d0b288 !important;
+}
+.card.fifa19.goldrare {
+  color: #452d19 !important;
+}
+.card.fifa19.clfinal {
+  color: #fff !important;
+}
+.card.fifa19.mlspotm {
+  color: #fff !important;
+}
+.card.fifa19.elfinal {
+  color: #f39500 !important;
+}
+.card.fifa19.elmotm {
+  color: #000 !important;
+}
+.card.fifa19.elmotm .rating,
+.card.fifa19.elmotm .position {
+  color: #fff !important;
+}
+.card.fifa19.silverrare {
+  color: #393c43 !important;
+}
+.card.fifa19.bronzerare {
+  color: #4a3019 !important;
+}
+.card.fifa19.legend {
+  color: #73663b !important;
+}
+.card.fifa19.goldif {
+  color: #e2d17e !important;
+}
+.card.fifa19.silverif {
+  color: #c4c8c9 !important;
+}
+.card.fifa19.bronzeif {
+  color: #b78553 !important;
+}
+.card.fifa19.purple {
+  color: #d4c0fc !important;
+}
+.card.fifa19.championsleague {
+  color: #fff !important;
+}
+.card.fifa19.uclmoments {
+  color: #fff !important;
+}
+.card.fifa19.pink {
+  color: #fff !important;
+}
+.card.fifa19.pinkgold {
+  color: #efdc7c !important;
+}
+.card.fifa19.blackgold {
+  color: #fff !important;
+}
+.card.fifa19.blackgold .name,
+.card.fifa19.blackgold .chemistry,
+.card.fifa19.blackgold .chemstyle {
+  color: #000 !important;
+}
+.card.fifa19.proplayer {
+  color: #fff !important;
+}
+.card.fifa19.europaleague {
+  color: #cb8736 !important;
+}
+.card.fifa19.blpotm {
+  color: #fff !important;
+}
+.card.fifa19.totgsel,
+.card.fifa19.totgscl {
+  color: #fff !important;
+}
+.card.fifa19.totgselorange,
+.card.fifa19.totgscl {
+  color: #000 !important;
+}
+.card.fifa19.plpotm {
+  color: #0cf3ff !important;
+}
+.card.fifa19.promo {
+  color: #fff !important;
+}
+.card.fifa19.promo2 {
+  color: #000 !important;
+}
+.card.fifa19.motm {
+  color: #fff !important;
+}
+.card.fifa19.eumotm {
+  color: #003482 !important;
+}
+.card.fifa19.eumotm .name {
+  color: #e6e6e6 !important;
+}
+.card.fifa19.bluemotm {
+  color: #fff !important;
+}
+.card.fifa19.swap {
+  color: #09aaba !important;
+}
+.card.fifa19.swap2 {
+  color: #02b075 !important;
+}
+.card.fifa19.swap3 {
+  color: #85c146 !important;
+}
+.card.fifa19.swap4 {
+  color: #97a231 !important;
+}
+.card.fifa19.swap5 {
+  color: #f8c42b !important;
+}
+.card.fifa19.swap6 {
+  color: #f27d2a !important;
+}
+.card.fifa19.swap7 {
+  color: #f24b2a !important;
+}
+.card.fifa19.swap9 {
+  color: #f53960 !important;
+}
+.card.fifa19.swap10 {
+  color: #e7469e !important;
+}
+.card.fifa19.swap11 {
+  color: #b96dff !important;
+}
+.card.fifa19.flashback {
+  color: #e4d7bc !important;
+}
+.card.fifa19.swap-reward {
+  color: #fff !important;
+}
+.card.fifa19.bluemotm .rating,
+.card.fifa19.bluemotm .position {
+  color: #003482 !important;
+}
+.card.fifa19.redmotm {
+  color: #fff !important;
+}
+.card.fifa19.redmotm .rating,
+.card.fifa19.redmotm .position {
+  color: #7a0600 !important;
+}
+.card.fifa19.green {
+  color: #fff !important;
+}
+.card.fifa19.green .rating,
+.card.fifa19.green .position {
+  color: #104921 !important;
+}
+.card.fifa19.halloween {
+  color: #ff6f09 !important;
+}
+.card.fifa19.carniball {
+  color: #ffdf61 !important;
+}
+.card.fifa19.carniball .chemistry {
+  color: #e02252 !important;
+}
+.card.fifa19.worldcup {
+  color: #144a8b !important;
+}
+.card.fifa19.worldcup .rating,
+.card.fifa19.worldcup .name,
+.card.fifa19.worldcup .position {
+  color: #e6d3a7 !important;
+}
+.card.fifa19.worldcup-icon {
+  color: #172f52 !important;
+}
+.card.fifa19.worldcup-icon .rating,
+.card.fifa19.worldcup-icon .position {
+  color: #cbc5a5 !important;
+}
+.card.fifa19.worldcup .name,
+.card.fifa19.worldcup-icon .name {
+  font-family: dusha, fjalla one, sans-serif;
+  font-weight: 400 !important;
+}
+.card.fifa19.movember {
+  color: #aea590 !important;
+}
+.card.fifa19.movember .rating,
+.card.fifa19.movember .position,
+.card.fifa19.movember .name,
+.card.fifa19.movember .chemstyle,
+.card.fifa19.movember .chemistry {
+  color: #3c2313 !important;
+}
+.card.fifa19.special {
+  color: #edf5f5 !important;
+}
+.card.fifa19.imotm {
+  color: #edf5f5 !important;
+}
+.card.fifa19.toty {
+  color: #f9e99e !important;
+}
+.card.fifa19.toty .chemistry {
+  color: #fff !important;
+}
+.card.fifa19.goldblue {
+  color: #e7db98 !important;
+}
+.card.fifa19.goldblue .chemistry {
+  color: #021893 !important;
+}
+.card.fifa19.silverblue {
+  color: #dce5eb !important;
+}
+.card.fifa19.bronzeblue {
+  color: #cfa57d !important;
+}
+.card.fifa19 .position {
+  top: 87px;
+  left: 26px;
+  font-size: 20px;
+  width: 50px;
+  line-height: 22px;
+}
+.card.fifa19 .avatarholder {
+  top: 45px;
+  left: 75px;
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  z-index: 0;
+}
+.card.fifa19 .avatarholder-custom {
+  top: 30px;
+  left: 2px;
+  width: 98%;
+  position: absolute;
+  z-index: 0;
+}
+.card.fifa19 .avatarholder-custom .avatar {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+}
+.card.fifa19 .avatar {
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 150px;
+}
+.card.fifa19 .clubbadge {
+  top: 152px !important;
+  left: 32px;
+  width: 40px;
+  height: auto;
+  z-index: 1;
+}
+.card.fifa19 .nationflag {
+  top: 119px !important;
+  left: 32px;
+  height: auto;
+  width: 40px;
+  z-index: 1;
+}
+.card.fifa19 .attributes {
+  font-family: lato, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+}
+.card.fifa19 .pace {
+  top: 240px;
+  left: 33px;
+}
+.card.fifa19 .dribbling {
+  top: 240px;
+  left: 140px;
+}
+.card.fifa19 .shooting {
+  top: 265px;
+  left: 33px;
+}
+.card.fifa19 .defending {
+  top: 265px;
+  left: 140px;
+}
+.card.fifa19 .passing {
+  top: 292px;
+  left: 33px;
+}
+.card.fifa19 .heading {
+  top: 292px;
+  left: 140px;
+}
+.card.fifa19 .name {
+  line-height: 28px;
+  text-transform: uppercase;
+  top: 199px;
+  left: inherit;
+  right: 0;
+  width: 100%;
+  font-size: 25px;
+  font-family: open sans condensed, sans-serif;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.card.fifa19 .chemstyle {
+  line-height: 28px;
+  text-transform: uppercase;
+  top: 305px;
+  left: 5px;
+  width: 220px;
+  font-size: 20px;
+  position: absolute;
+  text-align: center;
+}
+.card.fifa19 .chemstylename {
+  padding-left: 4px;
+}
+.scard.fifa19 {
+  font-family: open sans condensed, sans-serif;
+  text-shadow: none !important;
+  height: 200px;
+  width: 135px;
+}
+.builder .card.fifa19 {
+  height: 200px;
+  width: 135px;
+  margin-left: 2px;
+  margin-top: -6px;
+}
+.scard.fifa19 .player-card {
+  height: 205px;
+  width: 147px;
+  position: relative;
+  left: -6px;
+  top: -2px;
+}
+.scard.fifa19 .rating {
+  font-size: 21px;
+  top: 0;
+  left: 0;
+}
+.scard.fifa19 .ratingholder {
+  border: 0;
+  top: 23px;
+  left: 17px;
+}
+.scard.fifa19 .position {
+  top: 40px;
+  left: 14px;
+  font-size: 14px;
+  width: 30px;
+  font-weight: 700;
+}
+.scard.fifa19.goldrare {
+  color: #452d19 !important;
+}
+.scard.fifa19.silverrare {
+  color: #393c43 !important;
+}
+.scard.fifa19.bronzerare {
+  color: #4a3019 !important;
+}
+.scard.fifa19.legend {
+  color: #73663b !important;
+}
+.scard.fifa19.goldif {
+  color: #f9e99e !important;
+}
+.scard.fifa19.silverif {
+  color: #c4c8c9 !important;
+}
+.scard.fifa19.bronzeif {
+  color: #b78553 !important;
+}
+.scard.fifa19.special {
+  color: #edf5f5 !important;
+}
+.scard.fifa19.imotm {
+  color: #edf5f5 !important;
+}
+.scard.fifa19.goldblue {
+  color: #ead36e !important;
+}
+.scard.fifa19.silverblue {
+  color: #e1e9ee !important;
+}
+.scard.fifa19.bronzeblue {
+  color: #deb89e !important;
+}
+.scard.fifa19 .clubbadge {
+  top: 83px !important;
+  left: 19px;
+  width: 22px;
+  height: 22px;
+  z-index: 1;
+}
+.scard.fifa19 .nationflag {
+  top: 66px !important;
+  left: 18px;
+  width: 22px;
+  height: auto;
+  z-index: 1;
+}
+.scard.fifa19 .avatarholder {
+  top: 26px;
+  left: 54px;
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  overflow: hidden;
+  z-index: 0;
+}
+.scard.fifa19 .avatarholder-custom {
+  top: 22px;
+  left: 20px;
+  width: 84%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  z-index: 0;
+}
+.scard.fifa19 .avatarholder-custom .avatar {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+}
+.scard.fifa19 .avatar {
+  top: 0;
+  left: 0;
+  width: 80px;
+  height: 80px;
+}
+.scard.fifa19 .name {
+  line-height: 28px;
+  text-transform: uppercase;
+  top: 103px;
+  width: 100%;
+  font-size: 14px;
+  right: 0;
+  left: auto;
+  font-family: open sans condensed, sans-serif;
+  font-weight: 700;
+}
+.scard.fifa19 .attributes {
+  font-size: 13px;
+  font-family: lato, sans-serif;
+}
+.scard.fifa19 .pace {
+  top: 127px;
+  left: 19px;
+}
+.scard.fifa19 .dribbling {
+  top: 127px;
+  left: 85px;
+}
+.scard.fifa19 .shooting {
+  top: 142px;
+  left: 19px;
+}
+.scard.fifa19 .defending {
+  top: 142px;
+  left: 85px;
+}
+.scard.fifa19 .passing {
+  top: 157px;
+  left: 19px;
+}
+.scard.fifa19 .heading {
+  top: 157px;
+  left: 85px;
+}
+.scard.fifa19 .chemistry {
+  top: 6px;
+  left: 46px;
+  position: absolute;
+  text-shadow: 0 0 0;
+  font-weight: 700;
+  font-family: knul-bold;
+  font-size: 13px;
+}
+.scard.fifa19 .loyalty {
+  top: 176px;
+  left: 60px;
+}
+.generations .builder-background.squad.fifa17,
+.generations .builder-background.squad.fifa19 {
+  background: url(../images/cardholder-generations.png?18);
+  height: 200px;
+  width: 135px;
+  left: -3px;
+  top: -11px;
+}
+.generations .builder-background.sub.fifa17,
+.generations .builder-background.sub.fifa19 {
+  background: url(../images/cardholder-generations.png?18);
+  height: 200px;
+  width: 135px;
+  margin-left: -3px;
+  margin-top: -11px;
+}
+.builder-background.squad.fifa19 {
+  background: url(../images/fut18/cardholder.png);
+  height: 200px;
+  width: 135px;
+  left: -3px;
+  top: -11px;
+}
+.builder-background.squad.nologo.fifa19 {
+  background: url(../images/fut18/cardholder_nologo.png);
+  height: 200px;
+  width: 135px;
+  left: -3px;
+  top: -11px;
+}
+.builder-background.squad.nologo.fifa17 {
+  background: url(../images/fut17/cardholder_nologo.png);
+  height: 200px;
+  width: 135px;
+  left: -3px;
+  top: -11px;
+}
+.builder-background.sub.fifa19 {
+  background: url(../images/fut18/cardholder.png);
+  height: 200px;
+  width: 135px;
+  margin-left: -3px;
+  margin-top: -11px;
+}
+.card.fifa19 .pace:after,
+.card.fifa19 .shooting:after,
+.card.fifa19 .passing:after,
+.card.fifa19 .dribbling:after,
+.card.fifa19 .defending:after,
+.card.fifa19 .heading:after {
+  font-family: pt sans narrow, sans-serif;
+  font-size: 20px;
+}
+.scard.fifa19 .pace:after,
+.scard.fifa19 .shooting:after,
+.scard.fifa19 .passing:after,
+.scard.fifa19 .dribbling:after,
+.scard.fifa19 .defending:after,
+.scard.fifa19 .heading:after {
+  font-family: pt sans narrow, sans-serif;
+  font-size: 13px;
+}
+@font-face {
+  font-family: dusha;
+  font-style: normal;
+  font-weight: 400;
+  src: url(/assets/fonts/dusha.woff2) format("woff2"),
+    url(/assets/fonts/dusha.woff) format("woff"),
+    url(/assets/fonts/dusha.ttf) format("truetype");
+}
+@media (min-width: 1000px) {
+  .card-list-home a:not(:last-child) .card {
+    margin-right: 28px;
+  }
+}
+.workrateLabels.fifa20 {
+  left: -86px;
+}
+.card.fifa20 {
+  font-family: fjalla one, sans-serif;
+  color: #000;
+  text-shadow: none !important;
+  max-width: 227px;
+}
+.card.fifa20 .player-card {
+  width: 294px;
+  left: -33px;
+  top: -18px;
+  height: auto;
+  position: relative;
+}
+.card.fifa20 .rating {
+  font-family: lato, sans-serif;
+  font-size: 38px;
+  border: 0 !important;
+  top: 54px;
+  left: 29px;
+  width: auto !important;
+  font-weight: 700;
+}
+.card.fifa20.onestowatch {
+  color: #ff4188 !important;
+}
+.card.fifa20.fof {
+  color: #1c1f56 !important;
+}
+.card.fifa20.fof .name {
+  color: #fff !important;
+}
+.card.fifa20.headliners {
+  color: #fc5162 !important;
+}
+.card.fifa20.futheadliners {
+  color: #fff !important;
+}
+.card.fifa20.shapeshifters {
+  color: #fff !important;
+}
+.card.fifa20.playermoments {
+  color: #ffd801 !important;
+}
+.card.fifa20.birthday {
+  color: #13f9c5 !important;
+}
+.card.fifa20.birthday .rating,
+.card.fifa20.birthday .position {
+  color: #fff !important;
+}
+.card.fifa20.bluepurple {
+  color: #fff !important;
+}
+.card.fifa20.futmas {
+  color: #fff !important;
+}
+.card.fifa20.premiumsbc {
+  color: #ff98fc !important;
+}
+.card.fifa20.whitepurple {
+  color: #f1dd7c !important;
+}
+.card.fifa20.united {
+  color: #201c55 !important;
+}
+.card.fifa20.united .rating,
+.card.fifa20.united .position {
+  color: #c0ff36 !important;
+}
+.card.fifa20.marquee {
+  color: #c0ff36 !important;
+}
+.card.fifa20.marquee .rating,
+.card.fifa20.marquee .position {
+  color: #201c55 !important;
+}
+.card.fifa20.marquee .name {
+  color: #e6e6e6 !important;
+}
+.card.fifa20.futurestars {
+  color: #ffff1f !important;
+}
+.card.fifa20.season1 {
+  color: #f6f31e !important;
+}
+.card.fifa20.iconswaps1 {
+  color: #c1bba1 !important;
+}
+.card.fifa20.iconswaps1 .rating,
+.card.fifa20.iconswaps1 .position {
+  color: #000 !important;
+}
+.card.fifa20.iconswaps2 {
+  color: #000 !important;
+}
+.card.fifa20.iconswaps1 .rating,
+.card.fifa20.iconswaps1 .position {
+  color: #000 !important;
+}
+.card.fifa20.ptg-selected {
+  color: #e6e6e6 !important;
+}
+.card.fifa20.ptg-selected .rating,
+.card.fifa20.ptg-selected .position {
+  color: #201c55 !important;
+}
+.card.fifa20.rtrc {
+  color: #1c2f6a !important;
+}
+.card.fifa20.rtrc .rating,
+.card.fifa20.rtrc .position,
+.card.fifa20.rtrc .name {
+  color: #fff !important;
+}
+.card.fifa20.rtrs {
+  color: #1c2f6a !important;
+}
+.card.fifa20.rtrs .rating,
+.card.fifa20.rtrs .position,
+.card.fifa20.rtrs .name {
+  color: #fff !important;
+}
+.card.fifa20.rtrwgold {
+  color: #f4db8c !important;
+}
+.card.fifa20.rtrwgold .rating,
+.card.fifa20.rtrwgold .position {
+  color: #000 !important;
+}
+.card.fifa20.rtrwsilver {
+  color: #e0e8ec !important;
+}
+.card.fifa20.rtrwsilver .rating,
+.card.fifa20.rtrwsilver .position {
+  color: #000 !important;
+}
+.card.fifa20.redgold {
+  color: #e1cc7f !important;
+}
+.card.fifa20.redsilver {
+  color: #d1d7d9 !important;
+}
+.card.fifa20.redbronze {
+  color: #d0b288 !important;
+}
+.card.fifa20.goldrare {
+  color: #452d19 !important;
+}
+.card.fifa20.clfinal {
+  color: #a8fcff !important;
+}
+.card.fifa20.mlspotm {
+  color: #fff !important;
+}
+.card.fifa20.elfinal {
+  color: #000 !important;
+}
+.card.fifa20.elmotm {
+  color: #000 !important;
+}
+.card.fifa20.elmotm .rating,
+.card.fifa20.elmotm .position {
+  color: #fff !important;
+}
+.card.fifa20.winterrefresh {
+  color: #42ff94 !important;
+}
+.card.fifa20.silverrare {
+  color: #393c43 !important;
+}
+.card.fifa20.bronzerare {
+  color: #4a3019 !important;
+}
+.card.fifa20.legend {
+  color: #73663b !important;
+}
+.card.fifa20.goldif {
+  color: #e2d17e !important;
+}
+.card.fifa20.silverif {
+  color: #c4c8c9 !important;
+}
+.card.fifa20.bronzeif {
+  color: #b78553 !important;
+}
+.card.fifa20.purple {
+  color: #d4c0fc !important;
+}
+.card.fifa20.championsleague {
+  color: #fff !important;
+}
+.card.fifa20.uclmoments {
+  color: #fff !important;
+}
+.card.fifa20.pink {
+  color: #fff !important;
+}
+.card.fifa20.pinkgold {
+  color: #efdc7c !important;
+}
+.card.fifa20.blackgold {
+  color: #fff !important;
+}
+.card.fifa20.blackgold .name,
+.card.fifa20.blackgold .chemistry,
+.card.fifa20.blackgold .chemstyle {
+  color: #000 !important;
+}
+.card.fifa20.proplayer {
+  color: #fff !important;
+}
+.card.fifa20.europaleague {
+  color: #cb8736 !important;
+}
+.card.fifa20.blpotm {
+  color: #fff !important;
+}
+.card.fifa20.totgsel,
+.card.fifa20.totgscl {
+  color: #fff !important;
+}
+.card.fifa20.totgselorange,
+.card.fifa20.totgscl {
+  color: #000 !important;
+}
+.card.fifa20.plpotm {
+  color: #0cf3ff !important;
+}
+.card.fifa20.l1potm {
+  color: #c3ca24 !important;
+}
+.card.fifa20.laligapotm {
+  color: #9fdce1 !important;
+}
+.card.fifa20.promo {
+  color: #fff !important;
+}
+.card.fifa20.promo2 {
+  color: #000 !important;
+}
+.card.fifa20.motm {
+  color: #fff !important;
+}
+.card.fifa20.eumotm {
+  color: #003482 !important;
+}
+.card.fifa20.eumotm .name {
+  color: #e6e6e6 !important;
+}
+.card.fifa20.bluemotm {
+  color: #fff !important;
+}
+.card.fifa20.swap {
+  color: #fff !important;
+}
+.card.fifa20.swap2 {
+  color: #fff !important;
+}
+.card.fifa20.swap3 {
+  color: #000 !important;
+}
+.card.fifa20.swap3 .rating,
+.card.fifa20.swap3 .position {
+  color: #896a44 !important;
+}
+.card.fifa20.swap4 {
+  color: #97a231 !important;
+}
+.card.fifa20.swap5 {
+  color: #fff !important;
+}
+.card.fifa20.swap6 {
+  color: #f27d2a !important;
+}
+.card.fifa20.totwmomentsgold {
+  color: #eed343 !important;
+}
+.card.fifa20.totwmomentssilver {
+  color: #c4c8c9 !important;
+}
+.card.fifa20.totwmomentsbronze {
+  color: #b78553 !important;
+}
+.card.fifa20.swap9 {
+  color: #f53960 !important;
+}
+.card.fifa20.swap10 {
+  color: #c60c33 !important;
+}
+.card.fifa20.swap11 {
+  color: #c60c33 !important;
+}
+.card.fifa20.flashback {
+  color: #e4d7bc !important;
+}
+.card.fifa20.swap-reward {
+  color: #fff !important;
+}
+.card.fifa20.bluemotm .rating,
+.card.fifa20.bluemotm .position {
+  color: #003482 !important;
+}
+.card.fifa20.redmotm {
+  color: #fff !important;
+}
+.card.fifa20.redmotm .rating,
+.card.fifa20.redmotm .position {
+  color: #7a0600 !important;
+}
+.card.fifa20.green {
+  color: #fff !important;
+}
+.card.fifa20.green .rating,
+.card.fifa20.green .position {
+  color: #104921 !important;
+}
+.card.fifa20.halloween {
+  color: #ff6f09 !important;
+}
+.card.fifa20.carniball {
+  color: #ffff1f !important;
+}
+.card.fifa20.worldcup {
+  color: #144a8b !important;
+}
+.card.fifa20.worldcup .rating,
+.card.fifa20.worldcup .name,
+.card.fifa20.worldcup .position {
+  color: #e6d3a7 !important;
+}
+.card.fifa20.worldcup-icon {
+  color: #172f52 !important;
+}
+.card.fifa20.worldcup-icon .rating,
+.card.fifa20.worldcup-icon .position {
+  color: #cbc5a5 !important;
+}
+.card.fifa20.worldcup .name,
+.card.fifa20.worldcup-icon .name {
+  font-family: dusha, fjalla one, sans-serif;
+  font-weight: 400 !important;
+}
+.card.fifa20.movember {
+  color: #aea590 !important;
+}
+.card.fifa20.movember .rating,
+.card.fifa20.movember .position,
+.card.fifa20.movember .name,
+.card.fifa20.movember .chemstyle,
+.card.fifa20.movember .chemistry {
+  color: #3c2313 !important;
+}
+.card.fifa20.special {
+  color: #edf5f5 !important;
+}
+.card.fifa20.imotm {
+  color: #edf5f5 !important;
+}
+.card.fifa20.toty {
+  color: #f9e99e !important;
+}
+.card.fifa20.toty .chemistry {
+  color: #fff !important;
+}
+.card.fifa20.goldblue {
+  color: #e7db98 !important;
+}
+.card.fifa20.silverblue {
+  color: #dce5eb !important;
+}
+.card.fifa20.bronzeblue {
+  color: #cfa57d !important;
+}
+.card.fifa20 .position {
+  top: 87px;
+  left: 26px;
+  font-size: 20px;
+  width: 50px;
+  line-height: 22px;
+}
+.card.fifa20 .avatarholder {
+  top: 45px;
+  left: 75px;
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  z-index: 0;
+}
+.card.fifa20 .avatarholder-custom {
+  top: 30px;
+  left: 2px;
+  width: 98%;
+  position: absolute;
+  z-index: 0;
+}
+.card.fifa20 .avatarholder-custom .avatar {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+}
+.card.fifa20 .avatar {
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 150px;
+}
+.card.fifa20 .clubbadge {
+  top: 152px !important;
+  left: 32px;
+  width: 40px;
+  height: auto;
+  z-index: 1;
+}
+.card.fifa20 .nationflag {
+  top: 119px !important;
+  left: 32px;
+  height: auto;
+  width: 40px;
+  z-index: 1;
+}
+.card.fifa20 .attributes {
+  font-family: lato, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+}
+.card.fifa20 .pace {
+  top: 240px;
+  left: 33px;
+}
+.card.fifa20 .dribbling {
+  top: 240px;
+  left: 140px;
+}
+.card.fifa20 .shooting {
+  top: 265px;
+  left: 33px;
+}
+.card.fifa20 .defending {
+  top: 265px;
+  left: 140px;
+}
+.card.fifa20 .passing {
+  top: 292px;
+  left: 33px;
+}
+.card.fifa20 .heading {
+  top: 292px;
+  left: 140px;
+}
+.card.fifa20 .name {
+  line-height: 28px;
+  text-transform: uppercase;
+  top: 199px;
+  left: inherit;
+  right: 0;
+  width: 100%;
+  font-size: 25px;
+  font-family: open sans condensed, sans-serif;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.card.fifa20 .chemstyle {
+  line-height: 28px;
+  text-transform: uppercase;
+  top: 305px;
+  left: 5px;
+  width: 220px;
+  font-size: 20px;
+  position: absolute;
+  text-align: center;
+}
+.card.fifa20 .chemstylename {
+  padding-left: 4px;
+}
+.scard.fifa20 {
+  font-family: open sans condensed, sans-serif;
+  text-shadow: none !important;
+  height: 200px;
+  width: 135px;
+}
+.builder .card.fifa20 {
+  height: 200px;
+  width: 135px;
+  margin-left: 2px;
+  margin-top: -6px;
+}
+.scard.fifa20 .player-card {
+  height: 228px;
+  width: 175px;
+  position: relative;
+  left: -21px;
+  top: -11px;
+}
+.scard.fifa20 .rating {
+  font-size: 21px;
+  top: 0;
+  left: 0;
+}
+.scard.fifa20 .ratingholder {
+  border: 0;
+  top: 23px;
+  left: 17px;
+}
+.scard.fifa20 .position {
+  top: 40px;
+  left: 14px;
+  font-size: 14px;
+  width: 30px;
+  font-weight: 700;
+}
+.scard.fifa20.goldrare {
+  color: #452d19 !important;
+}
+.scard.fifa20.silverrare {
+  color: #393c43 !important;
+}
+.scard.fifa20.bronzerare {
+  color: #4a3019 !important;
+}
+.scard.fifa20.legend {
+  color: #73663b !important;
+}
+.scard.fifa20.goldif {
+  color: #f9e99e !important;
+}
+.scard.fifa20.silverif {
+  color: #c4c8c9 !important;
+}
+.scard.fifa20.bronzeif {
+  color: #b78553 !important;
+}
+.scard.fifa20.special {
+  color: #edf5f5 !important;
+}
+.scard.fifa20.imotm {
+  color: #edf5f5 !important;
+}
+.scard.fifa20.goldblue {
+  color: #ead36e !important;
+}
+.scard.fifa20.silverblue {
+  color: #e1e9ee !important;
+}
+.scard.fifa20.bronzeblue {
+  color: #deb89e !important;
+}
+.scard.fifa20 .clubbadge {
+  top: 83px !important;
+  left: 19px;
+  width: 22px;
+  height: 22px;
+  z-index: 1;
+}
+.scard.fifa20 .nationflag {
+  top: 66px !important;
+  left: 18px;
+  width: 22px;
+  height: auto;
+  z-index: 1;
+}
+.scard.fifa20 .avatarholder {
+  top: 27px;
+  left: 54px;
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  overflow: hidden;
+  z-index: 0;
+}
+.scard.fifa20 .avatarholder-custom {
+  top: 22px;
+  left: 20px;
+  width: 84%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  z-index: 0;
+}
+.scard.fifa20 .avatarholder-custom .avatar {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+}
+.scard.fifa20 .avatar {
+  top: 0;
+  left: 0;
+  width: 80px;
+  height: 80px;
+}
+.scard.fifa20 .name {
+  line-height: 28px;
+  text-transform: uppercase;
+  top: 103px;
+  width: 100%;
+  font-size: 14px;
+  right: 0;
+  left: auto;
+  font-family: open sans condensed, sans-serif;
+  font-weight: 700;
+}
+.scard.fifa20 .attributes {
+  font-size: 13px;
+  font-family: lato, sans-serif;
+}
+.scard.fifa20 .pace {
+  top: 127px;
+  left: 19px;
+}
+.scard.fifa20 .dribbling {
+  top: 127px;
+  left: 81px;
+}
+.scard.fifa20 .shooting {
+  top: 142px;
+  left: 19px;
+}
+.scard.fifa20 .defending {
+  top: 142px;
+  left: 81px;
+}
+.scard.fifa20 .passing {
+  top: 157px;
+  left: 19px;
+}
+.scard.fifa20 .heading {
+  top: 157px;
+  left: 81px;
+}
+.scard.fifa20 .chemistry {
+  top: 6px;
+  left: 46px;
+  position: absolute;
+  text-shadow: 0 0 0;
+  font-weight: 700;
+  font-family: knul-bold;
+  font-size: 13px;
+}
+.scard.fifa20 .loyalty {
+  top: 171px;
+  left: 60px;
+}
+.generations .builder-background.squad.fifa17,
+.generations .builder-background.squad.fifa20 {
+  background: url(../images/cardholder-generations.png?18);
+  height: 200px;
+  width: 135px;
+  left: -3px;
+  top: -11px;
+}
+.generations .builder-background.sub.fifa17,
+.generations .builder-background.sub.fifa20 {
+  background: url(../images/cardholder-generations.png?18);
+  height: 200px;
+  width: 135px;
+  margin-left: -3px;
+  margin-top: -11px;
+}
+.builder-background.squad.fifa20 {
+  background: url(../images/fut18/cardholder.png);
+  height: 200px;
+  width: 135px;
+  left: -3px;
+  top: -11px;
+}
+.builder-background.squad.nologo.fifa20 {
+  background: url(../images/fut18/cardholder_nologo.png);
+  height: 200px;
+  width: 135px;
+  left: -3px;
+  top: -11px;
+}
+.builder-background.squad.nologo.fifa17 {
+  background: url(../images/fut17/cardholder_nologo.png);
+  height: 200px;
+  width: 135px;
+  left: -3px;
+  top: -11px;
+}
+.builder-background.sub.fifa20 {
+  background: url(../images/fut18/cardholder.png);
+  height: 200px;
+  width: 135px;
+  margin-left: -3px;
+  margin-top: -11px;
+}
+.card.fifa20 .pace:after,
+.card.fifa20 .shooting:after,
+.card.fifa20 .passing:after,
+.card.fifa20 .dribbling:after,
+.card.fifa20 .defending:after,
+.card.fifa20 .heading:after {
+  font-family: pt sans narrow, sans-serif;
+  font-size: 20px;
+}
+.scard.fifa20 .pace:after,
+.scard.fifa20 .shooting:after,
+.scard.fifa20 .passing:after,
+.scard.fifa20 .dribbling:after,
+.scard.fifa20 .defending:after,
+.scard.fifa20 .heading:after {
+  font-family: pt sans narrow, sans-serif;
+  font-size: 13px;
+}
+.workrateLabels.fifa21 {
+  left: -86px;
+}
+.card.fifa21 {
+  font-family: fjalla one, sans-serif;
+  color: #000;
+  text-shadow: none !important;
+  max-width: 227px;
+}
+.card.fifa21 .player-card {
+  width: 294px;
+  left: -33px;
+  top: -18px;
+  height: auto;
+  position: relative;
+}
+.card.fifa21 .rating {
+  font-family: lato, sans-serif;
+  font-size: 38px;
+  border: 0 !important;
+  top: 54px;
+  left: 29px;
+  width: auto !important;
+  font-weight: 700;
+}
+.card.fifa21.onestowatch {
+  color: #ffdb27 !important;
+}
+.card.fifa21.fof {
+  color: #1c1f56 !important;
+}
+.card.fifa21.fof .name {
+  color: #fff !important;
+}
+.card.fifa21.headliners {
+  color: #fc5162 !important;
+}
+.card.fifa21.objective {
+  color: #d9d3e1 !important;
+}
+.card.fifa21.mlsobjective {
+  color: #aebebb !important;
+}
+.card.fifa21.futheadliners {
+  color: #fff !important;
+}
+.card.fifa21.shapeshifters {
+  color: #fff !important;
+}
+.card.fifa21.playermoments {
+  color: #ffd801 !important;
+}
+.card.fifa21.birthday {
+  color: #fff !important;
+}
+.card.fifa21.bluepurple {
+  color: #fff !important;
+}
+.card.fifa21.futmas {
+  color: #fff !important;
+}
+.card.fifa21.premiumsbc {
+  color: #ff98fc !important;
+}
+.card.fifa21.whitepurple {
+  color: #f1dd7c !important;
+}
+.card.fifa21.united {
+  color: #201c55 !important;
+}
+.card.fifa21.united .rating,
+.card.fifa21.united .position {
+  color: #c0ff36 !important;
+}
+.card.fifa21.marquee {
+  color: #c0ff36 !important;
+}
+.card.fifa21.marquee .rating,
+.card.fifa21.marquee .position {
+  color: #201c55 !important;
+}
+.card.fifa21.marquee .name {
+  color: #e6e6e6 !important;
+}
+.card.fifa21.futurestars {
+  color: #1fedf3 !important;
+}
+.card.fifa21.season1 {
+  color: #f6f31e !important;
+}
+.card.fifa21.fgsswaps1 {
+  color: #01f8ad !important;
+}
+.card.fifa21.iconswaps1 {
+  color: #000 !important;
+}
+.card.fifa21.iconswaps2 {
+  color: #000 !important;
+}
+.card.fifa21.iconswaps4 {
+  color: #f1efee !important;
+}
+.card.fifa21.iconswaps1 .rating,
+.card.fifa21.iconswaps1 .position {
+  color: #000 !important;
+}
+.card.fifa21.iconswaps4 .rating,
+.card.fifa21.iconswaps4 .position {
+  color: #000 !important;
+}
+.card.fifa21.ptg-selected {
+  color: #e6e6e6 !important;
+}
+.card.fifa21.ptg-selected .rating,
+.card.fifa21.ptg-selected .position {
+  color: #201c55 !important;
+}
+.card.fifa21.rtrc {
+  color: #1c2f6a !important;
+}
+.card.fifa21.rtrc .rating,
+.card.fifa21.rtrc .position,
+.card.fifa21.rtrc .name {
+  color: #fff !important;
+}
+.card.fifa21.rtrs {
+  color: #1c2f6a !important;
+}
+.card.fifa21.rtrs .rating,
+.card.fifa21.rtrs .position,
+.card.fifa21.rtrs .name {
+  color: #fff !important;
+}
+.card.fifa21.rtrwgold {
+  color: #f4db8c !important;
+}
+.card.fifa21.rtrwgold .rating,
+.card.fifa21.rtrwgold .position {
+  color: #000 !important;
+}
+.card.fifa21.rtrwsilver {
+  color: #e0e8ec !important;
+}
+.card.fifa21.rtrwsilver .rating,
+.card.fifa21.rtrwsilver .position {
+  color: #000 !important;
+}
+.card.fifa21.redgold {
+  color: #e1cc7f !important;
+}
+.card.fifa21.redsilver {
+  color: #d1d7d9 !important;
+}
+.card.fifa21.redbronze {
+  color: #d0b288 !important;
+}
+.card.fifa21.goldrare {
+  color: #452d19 !important;
+}
+.card.fifa21.clfinal {
+  color: #a8fcff !important;
+}
+.card.fifa21.mlspotm {
+  color: #fff !important;
+}
+.card.fifa21.elfinal {
+  color: #000 !important;
+}
+.card.fifa21.elmotm {
+  color: #000 !important;
+}
+.card.fifa21.elmotm .rating,
+.card.fifa21.elmotm .position {
+  color: #fff !important;
+}
+.card.fifa21.winterrefresh {
+  color: #42ff94 !important;
+}
+.card.fifa21.whatif {
+  color: #fff !important;
+}
+.card.fifa21.silverrare {
+  color: #393c43 !important;
+}
+.card.fifa21.bronzerare {
+  color: #4a3019 !important;
+}
+.card.fifa21.legend {
+  color: #73663b !important;
+}
+.card.fifa21.goldif {
+  color: #e2d17e !important;
+}
+.card.fifa21.silverif {
+  color: #c4c8c9 !important;
+}
+.card.fifa21.bronzeif {
+  color: #b78553 !important;
+}
+.card.fifa21.purple {
+  color: #d4c0fc !important;
+}
+.card.fifa21.championsleague {
+  color: #fff !important;
+}
+.card.fifa21.uclmoments {
+  color: #fff !important;
+}
+.card.fifa21.pink {
+  color: #fff !important;
+}
+.card.fifa21.pinkgold {
+  color: #efdc7c !important;
+}
+.card.fifa21.blackgold {
+  color: #fff !important;
+}
+.card.fifa21.blackgold .name,
+.card.fifa21.blackgold .chemistry,
+.card.fifa21.blackgold .chemstyle {
+  color: #000 !important;
+}
+.card.fifa21.proplayer {
+  color: #fff !important;
+}
+.card.fifa21.europaleague {
+  color: #cb8736 !important;
+}
+.card.fifa21.blpotm {
+  color: #fff !important;
+}
+.card.fifa21.totgsel,
+.card.fifa21.totgscl {
+  color: #fff !important;
+}
+.card.fifa21.totgselorange,
+.card.fifa21.totgscl {
+  color: #000 !important;
+}
+.card.fifa21.plpotm {
+  color: #0cf3ff !important;
+}
+.card.fifa21.l1potm {
+  color: #c3ca24 !important;
+}
+.card.fifa21.laligapotm {
+  color: #9fdce1 !important;
+}
+.card.fifa21.promo {
+  color: #fff !important;
+}
+.card.fifa21.promo2 {
+  color: #000 !important;
+}
+.card.fifa21.motm {
+  color: #fff !important;
+}
+.card.fifa21.eumotm {
+  color: #fff !important;
+}
+.card.fifa21.bluemotm {
+  color: #fff !important;
+}
+.card.fifa21.swap {
+  color: #fff !important;
+}
+.card.fifa21.swap2 {
+  color: #fff !important;
+}
+.card.fifa21.swap3 {
+  color: #000 !important;
+}
+.card.fifa21.swap3 .rating,
+.card.fifa21.swap3 .position {
+  color: #cfa066 !important;
+}
+.card.fifa21.swap7 .rating,
+.card.fifa21.swap7 .position {
+  color: #d8d8d8 !important;
+}
+.card.fifa21.swap4 .rating,
+.card.fifa21.swap4 .position {
+  color: #000 !important;
+}
+.card.fifa21.swap4 {
+  color: #fff !important;
+}
+.card.fifa21.swap5 {
+  color: #fff !important;
+}
+.card.fifa21.swap6 {
+  color: #f27d2a !important;
+}
+.card.fifa21.showdownwinner {
+  color: #a3d100 !important;
+}
+.card.fifa21.showdown {
+  color: #fff !important;
+}
+.card.fifa21.totwmomentsgold {
+  color: #eed343 !important;
+}
+.card.fifa21.totwmomentssilver {
+  color: #c4c8c9 !important;
+}
+.card.fifa21.totwmomentsbronze {
+  color: #b78553 !important;
+}
+.card.fifa21.swap9 {
+  color: #000 !important;
+}
+.card.fifa21.swap10 {
+  color: #f4ff00 !important;
+}
+.card.fifa21.swap11 {
+  color: #bdeb45 !important;
+}
+.card.fifa21.flashback {
+  color: #fff !important;
+}
+.card.fifa21.swap-reward {
+  color: #fff !important;
+}
+.card.fifa21.bluemotm .rating,
+.card.fifa21.bluemotm .position {
+  color: #003482 !important;
+}
+.card.fifa21.redmotm {
+  color: #fff !important;
+}
+.card.fifa21.redmotm .rating,
+.card.fifa21.redmotm .position {
+  color: #7a0600 !important;
+}
+.card.fifa21.green {
+  color: #fff !important;
+}
+.card.fifa21.green .rating,
+.card.fifa21.green .position {
+  color: #104921 !important;
+}
+.card.fifa21.halloween {
+  color: #c2ea73 !important;
+}
+.card.fifa21.nextgen {
+  color: #fff !important;
+}
+.card.fifa21.carniball {
+  color: #ffff1f !important;
+}
+.card.fifa21.worldcup {
+  color: #144a8b !important;
+}
+.card.fifa21.worldcup .rating,
+.card.fifa21.worldcup .name,
+.card.fifa21.worldcup .position {
+  color: #e6d3a7 !important;
+}
+.card.fifa21.worldcup-icon {
+  color: #172f52 !important;
+}
+.card.fifa21.worldcup-icon .rating,
+.card.fifa21.worldcup-icon .position {
+  color: #cbc5a5 !important;
+}
+.card.fifa21.worldcup .name,
+.card.fifa21.worldcup-icon .name {
+  font-family: dusha, fjalla one, sans-serif;
+  font-weight: 400 !important;
+}
+.card.fifa21.movember {
+  color: #aea590 !important;
+}
+.card.fifa21.movember .rating,
+.card.fifa21.movember .position,
+.card.fifa21.movember .name,
+.card.fifa21.movember .chemstyle,
+.card.fifa21.movember .chemistry {
+  color: #3c2313 !important;
+}
+.card.fifa21.special {
+  color: #c6f539 !important;
+}
+.card.fifa21.imotm {
+  color: #edf5f5 !important;
+}
+.card.fifa21.toty {
+  color: #f9e99e !important;
+}
+.card.fifa21.toty .chemistry {
+  color: #fff !important;
+}
+.card.fifa21.goldblue {
+  color: #e7db98 !important;
+}
+.card.fifa21.silverblue {
+  color: #dce5eb !important;
+}
+.card.fifa21.bronzeblue {
+  color: #cfa57d !important;
+}
+.card.fifa21 .position {
+  top: 87px;
+  left: 26px;
+  font-size: 20px;
+  width: 50px;
+  line-height: 22px;
+}
+.card.fifa21 .avatarholder {
+  top: 46px;
+  left: 71px;
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  z-index: 0;
+}
+.card.fifa21 .avatarholder-custom {
+  top: 30px;
+  left: 2px;
+  width: 98%;
+  position: absolute;
+  z-index: 0;
+}
+.card.fifa21 .avatarholder-custom .avatar {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+}
+.card.fifa21 .avatar {
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 150px;
+}
+.card.fifa21 .clubbadge {
+  top: 152px !important;
+  left: 32px;
+  width: 40px;
+  height: auto;
+  z-index: 1;
+}
+.card.fifa21 .nationflag {
+  top: 119px !important;
+  left: 32px;
+  height: auto;
+  width: 40px;
+  z-index: 1;
+}
+.card.fifa21 .attributes {
+  font-family: lato, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+}
+.card.fifa21 .pace {
+  top: 240px;
+  left: 33px;
+}
+.card.fifa21 .dribbling {
+  top: 240px;
+  left: 140px;
+}
+.card.fifa21 .shooting {
+  top: 265px;
+  left: 33px;
+}
+.card.fifa21 .defending {
+  top: 265px;
+  left: 140px;
+}
+.card.fifa21 .passing {
+  top: 292px;
+  left: 33px;
+}
+.card.fifa21 .heading {
+  top: 292px;
+  left: 140px;
+}
+.card.fifa21 .name {
+  line-height: 28px;
+  text-transform: uppercase;
+  top: 199px;
+  left: inherit;
+  right: 0;
+  width: 100%;
+  font-size: 25px;
+  font-family: open sans condensed, sans-serif;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.card.fifa21 .chemstyle {
+  line-height: 28px;
+  text-transform: uppercase;
+  top: 305px;
+  left: 5px;
+  width: 220px;
+  font-size: 20px;
+  position: absolute;
+  text-align: center;
+}
+.card.fifa21 .chemstylename {
+  padding-left: 4px;
+}
+.scard.fifa21 {
+  font-family: open sans condensed, sans-serif;
+  text-shadow: none !important;
+  height: 200px;
+  width: 135px;
+}
+.builder .card.fifa21 {
+  height: 200px;
+  width: 135px;
+  margin-left: 2px;
+  margin-top: -6px;
+}
+.scard.fifa21 .player-card {
+  height: 228px;
+  width: 175px;
+  position: relative;
+  left: -21px;
+  top: -11px;
+}
+.scard.fifa21 .rating {
+  font-size: 21px;
+  top: 0;
+  left: 0;
+}
+.scard.fifa21 .ratingholder {
+  border: 0;
+  top: 23px;
+  left: 17px;
+}
+.scard.fifa21 .position {
+  top: 40px;
+  left: 14px;
+  font-size: 14px;
+  width: 30px;
+  font-weight: 700;
+}
+.scard.fifa21.goldrare {
+  color: #452d19 !important;
+}
+.scard.fifa21.silverrare {
+  color: #393c43 !important;
+}
+.scard.fifa21.bronzerare {
+  color: #4a3019 !important;
+}
+.scard.fifa21.legend {
+  color: #73663b !important;
+}
+.scard.fifa21.goldif {
+  color: #f9e99e !important;
+}
+.scard.fifa21.silverif {
+  color: #c4c8c9 !important;
+}
+.scard.fifa21.bronzeif {
+  color: #b78553 !important;
+}
+.scard.fifa21.imotm {
+  color: #edf5f5 !important;
+}
+.scard.fifa21.goldblue {
+  color: #ead36e !important;
+}
+.scard.fifa21.silverblue {
+  color: #e1e9ee !important;
+}
+.scard.fifa21.bronzeblue {
+  color: #deb89e !important;
+}
+.scard.fifa21 .clubbadge {
+  top: 83px !important;
+  left: 19px;
+  width: 22px;
+  height: 22px;
+  z-index: 1;
+}
+.scard.fifa21 .nationflag {
+  top: 66px !important;
+  left: 18px;
+  width: 22px;
+  height: auto;
+  z-index: 1;
+}
+.scard.fifa21 .avatarholder {
+  top: 28px;
+  left: 49px;
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  overflow: hidden;
+  z-index: 0;
+}
+.scard.fifa21 .avatarholder-custom {
+  top: 22px;
+  left: 20px;
+  width: 84%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  z-index: 0;
+}
+.scard.fifa21 .avatarholder-custom .avatar {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+}
+.scard.fifa21 .avatar {
+  top: 0;
+  left: 0;
+  width: 80px;
+  height: 80px;
+}
+.scard.fifa21 .name {
+  line-height: 28px;
+  text-transform: uppercase;
+  top: 103px;
+  width: 100%;
+  font-size: 14px;
+  right: 0;
+  left: auto;
+  font-family: open sans condensed, sans-serif;
+  font-weight: 700;
+}
+.scard.fifa21 .attributes {
+  font-size: 13px;
+  font-family: lato, sans-serif;
+}
+.scard.fifa21 .pace {
+  top: 127px;
+  left: 19px;
+}
+.scard.fifa21 .dribbling {
+  top: 127px;
+  left: 81px;
+}
+.scard.fifa21 .shooting {
+  top: 142px;
+  left: 19px;
+}
+.scard.fifa21 .defending {
+  top: 142px;
+  left: 81px;
+}
+.scard.fifa21 .passing {
+  top: 157px;
+  left: 19px;
+}
+.scard.fifa21 .heading {
+  top: 157px;
+  left: 81px;
+}
+.scard.fifa21 .chemistry {
+  top: 6px;
+  left: 46px;
+  position: absolute;
+  text-shadow: 0 0 0;
+  font-weight: 700;
+  font-family: knul-bold;
+  font-size: 13px;
+}
+.scard.fifa21 .loyalty {
+  top: 171px;
+  left: 60px;
+}
+.generations .builder-background.squad.fifa17,
+.generations .builder-background.squad.fifa21 {
+  background: url(../images/cardholder-generations.png?18);
+  height: 200px;
+  width: 135px;
+  left: -3px;
+  top: -11px;
+}
+.generations .builder-background.sub.fifa17,
+.generations .builder-background.sub.fifa21 {
+  background: url(../images/cardholder-generations.png?18);
+  height: 200px;
+  width: 135px;
+  margin-left: -3px;
+  margin-top: -11px;
+}
+.builder-background.squad.fifa21 {
+  background: url(../images/fut18/cardholder.png);
+  height: 200px;
+  width: 135px;
+  left: -3px;
+  top: -11px;
+}
+.builder-background.squad.nologo.fifa21 {
+  background: url(../images/fut18/cardholder_nologo.png);
+  height: 200px;
+  width: 135px;
+  left: -3px;
+  top: -11px;
+}
+.builder-background.squad.nologo.fifa17 {
+  background: url(../images/fut17/cardholder_nologo.png);
+  height: 200px;
+  width: 135px;
+  left: -3px;
+  top: -11px;
+}
+.builder-background.sub.fifa21 {
+  background: url(../images/fut18/cardholder.png);
+  height: 200px;
+  width: 135px;
+  margin-left: -3px;
+  margin-top: -11px;
+}
+.card.fifa21 .pace:after,
+.card.fifa21 .shooting:after,
+.card.fifa21 .passing:after,
+.card.fifa21 .dribbling:after,
+.card.fifa21 .defending:after,
+.card.fifa21 .heading:after {
+  font-family: pt sans narrow, sans-serif;
+  font-size: 20px;
+}
+.scard.fifa21 .pace:after,
+.scard.fifa21 .shooting:after,
+.scard.fifa21 .passing:after,
+.scard.fifa21 .dribbling:after,
+.scard.fifa21 .defending:after,
+.scard.fifa21 .heading:after {
+  font-family: pt sans narrow, sans-serif;
+  font-size: 13px;
+}

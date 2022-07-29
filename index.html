@@ -1,17 +1,70 @@
 <!doctype html>
 <html>
-  <head>
-    <title>Summer Swaps 2 Token Tracker</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  </head>
-  <body>
-    <h1>Summer Swaps 2 Token Tracker</title>
-    <div id="token"></div>
-  </body>
-  <script>
-    // generate 50 divs
-    for (var i = 0; i < 50; i++) {
-        $('#token').append('<div class="token"></div>');
+
+<head>
+  <title>Summer Swaps 2 Token Tracker</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="css.css">
+</head>
+
+<body>
+  <h1>Summer Swaps 2</h1>
+  <h2>Token Tracker</h2>
+
+
+
+  <div id="tokens"></div>
+</body>
+<script>
+
+  let tokens_number = 0;
+  const players = ["<div class=\"card bronze fifa22\" data-base-id=\"166847\" data-club-id=\"306\" data-nation-id=\"25\" data-league-id=\"65\" data-rareflag=\"0\">\r\n    <div class=\"token_number\">1<\/div><div class=\"scard bronze fifa22\" style=\"position: relative; z-index: 2\">\r\n            <img src=\"token.png\" alt=\"\" class=\"player-card\">\r\n\r\n            <div class=\"rating-gradient\"><\/div>\r\n\r\n                        <a href=\"https:\/\/wefut.com\/club\/306\">\r\n                            <img src=\"https:\/\/static.wefut.com\/assets\/images\/fut22\/clubbadges\/306.png?21\" alt=\"\" class=\"clubbadge\">\r\n                        <\/a>\r\n            \r\n            <div class=\"avatarholder \">\r\n                <img src=\"https:\/\/static.wefut.com\/assets\/images\/fut22\/playeravatars\/166847.png?21\" onerror=\"this.src='https:\/\/static.wefut.com\/assets\/images\/fut15\/playeravatars\/unknown.png'\" alt=\"\" class=\"avatar\">\r\n            <\/div>\r\n\r\n                        <a href=\"https:\/\/wefut.com\/nation\/25\">\r\n                            <img src=\"https:\/\/static.wefut.com\/assets\/images\/nation_flag\/25.jpg\" class=\"nationflag\">\r\n                        <\/a>\r\n            \r\n            <div class=\"ratingholder\"><span class=\"rating\"  style=\"border: 0px !important\" >60<\/span><\/div>\r\n            <span class=\"position\">CM<\/span>\r\n            <div class=\"nonrare name\">\r\n            <span class=\"marquee\">McCann<\/span>\r\n        <\/div>\r\n        <div class=\"token_source\">Free Token\r\n            \n                           \r\n\r\n            \r\n            \n            \n            \n            \n            \n            \n        <\/div>\r\n    <\/div>\r\n    <\/div>\r\n","<div class=\"card bronze fifa22\" data-base-id=\"52679\" data-club-id=\"15048\" data-nation-id=\"25\" data-league-id=\"61\" data-rareflag=\"0\">\r\n    <div class=\"token_number\">2<\/div><div class=\"scard bronze fifa22\" style=\"position: relative; z-index: 2\">\r\n            <img src=\"token.png\" alt=\"\" class=\"player-card\">\r\n\r\n            <div class=\"rating-gradient\"><\/div>\r\n\r\n                        <a href=\"https:\/\/wefut.com\/club\/15048\">\r\n                            <img src=\"https:\/\/static.wefut.com\/assets\/images\/fut22\/clubbadges\/15048.png?21\" alt=\"\" class=\"clubbadge\">\r\n                        <\/a>\r\n            \r\n            <div class=\"avatarholder \">\r\n                <img src=\"https:\/\/static.wefut.com\/assets\/images\/fut22\/playeravatars\/52679.png?21\" onerror=\"this.src='https:\/\/static.wefut.com\/assets\/images\/fut15\/playeravatars\/unknown.png'\" alt=\"\" class=\"avatar\">\r\n            <\/div>\r\n\r\n                        <a href=\"https:\/\/wefut.com\/nation\/25\">\r\n                            <img src=\"https:\/\/static.wefut.com\/assets\/images\/nation_flag\/25.jpg\" class=\"nationflag\">\r\n                        <\/a>\r\n            \r\n            <div class=\"ratingholder\"><span class=\"rating\"  style=\"border: 0px !important\" >60<\/span><\/div>\r\n            <span class=\"position\">GK<\/span>\r\n            <div class=\"nonrare name\">\r\n            <span class=\"marquee\">Murphy<\/span>\r\n        <\/div>\r\n        <div class=\"token_source\">Cornet Objective<\/div><div class=\"token_objective_wrapper\"><div data-type=\"objective\" class=\"token_objective\">EXP <b>AUG 06<\/b><\/div><\/div>\r\n            \n                           \r\n\r\n            \r\n            \n            \n            \n            \n            \n            \n        <\/div>\r\n    <\/div>\r\n    <\/div>\r\n"];
+    players.forEach(function(player) {
+      $('#tokens').append(player);
+      tokens_number++;
+    });
+
+    // generate the rest of the empty divs
+    for (let i = tokens_number; i < 50; i++) {
+      $('#tokens').append(`
+      <div class="card bronze fifa22 inactive" data-base-id="111328" data-club-id="1929" data-nation-id="14" data-league-id="60" data-rareflag="0">
+          <div class="token_number">${i + 1}</div>
+          <div class="scard bronze fifa22 style="position: relative; z-index: 2">
+
+              <img src="token.png" alt="" class="player-card">
+  
+              <div class="rating-gradient"></div>
+
+              
+              <div class="avatarholder ">
+                  </div>
+  
+        
+              
+
+          </div>
+      </div>
+      </div>
+      `);
     }
-  </script>
+
+    // add token claimed class to first token
+    $('#tokens div').first().addClass('token-claimed');
+    $('#tokens div').each(function(index) {
+      // if this has class token_source, dont darken
+      if (!$(this).hasClass('token_source') && !$(this).hasClass('token_objective') && !$(this).hasClass('token_objective_wrapper')) {
+        $(this).addClass('darken');
+      }
+    });
+
+    $('#tokens .card.fifa22').click(function(){
+      if($(this).hasClass('inactive') || $(this).hasClass('token-claimed')){
+        return;
+      }
+      $(this).addClass('token-claimed');
+    });
+
+
+</script>
+
 </html>
