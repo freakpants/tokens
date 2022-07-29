@@ -11,9 +11,16 @@
   <div class="header">
     <h1>Summer Swaps 2</h1>
     <h2>Token Tracker</h2>
-    <button id="reset" class="btn-standard call-to-action">
-      <span class="button__text">Reset all claimed tokens</span>
-    </button>
+    <div id="button-wrapper">
+      <button id="reset" class="btn-standard call-to-action">
+        <span class="button__text">Reset all claimed tokens</span>
+      </button>
+      <button id="rewards" class="btn-standard call-to-action">
+        <span class="button__text">Rewards</span>
+      </button>
+    </div>
+
+
   </div>
   <div id="tokens"></div>
 </body>
@@ -64,9 +71,6 @@
     });
   }
 
-  // add token claimed class to first token
-  $('#tokens div').first().addClass('token-claimed');
-
   // add data counter to each card
   // $('#tokens > div').each(function(index) {
   //   $(this).attr('data-token-id', index + 1);
@@ -89,7 +93,7 @@
   });
 
   $("#reset").click(function () {
-    localStorage.removeItem("claimed_tokens");
+    localStorage.setItem("claimed_tokens", JSON.stringify([]));
     location.reload();
   }
   );

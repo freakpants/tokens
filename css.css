@@ -68,6 +68,12 @@
   cursor: pointer;
 }
 
+#button-wrapper{
+  display: flex;
+    flex-direction: row;
+    gap: 1em;
+}
+
 
 .fifa22.token-claimed.token-claimed, .fifa22.inactive.inactive{
   cursor:default;
