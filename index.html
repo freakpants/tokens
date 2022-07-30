@@ -28,19 +28,19 @@
         <span class="button__text">Rewards</span>
       </button>
       <div>
-      <div>
-        <input type="checkbox" id="sbc" name="sbc" checked>
-        <label for="sbc">SBC's</label>
-      </div>  
-      <div>
-        <input type="checkbox" id="objectives" name="objectives" checked>
-        <label for="objectives">Objectives</label>
+        <div>
+          <input type="checkbox" id="sbc" name="sbc" checked>
+          <label for="sbc">SBC's</label>
+        </div>
+        <div>
+          <input type="checkbox" id="objectives" name="objectives" checked>
+          <label for="objectives">Objectives</label>
+        </div>
+        <div>
+          <input type="checkbox" id="packs" name="packs" checked>
+          <label for="packs">Packs</label>
+        </div>
       </div>
-      <div>
-        <input type="checkbox" id="packs" name="packs" checked>
-        <label for="packs">Packs</label>
-      </div>
-    </div>
     </div>
 
 
@@ -51,10 +51,12 @@
 
   document.unclaim_mode = false;
 
+  const playerIdentity = window.location.search.substr(1);
+
   let tokens_number = 0;
-  const players = ["<div class=\"card bronze fifa22\" data-base-id=\"166847\" data-club-id=\"306\" data-nation-id=\"25\" data-league-id=\"65\" data-rareflag=\"0\">\r\n    <div class=\"token_number\">1<\/div><div class=\"scard bronze fifa22\" style=\"position: relative; z-index: 2\">\r\n            <img src=\"token.png\" alt=\"\" class=\"player-card\">\r\n\r\n            <div class=\"rating-gradient\"><\/div>\r\n\r\n                        <a href=\"https:\/\/wefut.com\/club\/306\">\r\n                            <img src=\"https:\/\/static.wefut.com\/assets\/images\/fut22\/clubbadges\/306.png?21\" alt=\"\" class=\"clubbadge\">\r\n                        <\/a>\r\n            \r\n            <div class=\"avatarholder \">\r\n                <img src=\"https:\/\/static.wefut.com\/assets\/images\/fut22\/playeravatars\/166847.png?21\" onerror=\"this.src='https:\/\/static.wefut.com\/assets\/images\/fut15\/playeravatars\/unknown.png'\" alt=\"\" class=\"avatar\">\r\n            <\/div>\r\n\r\n                        <a href=\"https:\/\/wefut.com\/nation\/25\">\r\n                            <img src=\"https:\/\/static.wefut.com\/assets\/images\/nation_flag\/25.jpg\" class=\"nationflag\">\r\n                        <\/a>\r\n            \r\n            <div class=\"ratingholder\"><span class=\"rating\"  style=\"border: 0px !important\" >60<\/span><\/div>\r\n            <span class=\"position\">CM<\/span>\r\n            <div class=\"nonrare name\">\r\n            <span class=\"marquee\" data-base-id=166847>McCann<\/span>\r\n        <\/div>\r\n        <div class=\"token_source\">Free Token\r\n            \n                           \r\n\r\n            \r\n            \n            \n            \n            \n            \n            \n        <\/div>\r\n    <\/div>\r\n    <\/div>\r\n<\/div><div style=\"display:none\"><input type=\"hidden\" data-type=\"name\" data-base-id=166847 value=\"Chris McCann\"<\/input><\/div>","<div class=\"card bronze fifa22\" data-base-id=\"52679\" data-club-id=\"15048\" data-nation-id=\"25\" data-league-id=\"61\" data-rareflag=\"0\">\r\n    <div class=\"token_number\">2<\/div><div class=\"scard bronze fifa22\" style=\"position: relative; z-index: 2\">\r\n            <img src=\"token.png\" alt=\"\" class=\"player-card\">\r\n\r\n            <div class=\"rating-gradient\"><\/div>\r\n\r\n                        <a href=\"https:\/\/wefut.com\/club\/15048\">\r\n                            <img src=\"https:\/\/static.wefut.com\/assets\/images\/fut22\/clubbadges\/15048.png?21\" alt=\"\" class=\"clubbadge\">\r\n                        <\/a>\r\n            \r\n            <div class=\"avatarholder \">\r\n                <img src=\"https:\/\/static.wefut.com\/assets\/images\/fut22\/playeravatars\/52679.png?21\" onerror=\"this.src='https:\/\/static.wefut.com\/assets\/images\/fut15\/playeravatars\/unknown.png'\" alt=\"\" class=\"avatar\">\r\n            <\/div>\r\n\r\n                        <a href=\"https:\/\/wefut.com\/nation\/25\">\r\n                            <img src=\"https:\/\/static.wefut.com\/assets\/images\/nation_flag\/25.jpg\" class=\"nationflag\">\r\n                        <\/a>\r\n            \r\n            <div class=\"ratingholder\"><span class=\"rating\"  style=\"border: 0px !important\" >60<\/span><\/div>\r\n            <span class=\"position\">GK<\/span>\r\n            <div class=\"nonrare name\">\r\n            <span class=\"marquee\" data-base-id=52679>Murphy<\/span>\r\n        <\/div>\r\n        <div class=\"token_source\">Cornet Objective<\/div><div class=\"token_objective_wrapper\"><div data-type=\"objective\" class=\"token_objective\">EXP <b>AUG 06<\/b><\/div><\/div>\r\n            \n                           \r\n\r\n            \r\n            \n            \n            \n            \n            \n            \n        <\/div>\r\n    <\/div>\r\n    <\/div>\r\n<\/div><div style=\"display:none\"><input type=\"hidden\" data-type=\"name\" data-base-id=52679 value=\"Joe Murphy\"<\/input><\/div>","<div class=\"card bronze fifa22\" data-base-id=\"111328\" data-club-id=\"1929\" data-nation-id=\"14\" data-league-id=\"60\" data-rareflag=\"0\">\n    <div class=\"token_number\">3<\/div><div class=\"scard bronze fifa22\" style=\"position: relative; z-index: 2\">\n            <img src=\"token.png\" alt=\"\" class=\"player-card\">\n\n            <div class=\"rating-gradient\"><\/div>\n\n                        <a href=\"https:\/\/wefut.com\/club\/1929\">\n                            <img src=\"https:\/\/static.wefut.com\/assets\/images\/fut22\/clubbadges\/1929.png?21\" alt=\"\" class=\"clubbadge\">\n                        <\/a>\n            \n            <div class=\"avatarholder \">\n                <img src=\"https:\/\/static.wefut.com\/assets\/images\/fut22\/playeravatars\/111328.png?21\" onerror=\"this.src='https:\/\/static.wefut.com\/assets\/images\/fut15\/playeravatars\/unknown.png'\" alt=\"\" class=\"avatar\">\n            <\/div>\n\n                        <a href=\"https:\/\/wefut.com\/nation\/14\">\n                            <img src=\"https:\/\/static.wefut.com\/assets\/images\/nation_flag\/14.jpg\" class=\"nationflag\">\n                        <\/a>\n            \n            <div class=\"ratingholder\"><span class=\"rating\"  style=\"border: 0px !important\" >60<\/span><\/div>\n            <span class=\"position\">GK<\/span>\n            <div class=\"nonrare name\">\n            <span class=\"marquee\" data-base-id=111328>McCormick<\/span>\n        <\/div>\n        <div class=\"token_source\">FUT 14 SBC<\/div><div class=\"token_objective_wrapper\"><div data-type=\"sbc\" class=\"token_objective\">EXP <b>AUG 01<\/b><\/div><\/div>\n            \n                           \n\n            \n            \n            \n            \n            \n            \n            \n        <\/div>\n    <\/div>\n    <\/div>\n<\/div><div style=\"display:none\"><input type=\"hidden\" data-type=\"name\" data-base-id=111328 value=\"Luke McCormick\"<\/input><\/div>"];
-    
-    players.forEach(function (player) {
+  const players = ["<div class=\"card bronze fifa22\" data-base-id=\"166847\" data-club-id=\"306\" data-nation-id=\"25\" data-league-id=\"65\" data-rareflag=\"0\">\r\n    <div class=\"token_number\">1<\/div><div class=\"scard bronze fifa22\" style=\"position: relative; z-index: 2\">\r\n            <img src=\"token.png\" alt=\"\" class=\"player-card\">\r\n\r\n            <div class=\"rating-gradient\"><\/div>\r\n\r\n                        <a href=\"https:\/\/wefut.com\/club\/306\">\r\n                            <img src=\"https:\/\/static.wefut.com\/assets\/images\/fut22\/clubbadges\/306.png?21\" alt=\"\" class=\"clubbadge\">\r\n                        <\/a>\r\n            \r\n            <div class=\"avatarholder \">\r\n                <img src=\"https:\/\/static.wefut.com\/assets\/images\/fut22\/playeravatars\/166847.png?21\" onerror=\"this.src='https:\/\/static.wefut.com\/assets\/images\/fut15\/playeravatars\/unknown.png'\" alt=\"\" class=\"avatar\">\r\n            <\/div>\r\n\r\n                        <a href=\"https:\/\/wefut.com\/nation\/25\">\r\n                            <img src=\"https:\/\/static.wefut.com\/assets\/images\/nation_flag\/25.jpg\" class=\"nationflag\">\r\n                        <\/a>\r\n            \r\n            <div class=\"ratingholder\"><span class=\"rating\"  style=\"border: 0px !important\" >60<\/span><\/div>\r\n            <span class=\"position\">CM<\/span>\r\n            <div class=\"nonrare name\">\r\n            <span class=\"marquee\" data-base-id=166847>McCann<\/span>\r\n        <\/div>\r\n        <div class=\"token_source\">Free Token\r\n            \n                           \r\n\r\n            \r\n            \n            \n            \n            \n            \n            \n        <\/div>\r\n    <\/div>\r\n    <\/div>\r\n<\/div><div style=\"display:none\"><input type=\"hidden\" data-type=\"name\" data-base-id=166847 value=\"Chris McCann\"<\/input><\/div>", "<div class=\"card bronze fifa22\" data-base-id=\"52679\" data-club-id=\"15048\" data-nation-id=\"25\" data-league-id=\"61\" data-rareflag=\"0\">\r\n    <div class=\"token_number\">2<\/div><div class=\"scard bronze fifa22\" style=\"position: relative; z-index: 2\">\r\n            <img src=\"token.png\" alt=\"\" class=\"player-card\">\r\n\r\n            <div class=\"rating-gradient\"><\/div>\r\n\r\n                        <a href=\"https:\/\/wefut.com\/club\/15048\">\r\n                            <img src=\"https:\/\/static.wefut.com\/assets\/images\/fut22\/clubbadges\/15048.png?21\" alt=\"\" class=\"clubbadge\">\r\n                        <\/a>\r\n            \r\n            <div class=\"avatarholder \">\r\n                <img src=\"https:\/\/static.wefut.com\/assets\/images\/fut22\/playeravatars\/52679.png?21\" onerror=\"this.src='https:\/\/static.wefut.com\/assets\/images\/fut15\/playeravatars\/unknown.png'\" alt=\"\" class=\"avatar\">\r\n            <\/div>\r\n\r\n                        <a href=\"https:\/\/wefut.com\/nation\/25\">\r\n                            <img src=\"https:\/\/static.wefut.com\/assets\/images\/nation_flag\/25.jpg\" class=\"nationflag\">\r\n                        <\/a>\r\n            \r\n            <div class=\"ratingholder\"><span class=\"rating\"  style=\"border: 0px !important\" >60<\/span><\/div>\r\n            <span class=\"position\">GK<\/span>\r\n            <div class=\"nonrare name\">\r\n            <span class=\"marquee\" data-base-id=52679>Murphy<\/span>\r\n        <\/div>\r\n        <div class=\"token_source\">Cornet Objective<\/div><div class=\"token_objective_wrapper\"><div data-type=\"objective\" class=\"token_objective\">EXP <b>AUG 06<\/b><\/div><\/div>\r\n            \n                           \r\n\r\n            \r\n            \n            \n            \n            \n            \n            \n        <\/div>\r\n    <\/div>\r\n    <\/div>\r\n<\/div><div style=\"display:none\"><input type=\"hidden\" data-type=\"name\" data-base-id=52679 value=\"Joe Murphy\"<\/input><\/div>", "<div class=\"card bronze fifa22\" data-base-id=\"111328\" data-club-id=\"1929\" data-nation-id=\"14\" data-league-id=\"60\" data-rareflag=\"0\">\n    <div class=\"token_number\">3<\/div><div class=\"scard bronze fifa22\" style=\"position: relative; z-index: 2\">\n            <img src=\"token.png\" alt=\"\" class=\"player-card\">\n\n            <div class=\"rating-gradient\"><\/div>\n\n                        <a href=\"https:\/\/wefut.com\/club\/1929\">\n                            <img src=\"https:\/\/static.wefut.com\/assets\/images\/fut22\/clubbadges\/1929.png?21\" alt=\"\" class=\"clubbadge\">\n                        <\/a>\n            \n            <div class=\"avatarholder \">\n                <img src=\"https:\/\/static.wefut.com\/assets\/images\/fut22\/playeravatars\/111328.png?21\" onerror=\"this.src='https:\/\/static.wefut.com\/assets\/images\/fut15\/playeravatars\/unknown.png'\" alt=\"\" class=\"avatar\">\n            <\/div>\n\n                        <a href=\"https:\/\/wefut.com\/nation\/14\">\n                            <img src=\"https:\/\/static.wefut.com\/assets\/images\/nation_flag\/14.jpg\" class=\"nationflag\">\n                        <\/a>\n            \n            <div class=\"ratingholder\"><span class=\"rating\"  style=\"border: 0px !important\" >60<\/span><\/div>\n            <span class=\"position\">GK<\/span>\n            <div class=\"nonrare name\">\n            <span class=\"marquee\" data-base-id=111328>McCormick<\/span>\n        <\/div>\n        <div class=\"token_source\">FUT 14 SBC<\/div><div class=\"token_objective_wrapper\"><div data-type=\"sbc\" class=\"token_objective\">EXP <b>AUG 01<\/b><\/div><\/div>\n            \n                           \n\n            \n            \n            \n            \n            \n            \n            \n        <\/div>\n    <\/div>\n    <\/div>\n<\/div><div style=\"display:none\"><input type=\"hidden\" data-type=\"name\" data-base-id=111328 value=\"Luke McCormick\"<\/input><\/div>"];
+
+  players.forEach(function (player) {
     $('#tokens').append(player);
     tokens_number++;
   });
@@ -83,17 +85,22 @@
       `);
   }
 
-  let claimed_tokens = localStorage.getItem('claimed_tokens');
+  let claimed_tokens = '';
+  if (playerIdentity !== '') {
+    claimed_tokens = localStorage.getItem('claimed_tokens' + playerIdentity);
+  } else {
+    claimed_tokens = localStorage.getItem('claimed_tokens');
+  }
 
   if (claimed_tokens == null) {
     claimed_tokens = [];
     claimed_tokens.push(166847);
   } else {
     claimed_tokens = JSON.parse(claimed_tokens);
-    claimed_tokens.forEach(function (token) {
-      $('div[data-base-id="' + token + '"]').addClass('token-claimed');
-    });
   }
+  claimed_tokens.forEach(function (token) {
+    $('div[data-base-id="' + token + '"]').addClass('token-claimed');
+  });
 
   // add data counter to each card
   // $('#tokens > div').each(function(index) {
@@ -111,14 +118,19 @@
     if ($(this).hasClass('inactive')) {
       return;
     }
-    if($(this).hasClass('token-claimed')){
-      if(document.unclaim_mode == true) {
+    if ($(this).hasClass('token-claimed')) {
+      if (document.unclaim_mode == true) {
         console.log("removing token-claimed class");
         $(this).removeClass("token-claimed");
         let token_id = $(this).data('base-id');
         let index = claimed_tokens.indexOf(token_id);
         claimed_tokens.splice(index, 1);
-        localStorage.setItem("claimed_tokens", JSON.stringify(claimed_tokens));
+        if (playerIdentity !== '') {
+          localStorage.setItem("claimed_tokens" + playerIdentity, JSON.stringify(claimed_tokens));
+        } else {
+          localStorage.setItem("claimed_tokens", JSON.stringify(claimed_tokens));
+        }
+
         return;
       } else {
         console.log("doing nothing because unclaim mode is false");
@@ -127,17 +139,25 @@
     }
     $(this).addClass('token-claimed');
     claimed_tokens.push($(this).data('base-id'));
-    localStorage.setItem("claimed_tokens", JSON.stringify(claimed_tokens));
+    if (playerIdentity !== '') {
+      localStorage.setItem("claimed_tokens" + playerIdentity, JSON.stringify(claimed_tokens));
+    } else {
+      localStorage.setItem("claimed_tokens", JSON.stringify(claimed_tokens));
+    }
   });
 
   $("#reset").click(function () {
-    localStorage.setItem("claimed_tokens", JSON.stringify([]));
+    if (playerIdentity !== '') {
+      localStorage.setItem("claimed_tokens" + playerIdentity, JSON.stringify([]));
+    } else {
+      localStorage.setItem("claimed_tokens", JSON.stringify([]));
+    }
     location.reload();
   }
   );
 
   $("#unclaim").click(function () {
-    if(document.unclaim_mode == true) {
+    if (document.unclaim_mode == true) {
       document.unclaim_mode = false;
       $("#unclaim").removeClass("mode-active");
     } else {
@@ -189,7 +209,7 @@
       $("[data-type='objective']").closest(".fifa22.card").fadeIn();
     } else {
       $("[data-type='objective']").closest(".fifa22.card").fadeOut();
-}
+    }
   });
 
   $("#sbc").click(function () {
