@@ -162,6 +162,19 @@ a {
   bottom: -45px;
 }
 
+[data-type="pack"]::before {
+  content: "";
+  display: block;
+  background: url("pack.png");
+  width: 40px;
+  aspect-ratio: 1/1;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  left: 5px;
+  bottom: -45px;
+}
+
 body {
   background-image: url("dark-bg.png");
   font-family: MATROSKA;
@@ -5464,7 +5477,7 @@ h2 {
   .token_objective_wrapper {
     width: 140px;
   }
-  [data-type="objective"]::before, [data-type="sbc"]::before {
+  [data-type="objective"]::before, [data-type="sbc"]::before, [data-type="pack"]::before  {
     width: 55px;
     left: -15px;
     bottom: -133px;
