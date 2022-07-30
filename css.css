@@ -23,7 +23,7 @@
 
 .marquee{
   z-index: 10;
-  cursor: copy;
+  cursor:  url(clipboard.png) 2 2, pointer;
 }
 
 .link{
