@@ -62,6 +62,10 @@ h3{
 }
 
 
+.mode-active.mode-active{
+  background-color: red;
+}
+
 .token-claimed::before {
   color: #30cd30;
   content: "\E009";
