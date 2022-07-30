@@ -21,6 +21,11 @@
   font-style: normal;
 }
 
+.marquee{
+  z-index: 10;
+  cursor: copy;
+}
+
 .link{
   display: inline-block;
   color:#1a96f6;
