@@ -90,6 +90,7 @@ a {
 }
 
 .btn-standard {
+  margin-top: 12px;
   background-color: #1a96f6;
   color: #f2f2f2;
   height: 2.8rem;
@@ -5450,6 +5451,7 @@ h2 {
   }
   .btn-standard {
     margin-bottom: 0px;
+    margin-top:30px;
     width: 330px;
     height: 75px;
     font-size: 35px;
@@ -5538,12 +5540,11 @@ h2 {
     margin-bottom: 35px;
   }
   label{
-    font-size: 38px;
-    line-height: 25px;
+    font-size: 35px;
     top: 5px;
     position: relative;
   }
   input[type='checkbox']{
-    transform: scale(2);
+    transform: scale(1.8);
   }
 }
