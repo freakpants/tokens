@@ -25,13 +25,19 @@
         <span class="button__text">Rewards</span>
       </button>
       <div>
+      <div>
         <input type="checkbox" id="sbc" name="sbc" checked>
         <label for="sbc">SBC's</label>
+      </div>  
+      <div>
         <input type="checkbox" id="objectives" name="objectives" checked>
         <label for="objectives">Objectives</label>
+      </div>
+      <div>
         <input type="checkbox" id="packs" name="packs" checked>
         <label for="packs">Packs</label>
       </div>
+    </div>
     </div>
 
 
@@ -149,25 +155,25 @@
 
   $("#objectives").click(function () {
     if (this.checked) {
-      $("[data-type='objective']").closest(".fifa22.card").show();
+      $("[data-type='objective']").closest(".fifa22.card").fadeIn();
     } else {
-      $("[data-type='objective']").closest(".fifa22.card").hide();
-    }
+      $("[data-type='objective']").closest(".fifa22.card").fadeOut();
+}
   });
 
   $("#sbc").click(function () {
     if (this.checked) {
-      $("[data-type='sbc']").closest(".fifa22.card").show();
+      $("[data-type='sbc']").closest(".fifa22.card").fadeIn();
     } else {
-      $("[data-type='sbc']").closest(".fifa22.card").hide();
+      $("[data-type='sbc']").closest(".fifa22.card").fadeOut();
     }
   });
 
   $("#packs").click(function () {
     if (this.checked) {
-      $("[data-type='pack']").closest(".fifa22.card").show();
+      $("[data-type='pack']").closest(".fifa22.card").fadeIn();
     } else {
-      $("[data-type='pack']").closest(".fifa22.card").hide();
+      $("[data-type='pack']").closest(".fifa22.card").fadeOut();
     }
   });
 

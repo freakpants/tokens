@@ -117,6 +117,7 @@ a {
   display: flex;
   flex-direction: row;
   gap: 1em;
+  margin-bottom: 15px;
 }
 
 .fifa22.token-claimed.token-claimed,
@@ -5441,7 +5442,6 @@ h2 {
     font-size: 3em;
   }
   #button-wrapper {
-    flex-direction: column;
     gap: none;
     margin-bottom: 4em;
   }
@@ -5450,9 +5450,9 @@ h2 {
   }
   .btn-standard {
     margin-bottom: 0px;
-    width: 500px;
+    width: 330px;
     height: 75px;
-    font-size: 40px;
+    font-size: 35px;
   }
   .scard.fifa22 .player-card {
     width: 200px;
@@ -5528,7 +5528,22 @@ h2 {
     left: 75px;
   }
   h3{
-    font-size: 40px;
+    font-size: 36px;
     margin-bottom: 15px;
+    text-align: center;
+  }
+  #attribution{
+    gap: 1vw;
+    margin-top: 35px;
+    margin-bottom: 35px;
+  }
+  label{
+    font-size: 38px;
+    line-height: 25px;
+    top: 5px;
+    position: relative;
+  }
+  input[type='checkbox']{
+    transform: scale(2);
   }
 }
