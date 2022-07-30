@@ -143,6 +143,20 @@ a {
   width: 40px;
   aspect-ratio: 1/1;
   background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  left: 5px;
+  bottom: -45px;
+}
+
+[data-type="sbc"]::before {
+  content: "";
+  display: block;
+  background: url("sbc.png");
+  width: 40px;
+  aspect-ratio: 1/1;
+  background-size: contain;
+  background-repeat: no-repeat;
   position: absolute;
   left: 5px;
   bottom: -45px;
@@ -5415,11 +5429,10 @@ h2 {
     left: 5px;
   }
   .scard.fifa22 .name {
-    top: 157px;
+    top: 155px;
     width: 154px;
-    font-size: 30px;
-    right: -30px;
-    left: auto;
+    font-size: 25px;
+    right: -29px;
   }
   .scard.fifa22 .nationflag {
     top: 99px !important;
@@ -5451,7 +5464,7 @@ h2 {
   .token_objective_wrapper {
     width: 140px;
   }
-  [data-type="objective"]::before {
+  [data-type="objective"]::before, [data-type="sbc"]::before {
     width: 55px;
     left: -15px;
     bottom: -133px;
