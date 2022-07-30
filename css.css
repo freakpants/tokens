@@ -21,6 +21,17 @@
   font-style: normal;
 }
 
+label{
+  color: white;
+  font-family: 'UltimateTeamCondensed';
+}
+
+#attribution{
+  display: flex;
+    flex-direction: row;
+    gap: 10vw;
+}
+
 .marquee{
   z-index: 10;
   cursor:  url(clipboard.png) 2 2, pointer;
