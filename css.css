@@ -160,6 +160,24 @@ a {
   align-items: center;
 }
 
+.fifa22.card.warning::before{
+  content: "!";
+  font-family: Tahoma, sans-serif;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  text-decoration: none;
+  text-transform: none;
+  font-size: 72px;
+  position: absolute;
+  color:red;
+  top: -30px;
+  left: 100px;
+  z-index: 3;
+  -webkit-text-stroke: 1px white;
+    text-shadow: 0 0 30px #fff;;
+}
+
 .token_source {
   text-transform: uppercase;
   font-weight: bold;
