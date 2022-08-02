@@ -133,7 +133,7 @@ a {
 }
 
 .inactive.inactive.inactive .player-card,
-.token-claimed div.darken {
+.token-claimed div.darken, .inactive div.darken {
   filter: brightness(0.4);
 }
 
@@ -202,6 +202,14 @@ a {
   margin-left: 2px;
   width: 115px;
   margin-top: 11px;
+}
+
+.expired{
+  background-color: #ff0000;
+}
+
+.expired .token_objective{
+  font-weight:600;
 }
 
 [data-type="objective"]::before {
