@@ -230,35 +230,31 @@
     $("#tokens").html("");
     // add futties class to token div
     $('#tokens').addClass('futties');
-
     $.ajax({
       url: "https://freakpants.github.io/tokens/players.json",
-      dataType: "json"
     }).done(function (result) {
-      players = result;
-      players.forEach(function (player) {
+      console.log();
+      result.forEach(function (player) {
         $('#tokens').append(player);
         player_number++;
-        // bind the click events again
-        $(".marquee").click(function (event) {
-          name_copy(event);
-        });
-        $('#tokens .card.fifa22').click(function () {
-          const element = $(this);
-          card_click(element);
-        });
 
-        $('#tokens div').each(function (index) {
-          $(this).addClass('darken');
-        });
+
       });
+      // bind the click events again
+      $(".marquee").click(function (event) {
+        name_copy(event);
+      });
+      $('#tokens .card.fifa22').click(function () {
+        const element = $(this);
+        card_click(element);
+      });
+
+      $('#tokens div').each(function (index) {
+        $(this).addClass('darken');
+      });
+
+      mark_tokens();
     });
-
-
-
-
-
-
   }
   );
 
