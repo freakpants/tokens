@@ -85,6 +85,12 @@ h3{
   -webkit-text-stroke: unset;
 }
 
+.futties .token-claimed.token-claimed.token-claimed::before{
+  font-size: 4rem;
+  top: 140px;
+  left: 87px;
+}
+
 .header {
   display: flex;
   flex-flow: column;
@@ -308,8 +314,20 @@ h2 {
   filter: drop-shadow(10px 10px 5px rgba(255, 0, 0, 0.5));
 }
 
-.futties .card.fifa22 .player-card{
-  filter: drop-shadow(10px 10px 5px rgba(4, 110, 31, 0.5));
+.card.fifa22.shapeshifters .player-card{
+  filter: drop-shadow(10px 10px 5px rgba(4, 110, 31, 1));
+}
+
+.card.fifa22.goldblue .player-card{
+  filter: drop-shadow(10px 10px 5px rgb(12, 34, 231));
+}
+
+.card.fifa22.toty .player-card{
+  filter: drop-shadow(10px 10px 5px rgba(180, 202, 53, 0.5));
+}
+
+.card.fifa22.fantasypurple .player-card, .card.fifa22.championsleague .player-card{
+  filter: drop-shadow(10px 10px 5px rgb(146, 8, 238));
 }
 
 
