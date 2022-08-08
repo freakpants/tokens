@@ -146,6 +146,10 @@ a {
   max-width: 97vw;
 }
 
+#tokens.futties{
+  gap: 45px;
+}
+
 .token_number {
   position: absolute;
   left: -16px;
@@ -283,7 +287,7 @@ h2 {
 .workrateLabels.fifa22 {
   left: -86px;
 }
-.card.fifa22 {
+.card.fifa22.bronze {
   font-family: UltimateTeamCondensed, sans-serif;
   color: white;
   text-shadow: none !important;
@@ -298,8 +302,17 @@ h2 {
   top: -18px;
   height: auto;
   position: relative;
+}
+
+.card.fifa22.bronze .player-card {
   filter: drop-shadow(10px 10px 5px rgba(255, 0, 0, 0.5));
 }
+
+.futties .card.fifa22 .player-card{
+  filter: drop-shadow(10px 10px 5px rgba(4, 110, 31, 0.5));
+}
+
+
 .card.fifa22 .rating-gradient {
   width: 57px;
   height: 182px;
@@ -850,6 +863,11 @@ h2 {
   font-weight: 700;
   white-space: nowrap;
 }
+
+.futties .card.fifa22 .name{
+  font-size: 28px;
+}
+
 .card.fifa22 .chemstyle {
   line-height: 28px;
   text-transform: uppercase;
@@ -873,7 +891,7 @@ h2 {
   margin-left: 2px;
   margin-top: -6px;
 }
-.scard.fifa22 .player-card {
+.scard.fifa22.bronze .player-card  {
   width: 140px;
   aspect-ratio: 495/545;
   position: relative;
@@ -893,12 +911,18 @@ h2 {
   left: 0;
   font-weight: 300;
 }
+.futties .scard.fifa22 .rating {
+  font-size: 46px;
+  top: 15px;
+  left: 12px;
+  font-weight: 300;
+}
 .scard.fifa22 .ratingholder {
   border: 0;
   top: 23px;
   left: 17px;
 }
-.scard.fifa22 .position {
+.scard.fifa22.bronze .position {
   top: 42px;
   left: 15px;
   font-size: 19px;
@@ -938,14 +962,14 @@ h2 {
 .scard.fifa22.bronzeblue {
   color: #deb89e !important;
 }
-.scard.fifa22 .clubbadge {
+.scard.fifa22.bronze .clubbadge {
   top: 83px !important;
   left: 19px;
   width: 22px;
   height: 22px;
   z-index: 1;
 }
-.scard.fifa22 .nationflag {
+.scard.fifa22.bronze .nationflag {
   top: 66px !important;
   left: 18px;
   width: 22px;
@@ -958,7 +982,6 @@ h2 {
   width: 80px;
   height: 80px;
   position: absolute;
-  overflow: hidden;
   z-index: 0;
 }
 .scard.fifa22 .avatarholder-custom {
@@ -976,13 +999,28 @@ h2 {
   width: 100%;
   height: auto;
 }
-.scard.fifa22 .avatar {
+.scard.fifa22.bronze .avatar {
   top: 0;
   left: 0;
   width: 80px;
   height: 80px;
 }
-.scard.fifa22 .name {
+
+/* dynamic image version */
+/* .scard.fifa22.shapeshifters .avatar{
+  left: -45px;
+  width: 222px;
+  height: auto;
+} */
+
+.futties .scard.fifa22 .avatar{
+  left: 38px;
+    width: 134px;
+    height: auto;
+    top: 34px;
+}
+
+.scard.fifa22.bronze .name {
   line-height: 28px;
   text-transform: uppercase;
   top: 103px;
@@ -993,47 +1031,6 @@ h2 {
   margin-top: 5px;
   font-family: UltimateTeamCondensed, sans-serif;
   font-weight: 500;
-}
-.scard.fifa22 .attributes {
-  font-size: 13px;
-  font-family: lato, sans-serif;
-}
-.scard.fifa22 .pace {
-  top: 127px;
-  left: 19px;
-}
-.scard.fifa22 .dribbling {
-  top: 127px;
-  left: 81px;
-}
-.scard.fifa22 .shooting {
-  top: 142px;
-  left: 19px;
-}
-.scard.fifa22 .defending {
-  top: 142px;
-  left: 81px;
-}
-.scard.fifa22 .passing {
-  top: 157px;
-  left: 19px;
-}
-.scard.fifa22 .heading {
-  top: 157px;
-  left: 81px;
-}
-.scard.fifa22 .chemistry {
-  top: 6px;
-  left: 46px;
-  position: absolute;
-  text-shadow: 0 0 0;
-  font-weight: 700;
-  font-family: knul-bold;
-  font-size: 13px;
-}
-.scard.fifa22 .loyalty {
-  top: 171px;
-  left: 60px;
 }
 .generations .builder-background.squad.fifa17,
 .generations .builder-background.squad.fifa22 {
@@ -1087,15 +1084,6 @@ h2 {
 .card.fifa22 .heading:after {
   font-family: pt sans narrow, sans-serif;
   font-size: 20px;
-}
-.scard.fifa22 .pace:after,
-.scard.fifa22 .shooting:after,
-.scard.fifa22 .passing:after,
-.scard.fifa22 .dribbling:after,
-.scard.fifa22 .defending:after,
-.scard.fifa22 .heading:after {
-  font-family: pt sans narrow, sans-serif;
-  font-size: 13px;
 }
 
 .card-list .card {
@@ -1217,11 +1205,6 @@ h2 {
   content: " PHY";
   font-weight: 400;
 }
-.card.fifa13 .heading:after,
-.card.fifa14 .heading:after {
-  content: " HEA";
-  font-weight: 400;
-}
 .card .gk .heading:after {
   content: " POS";
   font-weight: 400;
@@ -1289,7 +1272,7 @@ h2 {
 .card.bronzeblue {
   color: #fff;
 }
-.scard {
+.scard.bronze {
   display: block;
   font-size: 14px;
   text-shadow: 0 0 1px #fff;
@@ -1298,6 +1281,12 @@ h2 {
   width: 150px;
   height: 180px;
 }
+
+.futties .scard{
+  max-width: 228px;
+  font-size: 28px;
+}
+
 .scard.fifa13,
 .scard.fifa14,
 .scard.fifa15,
@@ -5517,7 +5506,7 @@ h2 {
     top: 5px;
     left: 5px;
   }
-  .scard.fifa22 .name {
+  .scard.fifa22.bronze .name {
     top: 155px;
     width: 154px;
     font-size: 25px;
