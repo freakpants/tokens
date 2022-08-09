@@ -21,29 +21,60 @@
   font-style: normal;
 }
 
-label{
+.futties h1 {
+  color: rgb(255, 255, 255);
+  margin-bottom: 2rem;
+  font-size: 36px;
+}
+
+.futties .card{
+  transform: scale(0.6);
+  width: 158px;
+  height: 225px;
+  filter: grayscale(1);
+  opacity: 0.8;
+}
+
+.futties.futties.futties .name{
+  width: 222px;
+  left: 0;
+}
+
+body.futties {
+  background-image: url("futties.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  overflow:hidden;
+}
+
+label {
   color: white;
-  font-family: 'UltimateTeamCondensed';
+  font-family: "UltimateTeamCondensed";
 }
 
-#attribution{
+#attribution {
   display: flex;
-    flex-direction: row;
-    gap: 10vw;
+  flex-direction: row;
+  gap: 10vw;
 }
 
-.marquee{
+.marquee {
   z-index: 10;
-  cursor:  url(clipboard.png) 2 2, pointer;
+  cursor: url(clipboard.png) 2 2, pointer;
 }
 
-.link{
+.link {
   display: inline-block;
-  color:#1a96f6;
+  color: #1a96f6;
   cursor: pointer;
 }
 
-.link::after{
+.futties #wefut{
+}
+
+
+.link::after {
   content: "";
   display: block;
   position: relative;
@@ -53,7 +84,64 @@ label{
   left: 0;
 }
 
-h3{
+.futties .link::after {
+  background-color: #cb4278;
+}
+
+.futties #reset{
+  position: absolute;
+    left: 122px;
+    top: 63px;
+}
+
+.futties .token_number{
+  display: none;
+}
+
+.futties-header {
+  display:none;
+  padding-top: 7vh;
+  position: fixed;
+  width: 100vw;
+}
+
+.futties h1{
+  background: linear-gradient(
+    99deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(207, 70, 153, 1) 0%,
+    rgba(208, 28, 98, 1) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.futties .token-claimed{
+  filter: grayscale(0);
+  opacity: 1;
+}
+
+.futties .token-claimed div.darken{
+  filter: brightness(1);
+}
+
+.futties #tokens {
+  position: absolute;
+  top: 179px;
+  left: 65px;
+  right: 120px;
+  bottom: 110px;
+  overflow-y: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.futties #tokens::-webkit-scrollbar {
+  display: none;
+}
+
+h3 {
   font-family: "Tahoma";
   font-size: 20px;
   color: white;
@@ -61,8 +149,7 @@ h3{
   margin-bottom: 10px;
 }
 
-
-.mode-active.mode-active{
+.mode-active.mode-active {
   background-color: red;
 }
 
@@ -85,7 +172,7 @@ h3{
   -webkit-text-stroke: unset;
 }
 
-.futties .token-claimed.token-claimed.token-claimed::before{
+.futties .token-claimed.token-claimed.token-claimed::before {
   font-size: 4rem;
   top: 140px;
   left: 87px;
@@ -99,6 +186,19 @@ h3{
 
 a {
   pointer-events: none;
+}
+
+#overlay_bg{
+  display:none;
+  background-image: url("futties.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  position: absolute;
+  width:100%;
+  height:100%;
+  z-index: 1;
+    pointer-events: none;
 }
 
 .btn-standard {
@@ -139,7 +239,8 @@ a {
 }
 
 .inactive.inactive.inactive .player-card,
-.token-claimed div.darken, .inactive div.darken {
+.token-claimed div.darken,
+.inactive div.darken {
   filter: brightness(0.4);
 }
 
@@ -152,8 +253,8 @@ a {
   max-width: 97vw;
 }
 
-#tokens.futties{
-  gap: 45px;
+#tokens.futties {
+  gap: unset;
 }
 
 .token_number {
@@ -172,9 +273,9 @@ a {
   align-items: center;
 }
 
-.fifa22.card.warning::before{
+.fifa22.card.warning::before {
   content: "!";
-  font-family: 'Secular One';
+  font-family: "Secular One";
   font-style: normal;
   font-variant: normal;
   font-weight: 400;
@@ -182,7 +283,7 @@ a {
   text-transform: none;
   font-size: 65px;
   position: absolute;
-  color:red;
+  color: red;
   top: -35px;
   left: 100px;
   z-index: 3;
@@ -214,12 +315,12 @@ a {
   margin-top: 11px;
 }
 
-.expired{
+.expired {
   background-color: #ff0000;
 }
 
-.expired .token_objective{
-  font-weight:600;
+.expired .token_objective {
+  font-weight: 600;
 }
 
 [data-type="objective"]::before {
@@ -300,8 +401,12 @@ h2 {
   max-width: 227px;
   height: 230px;
   display: inline-block;
+}
+
+.card.fifa22 {
   cursor: pointer;
 }
+
 .card.fifa22 .player-card {
   width: 294px;
   left: -33px;
@@ -314,22 +419,31 @@ h2 {
   filter: drop-shadow(10px 10px 5px rgba(255, 0, 0, 0.5));
 }
 
-.card.fifa22.shapeshifters .player-card{
+.card.fifa22.shapeshifters .player-card {
   filter: drop-shadow(10px 10px 5px rgba(4, 110, 31, 1));
 }
 
-.card.fifa22.goldblue .player-card{
+.card.fifa22.goldblue .player-card {
   filter: drop-shadow(10px 10px 5px rgb(12, 34, 231));
 }
 
-.card.fifa22.toty .player-card{
+.card.fifa22.toty .player-card {
   filter: drop-shadow(10px 10px 5px rgba(180, 202, 53, 0.5));
 }
 
-.card.fifa22.fantasypurple .player-card, .card.fifa22.championsleague .player-card{
+.card.fifa22.fantasypurple .player-card,
+.card.fifa22.championsleague .player-card {
   filter: drop-shadow(10px 10px 5px rgb(146, 8, 238));
 }
 
+.futties .token_number {
+  color: #efdc7c;
+  background: #b400ff;
+  border: 3px solid #efdc7c;
+  width: 36px;
+  height: 36px;
+  border-radius: 21px;
+}
 
 .card.fifa22 .rating-gradient {
   width: 57px;
@@ -882,7 +996,7 @@ h2 {
   white-space: nowrap;
 }
 
-.futties .card.fifa22 .name{
+.futties .card.fifa22 .name {
   font-size: 28px;
 }
 
@@ -909,7 +1023,7 @@ h2 {
   margin-left: 2px;
   margin-top: -6px;
 }
-.scard.fifa22.bronze .player-card  {
+.scard.fifa22.bronze .player-card {
   width: 140px;
   aspect-ratio: 495/545;
   position: relative;
@@ -1031,11 +1145,11 @@ h2 {
   height: auto;
 } */
 
-.futties .scard.fifa22 .avatar{
+.futties .scard.fifa22 .avatar {
   left: 38px;
-    width: 134px;
-    height: auto;
-    top: 34px;
+  width: 134px;
+  height: auto;
+  top: 34px;
 }
 
 .scard.fifa22.bronze .name {
@@ -1102,6 +1216,8 @@ h2 {
 .card.fifa22 .heading:after {
   font-family: pt sans narrow, sans-serif;
   font-size: 20px;
+  position: absolute;
+    left: 28px;
 }
 
 .card-list .card {
@@ -1300,8 +1416,7 @@ h2 {
   height: 180px;
 }
 
-.futties .scard{
-  max-width: 228px;
+.futties .scard {
   font-size: 28px;
 }
 
@@ -5491,7 +5606,7 @@ h2 {
   }
   .btn-standard {
     margin-bottom: 0px;
-    margin-top:30px;
+    margin-top: 30px;
     width: 330px;
     height: 75px;
     font-size: 35px;
@@ -5560,7 +5675,9 @@ h2 {
   .token_objective_wrapper {
     width: 140px;
   }
-  [data-type="objective"]::before, [data-type="sbc"]::before, [data-type="pack"]::before  {
+  [data-type="objective"]::before,
+  [data-type="sbc"]::before,
+  [data-type="pack"]::before {
     width: 55px;
     left: -15px;
     bottom: -133px;
@@ -5569,22 +5686,22 @@ h2 {
     top: 68px;
     left: 75px;
   }
-  h3{
+  h3 {
     font-size: 36px;
     margin-bottom: 15px;
     text-align: center;
   }
-  #attribution{
+  #attribution {
     gap: 1vw;
     margin-top: 35px;
     margin-bottom: 35px;
   }
-  label{
+  label {
     font-size: 35px;
     top: 5px;
     position: relative;
   }
-  input[type='checkbox']{
+  input[type="checkbox"] {
     transform: scale(1.8);
   }
 }
