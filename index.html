@@ -306,7 +306,7 @@
     const timeLeft = timeStamp - (Math.floor(Date.now() / 1000));
     if (timeLeft < 0) {
       const closest = $(this).closest(".card.fifa22");
-      $(closest).addClass("inactive");
+      $(closest).addClass("expired");
       $(closest).find(".token_objective_wrapper").addClass("expired");
       $(closest).find(".token_objective").html("EXPIRED");
       return;

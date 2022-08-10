@@ -240,7 +240,7 @@ a {
 
 .inactive.inactive.inactive .player-card,
 .token-claimed div.darken,
-.inactive div.darken {
+.inactive div.darken, .expired div.darken {
   filter: brightness(0.4);
 }
 
@@ -315,7 +315,7 @@ a {
   margin-top: 11px;
 }
 
-.expired {
+.token_objective_wrapper.expired {
   background-color: #ff0000;
 }
 
