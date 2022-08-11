@@ -12,7 +12,7 @@
   <div id="overlay_bg"></div>
   <div class="futties-header">
     <h1>Futties Collector</h1>
-    <button id="reset" class="btn-standard call-to-action">
+    <button id="futties_reset" class="reset btn-standard call-to-action">
       <span class="button__text">Reset</span>
     </button>
   </div>
@@ -21,12 +21,13 @@
     <h2>Token Tracker</h2>
     <div id="attribution">
       <h3 id="docs">?</h3>
+      <h3>Claimed: <span id="claimed">1/50</span></h3>
     </div>
     <div id="button-wrapper">
       <button id="unclaim" class="btn-standard call-to-action">
         <span class="button__text">Unclaim tokens</span>
       </button>
-      <button id="reset" class="btn-standard call-to-action">
+      <button id="token_reset" class="reset btn-standard call-to-action">
         <span class="button__text">Reset all claimed tokens</span>
       </button>
       <button id="rewards" class="btn-standard call-to-action">
@@ -67,8 +68,70 @@
 
   let tokens_number = 0;
 
+  $(document).ready(function () {
+    $(".reset").click(function () {
+      if (document.futtiescollector) {
+
+        if (playerIdentity !== '') {
+          localStorage.setItem("document.claimed_futties" + playerIdentity, JSON.stringify([]));
+        } else {
+          localStorage.setItem("document.claimed_futties", JSON.stringify([]));
+        }
+      } else {
+        if (playerIdentity !== '') {
+          localStorage.setItem("document.claimed_tokens" + playerIdentity, JSON.stringify([]));
+        } else {
+          localStorage.setItem("document.claimed_tokens", JSON.stringify([]));
+        }
+      }
+
+      location.reload();
+    }
+    );
+
+    $("#unclaim").click(function () {
+      if (document.unclaim_mode == true) {
+        document.unclaim_mode = false;
+        $("#unclaim").removeClass("mode-active");
+      } else {
+        document.unclaim_mode = true;
+        $("#unclaim").addClass("mode-active");
+      }
+    }
+    );
+
+    $("#rewards").click(function () {
+      location.href = "https://pbs.twimg.com/media/FYrZ_Q5WYAAKwr0?format=jpg&name=900x900";
+    }
+    );
+
+    $("#docs").click(function () {
+      location.href = "https://github.com/freakpants/tokens/blob/main/README.md";
+    }
+    );
+  });
+
   function mark_tokens() {
-      document.claimed_tokens = '';
+    document.claimed_tokens = '';
+    document.claimed_futties = '';
+    if (document.futtiescollector) {
+      if (playerIdentity !== '') {
+        document.claimed_futties = localStorage.getItem('document.claimed_futties' + playerIdentity);
+      } else {
+        document.claimed_futties = localStorage.getItem('document.claimed_futties');
+      }
+
+      if (document.claimed_futties == null) {
+        document.claimed_futties = [];
+      } else {
+        document.claimed_futties = JSON.parse(document.claimed_futties);
+      }
+
+      document.claimed_futties.forEach(function (token) {
+        $('div[data-base-id="' + token + '"]').addClass('token-claimed');
+      });
+
+    } else {
       if (playerIdentity !== '') {
         document.claimed_tokens = localStorage.getItem('document.claimed_tokens' + playerIdentity);
       } else {
@@ -85,35 +148,51 @@
       document.claimed_tokens.forEach(function (token) {
         $('div[data-base-id="' + token + '"]').addClass('token-claimed');
       });
+
+
+
     }
 
 
+  }
 
-    // add data counter to each card
-    // $('#tokens > div').each(function(index) {
-    //   $(this).attr('data-token-id', index + 1);
-    // });
 
-    
 
-    function add_darken_class() {
-      $('#tokens div').each(function (index) {
-        // if this has class token_source, dont darken
-        if (!$(this).hasClass('token_source') && !$(this).hasClass('token_objective') && !$(this).hasClass('token_objective_wrapper') && !$(this).hasClass('attributes')) {
-          $(this).addClass('darken');
-        }
-      });
-    }
+  // add data counter to each card
+  // $('#tokens > div').each(function(index) {
+  //   $(this).attr('data-token-id', index + 1);
+  // });
 
-    function card_click(parent) {
-      if ($(parent).hasClass('inactive')) {
-        return;
+
+
+  function add_darken_class() {
+    $('#tokens div').each(function (index) {
+      // if this has class token_source, dont darken
+      if (!$(this).hasClass('token_source') && !$(this).hasClass('token_objective') && !$(this).hasClass('token_objective_wrapper') && !$(this).hasClass('attributes')) {
+        $(this).addClass('darken');
       }
-      if ($(parent).hasClass('token-claimed')) {
-        if (document.unclaim_mode == true) {
-          console.log("removing token-claimed class");
-          $(parent).removeClass("token-claimed");
-          let token_id = $(this).data('base-id');
+    });
+  }
+
+  function card_click(parent) {
+    if ($(parent).hasClass('inactive')) {
+      return;
+    }
+    if ($(parent).hasClass('token-claimed')) {
+      if (document.unclaim_mode == true) {
+        console.log("removing token-claimed class");
+        $(parent).removeClass("token-claimed");
+        let token_id = $(this).data('base-id');
+
+        if (document.futtiescollector) {
+          let index = document.claimed_futties.indexOf(token_id);
+          document.claimed_futties.splice(index, 1);
+          if (playerIdentity !== '') {
+            localStorage.setItem("document.claimed_futties" + playerIdentity, JSON.stringify(document.claimed_futties));
+          } else {
+            localStorage.setItem("document.claimed_futties", JSON.stringify(document.claimed_futties));
+          }
+        } else {
           let index = document.claimed_tokens.indexOf(token_id);
           document.claimed_tokens.splice(index, 1);
           if (playerIdentity !== '') {
@@ -121,14 +200,25 @@
           } else {
             localStorage.setItem("document.claimed_tokens", JSON.stringify(document.claimed_tokens));
           }
-
-          return;
-        } else {
-          console.log("doing nothing because unclaim mode is false");
-          return;
         }
+
+
+        return;
+      } else {
+        console.log("doing nothing because unclaim mode is false");
+        return;
       }
-      $(parent).addClass('token-claimed');
+    }
+    $(parent).addClass('token-claimed');
+
+    if (document.futtiescollector) {
+      document.claimed_futties.push($(parent).data('base-id'));
+      if (playerIdentity !== '') {
+        localStorage.setItem("document.claimed_futties" + playerIdentity, JSON.stringify(document.claimed_futties));
+      } else {
+        localStorage.setItem("document.claimed_futties", JSON.stringify(document.claimed_futties));
+      }
+    } else {
       document.claimed_tokens.push($(parent).data('base-id'));
       if (playerIdentity !== '') {
         localStorage.setItem("document.claimed_tokens" + playerIdentity, JSON.stringify(document.claimed_tokens));
@@ -136,24 +226,25 @@
         localStorage.setItem("document.claimed_tokens", JSON.stringify(document.claimed_tokens));
       }
     }
+  }
 
-    
 
-    function name_copy(event) {
-      const id = $(event.target).data("base-id");
-      var copyTextarea = document.querySelector('[data-type="name"][data-base-id="' + id + '"]');
-      console.log(copyTextarea);
 
-      $(copyTextarea).parent().show();
+  function name_copy(event) {
+    const id = $(event.target).data("base-id");
+    var copyTextarea = document.querySelector('[data-type="name"][data-base-id="' + id + '"]');
+    console.log(copyTextarea);
 
-      copyTextarea.type = "text";
-      copyTextarea.focus();
-      copyTextarea.select();
-      document.execCommand("copy");
-      $(copyTextarea).parent().hide();
-      copyTextarea.type = "hidden";
-      event.stopPropagation();
-    }
+    $(copyTextarea).parent().show();
+
+    copyTextarea.type = "text";
+    copyTextarea.focus();
+    copyTextarea.select();
+    document.execCommand("copy");
+    $(copyTextarea).parent().hide();
+    copyTextarea.type = "hidden";
+    event.stopPropagation();
+  }
 
   $.ajax({
     url: "https://freakpants.github.io/tokens/tokens.json",
@@ -162,7 +253,7 @@
     result.forEach(function (player) {
       $('#tokens').append(player);
       tokens_number++;
-      
+
     });
     // generate the rest of the empty divs
     for (let i = tokens_number; i < 50; i++) {
@@ -193,36 +284,7 @@
       const element = $(this);
       card_click(element);
     });
-    $("#reset").click(function () {
-      if (playerIdentity !== '') {
-        localStorage.setItem("document.claimed_tokens" + playerIdentity, JSON.stringify([]));
-      } else {
-        localStorage.setItem("document.claimed_tokens", JSON.stringify([]));
-      }
-      location.reload();
-    }
-    );
 
-    $("#unclaim").click(function () {
-      if (document.unclaim_mode == true) {
-        document.unclaim_mode = false;
-        $("#unclaim").removeClass("mode-active");
-      } else {
-        document.unclaim_mode = true;
-        $("#unclaim").addClass("mode-active");
-      }
-    }
-    );
-
-    $("#rewards").click(function () {
-      location.href = "https://pbs.twimg.com/media/FYrZ_Q5WYAAKwr0?format=jpg&name=900x900";
-    }
-    );
-
-    $("#docs").click(function () {
-      location.href = "https://github.com/freakpants/tokens/blob/main/README.md";
-    }
-    );
     $(".marquee").click(function (event) {
       name_copy(event);
     });
@@ -284,58 +346,59 @@
 
 
 
-    
-
-
-    
 
 
 
 
 
-    
-    function enable_futties() {
-      let player_number = 0;
-      $("#criminal").hide();
-      $("#tokens").html("");
-      $("body").addClass("futties");
-      $(".header").hide();
-      $(".futties-header").show();
-      $("#overlay_bg").show();
-      // add futties class to token div
-      $('#tokens').addClass('futties');
-      $.ajax({
-        url: "https://freakpants.github.io/tokens/players.json",
-      }).done(function (result) {
-        console.log();
-        result.forEach(function (player) {
-          $('#tokens').append(player);
-          player_number++;
 
 
-        });
-        // bind the click events again
-        $(".marquee").click(function (event) {
-          name_copy(event);
-        });
-        $('#tokens .card.fifa22').click(function () {
-          const element = $(this);
-          card_click(element);
-        });
 
-        add_darken_class();
 
-        mark_tokens();
+
+  function enable_futties() {
+    document.futtiescollector = true;
+    let player_number = 0;
+    $("#criminal").hide();
+    $("#tokens").html("");
+    $("body").addClass("futties");
+    $(".header").hide();
+    $(".futties-header").show();
+    $("#overlay_bg").show();
+    // add futties class to token div
+    $('#tokens').addClass('futties');
+    $.ajax({
+      url: "https://freakpants.github.io/tokens/players.json",
+    }).done(function (result) {
+      console.log();
+      result.forEach(function (player) {
+        $('#tokens').append(player);
+        player_number++;
+
+
       });
-    }
+      // bind the click events again
+      $(".marquee").click(function (event) {
+        name_copy(event);
+      });
+      $('#tokens .card.fifa22').click(function () {
+        const element = $(this);
+        card_click(element);
+      });
+
+      add_darken_class();
+
+      mark_tokens();
+    });
+  }
 
 
 
 
 
-    if (document.futtiescollector) {
-      enable_futties();
-    }
+  if (document.futtiescollector) {
+    enable_futties();
+  }
 
 
 
