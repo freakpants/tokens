@@ -16,13 +16,19 @@
       <span class="button__text">Reset</span>
     </button>
   </div>
+  <div id="counters">
+    <h3>Claimed: <span id="claimed"></span></h3>
+    <h3>Expired: <span id="expired"></span></h3>
+    <h3>Missed: <span id="missed"></span></h3>
+    <h3>Max. possible: <span id="max"></span></h3>
+  </div>
   <div class="header">
     <h1>Summer Swaps 2</h1>
     <h2>Token Tracker</h2>
     <div id="attribution">
       <h3 id="docs">?</h3>
-      <h3>Claimed: <span id="claimed">1/50</span></h3>
     </div>
+
     <div id="button-wrapper">
       <button id="unclaim" class="btn-standard call-to-action">
         <span class="button__text">Unclaim tokens</span>
@@ -65,6 +71,10 @@
   document.futtiescollector = false;
 
   document.futties_collected = 0;
+
+  document.tokens_expired = 0;
+
+  document.missed = 0;
 
   let tokens_number = 0;
 
@@ -111,6 +121,14 @@
     );
   });
 
+  function update_token_count() {
+    let expired_tokens_done = $(".expired.token-claimed").length;
+    $("#claimed").text(document.claimed_tokens.length + "/" + document.available_tokens);
+    $("#expired").text(document.tokens_expired);
+    $("#missed").text(document.missed - expired_tokens_done);
+    $("#max").text(50 - document.missed + expired_tokens_done);
+  }
+
   function mark_tokens() {
     document.claimed_tokens = '';
     document.claimed_futties = '';
@@ -126,7 +144,6 @@
       } else {
         document.claimed_futties = JSON.parse(document.claimed_futties);
       }
-
       document.claimed_futties.forEach(function (token) {
         $('div[data-base-id="' + token + '"]').addClass('token-claimed');
       });
@@ -149,7 +166,7 @@
         $('div[data-base-id="' + token + '"]').addClass('token-claimed');
       });
 
-
+      update_token_count();
 
     }
 
@@ -200,6 +217,7 @@
           } else {
             localStorage.setItem("document.claimed_tokens", JSON.stringify(document.claimed_tokens));
           }
+          update_token_count();
         }
 
 
@@ -209,23 +227,28 @@
         return;
       }
     }
-    $(parent).addClass('token-claimed');
 
-    if (document.futtiescollector) {
-      document.claimed_futties.push($(parent).data('base-id'));
-      if (playerIdentity !== '') {
-        localStorage.setItem("document.claimed_futties" + playerIdentity, JSON.stringify(document.claimed_futties));
+    if (!document.unclaim_mode) {
+      $(parent).addClass('token-claimed');
+
+      if (document.futtiescollector) {
+        document.claimed_futties.push($(parent).data('base-id'));
+        if (playerIdentity !== '') {
+          localStorage.setItem("document.claimed_futties" + playerIdentity, JSON.stringify(document.claimed_futties));
+        } else {
+          localStorage.setItem("document.claimed_futties", JSON.stringify(document.claimed_futties));
+        }
       } else {
-        localStorage.setItem("document.claimed_futties", JSON.stringify(document.claimed_futties));
-      }
-    } else {
-      document.claimed_tokens.push($(parent).data('base-id'));
-      if (playerIdentity !== '') {
-        localStorage.setItem("document.claimed_tokens" + playerIdentity, JSON.stringify(document.claimed_tokens));
-      } else {
-        localStorage.setItem("document.claimed_tokens", JSON.stringify(document.claimed_tokens));
+        document.claimed_tokens.push($(parent).data('base-id'));
+        if (playerIdentity !== '') {
+          localStorage.setItem("document.claimed_tokens" + playerIdentity, JSON.stringify(document.claimed_tokens));
+        } else {
+          localStorage.setItem("document.claimed_tokens", JSON.stringify(document.claimed_tokens));
+        }
+        update_token_count();
       }
     }
+
   }
 
 
@@ -255,6 +278,8 @@
       tokens_number++;
 
     });
+    // remember how many tokens are available
+    document.available_tokens = tokens_number;
     // generate the rest of the empty divs
     for (let i = tokens_number; i < 50; i++) {
       $('#tokens').append(`
@@ -325,6 +350,8 @@
       }
       const timeLeft = timeStamp - (Math.floor(Date.now() / 1000));
       if (timeLeft < 0) {
+        document.tokens_expired++;
+        document.missed++;
         const closest = $(this).closest(".card.fifa22");
         $(closest).addClass("expired");
         $(closest).find(".token_objective_wrapper").addClass("expired");
@@ -341,6 +368,7 @@
       }
     }
     );
+    update_token_count();
 
   });
 

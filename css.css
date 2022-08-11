@@ -226,6 +226,13 @@ a {
   cursor: pointer;
 }
 
+#counters{
+  position: absolute;
+  left: 36px;
+  line-height: 15px;
+  top: 36px;
+}
+
 #button-wrapper {
   display: flex;
   flex-direction: row;
