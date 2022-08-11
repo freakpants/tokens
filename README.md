@@ -1,4 +1,6 @@
 # Interactive Token Tracker for Summer Swaps 2
+![image](https://user-images.githubusercontent.com/12885929/184119859-4a1adb45-98a2-44f1-ad52-edb949d0a720.png)
+
 
 ## General Use
 If you've never used the tracker before, I suggest navigating to your club on the webapp, and selecting "SUMMER SWAP TOKENS 2" as the Rarity. This will show you all the players you have already collected and will allow you to claim them on the tracker. 
