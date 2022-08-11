@@ -67,44 +67,7 @@
 
   let tokens_number = 0;
 
-  $.ajax({
-    url: "https://freakpants.github.io/tokens/tokens.json",
-  }).done(function (result) {
-    console.log();
-    result.forEach(function (player) {
-      $('#tokens').append(player);
-      tokens_number++;
-    });
-  });
-
-
-
-    // generate the rest of the empty divs
-    for (let i = tokens_number; i < 50; i++) {
-      $('#tokens').append(`
-      <div class="card bronze fifa22 inactive" data-base-id="" data-club-id="1929" data-nation-id="14" data-league-id="60" data-rareflag="0">
-          <div class="token_number">${i + 1}</div>
-          <div class="scard bronze fifa22 style="position: relative; z-index: 2">
-
-              <img src="token.png" alt="" class="player-card">
-  
-              <div class="rating-gradient"></div>
-
-              
-              <div class="avatarholder ">
-                  </div>
-  
-        
-              
-
-          </div>
-      </div>
-      </div>
-      `);
-    }
-
-
-    function mark_tokens() {
+  function mark_tokens() {
       document.claimed_tokens = '';
       if (playerIdentity !== '') {
         document.claimed_tokens = localStorage.getItem('document.claimed_tokens' + playerIdentity);
@@ -124,7 +87,6 @@
       });
     }
 
-    mark_tokens();
 
 
     // add data counter to each card
@@ -132,7 +94,7 @@
     //   $(this).attr('data-token-id', index + 1);
     // });
 
-    add_darken_class();
+    
 
     function add_darken_class() {
       $('#tokens div').each(function (index) {
@@ -142,11 +104,6 @@
         }
       });
     }
-
-    $('#tokens .card.fifa22').click(function () {
-      const element = $(this);
-      card_click(element);
-    });
 
     function card_click(parent) {
       if ($(parent).hasClass('inactive')) {
@@ -180,6 +137,62 @@
       }
     }
 
+    
+
+    function name_copy(event) {
+      const id = $(event.target).data("base-id");
+      var copyTextarea = document.querySelector('[data-type="name"][data-base-id="' + id + '"]');
+      console.log(copyTextarea);
+
+      $(copyTextarea).parent().show();
+
+      copyTextarea.type = "text";
+      copyTextarea.focus();
+      copyTextarea.select();
+      document.execCommand("copy");
+      $(copyTextarea).parent().hide();
+      copyTextarea.type = "hidden";
+      event.stopPropagation();
+    }
+
+  $.ajax({
+    url: "https://freakpants.github.io/tokens/tokens.json",
+  }).done(function (result) {
+    console.log(result);
+    result.forEach(function (player) {
+      $('#tokens').append(player);
+      tokens_number++;
+      
+    });
+    // generate the rest of the empty divs
+    for (let i = tokens_number; i < 50; i++) {
+      $('#tokens').append(`
+      <div class="card bronze fifa22 inactive" data-base-id="" data-club-id="1929" data-nation-id="14" data-league-id="60" data-rareflag="0">
+          <div class="token_number">${i + 1}</div>
+          <div class="scard bronze fifa22 style="position: relative; z-index: 2">
+
+              <img src="token.png" alt="" class="player-card">
+  
+              <div class="rating-gradient"></div>
+
+              
+              <div class="avatarholder ">
+                  </div>
+  
+        
+              
+
+          </div>
+      </div>
+      </div>
+      `);
+    }
+    mark_tokens();
+    add_darken_class();
+    $('#tokens .card.fifa22').click(function () {
+      const element = $(this);
+      card_click(element);
+    });
     $("#reset").click(function () {
       if (playerIdentity !== '') {
         localStorage.setItem("document.claimed_tokens" + playerIdentity, JSON.stringify([]));
@@ -210,23 +223,6 @@
       location.href = "https://github.com/freakpants/tokens/blob/main/README.md";
     }
     );
-
-    function name_copy(event) {
-      const id = $(event.target).data("base-id");
-      var copyTextarea = document.querySelector('[data-type="name"][data-base-id="' + id + '"]');
-      console.log(copyTextarea);
-
-      $(copyTextarea).parent().show();
-
-      copyTextarea.type = "text";
-      copyTextarea.focus();
-      copyTextarea.select();
-      document.execCommand("copy");
-      $(copyTextarea).parent().hide();
-      copyTextarea.type = "hidden";
-      event.stopPropagation();
-    }
-
     $(".marquee").click(function (event) {
       name_copy(event);
     });
@@ -235,43 +231,6 @@
       enable_futties();
     }
     );
-
-    function enable_futties() {
-      let player_number = 0;
-      $("#criminal").hide();
-      $("#tokens").html("");
-      $("body").addClass("futties");
-      $(".header").hide();
-      $(".futties-header").show();
-      $("#overlay_bg").show();
-      // add futties class to token div
-      $('#tokens').addClass('futties');
-      $.ajax({
-        url: "https://freakpants.github.io/tokens/players.json",
-      }).done(function (result) {
-        console.log();
-        result.forEach(function (player) {
-          $('#tokens').append(player);
-          player_number++;
-
-
-        });
-        // bind the click events again
-        $(".marquee").click(function (event) {
-          name_copy(event);
-        });
-        $('#tokens .card.fifa22').click(function () {
-          const element = $(this);
-          card_click(element);
-        });
-
-        add_darken_class();
-
-        mark_tokens();
-      });
-    }
-
-
 
     $("#objectives").click(function () {
       if (this.checked) {
@@ -320,6 +279,59 @@
       }
     }
     );
+
+  });
+
+
+
+    
+
+
+    
+
+
+
+
+
+    
+    function enable_futties() {
+      let player_number = 0;
+      $("#criminal").hide();
+      $("#tokens").html("");
+      $("body").addClass("futties");
+      $(".header").hide();
+      $(".futties-header").show();
+      $("#overlay_bg").show();
+      // add futties class to token div
+      $('#tokens').addClass('futties');
+      $.ajax({
+        url: "https://freakpants.github.io/tokens/players.json",
+      }).done(function (result) {
+        console.log();
+        result.forEach(function (player) {
+          $('#tokens').append(player);
+          player_number++;
+
+
+        });
+        // bind the click events again
+        $(".marquee").click(function (event) {
+          name_copy(event);
+        });
+        $('#tokens .card.fifa22').click(function () {
+          const element = $(this);
+          card_click(element);
+        });
+
+        add_darken_class();
+
+        mark_tokens();
+      });
+    }
+
+
+
+
 
     if (document.futtiescollector) {
       enable_futties();
