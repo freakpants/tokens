@@ -18,6 +18,20 @@
   left: 116px;
   top: 149px;
   gap: 31px;
+}
+
+.futties .btn-standard{
+  width: 172px;
+}
+
+.futties .unclaim{
+  left: 301px;
+  top: 60px;
+  position: absolute;
+}
+
+.checkbox_wrapper_futties, #futties_counters h3{
+
   background: linear-gradient( 99deg, rgba(2, 0, 36, 1) 0%, rgba(207, 70, 153, 1) 0%, rgba(208, 28, 98, 1) 100% );
     -webkit-background-clip: text;
     background-clip: text;
@@ -26,6 +40,12 @@
 
 .checkbox_wrapper_futties input{
   accent-color: rgba(208, 28, 98, 1);
+}
+
+#futties_counters{
+  position: absolute;
+    right: 154px;
+    top: 81px;
 }
 
 @font-face {

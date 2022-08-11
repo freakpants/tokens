@@ -12,8 +12,14 @@
   <div id="overlay_bg"></div>
   <div class="futties-header">
     <h1>Futties Collector</h1>
+    <div id="futties_counters">
+      <h3>Collected: <span id="collected">0/200</span></h3>
+    </div>
     <button id="futties_reset" class="reset btn-standard call-to-action">
       <span class="button__text">Reset Collection</span>
+    </button>
+    <button class="unclaim btn-standard call-to-action">
+      <span class="button__text">Uncollect</span>
     </button>
     <div id="checkbox_wrapper" class="checkbox_wrapper_futties">
       <div>
@@ -84,7 +90,7 @@
     </div>
 
     <div id="button-wrapper">
-      <button id="unclaim" class="btn-standard call-to-action">
+      <button class="unclaim btn-standard call-to-action">
         <span class="button__text">Unclaim tokens</span>
       </button>
       <button id="token_reset" class="reset btn-standard call-to-action">
@@ -153,13 +159,13 @@
     }
     );
 
-    $("#unclaim").click(function () {
+    $(".unclaim").click(function () {
       if (document.unclaim_mode == true) {
         document.unclaim_mode = false;
-        $("#unclaim").removeClass("mode-active");
+        $(".unclaim").removeClass("mode-active");
       } else {
         document.unclaim_mode = true;
-        $("#unclaim").addClass("mode-active");
+        $(".unclaim").addClass("mode-active");
       }
     }
     );
@@ -183,6 +189,10 @@
     $("#max").text(50 - document.missed + expired_tokens_done);
   }
 
+  function update_futties_counter() {
+    $("#collected").text(document.claimed_futties.length + "/" + 200);
+  }
+
   function mark_tokens() {
     document.claimed_tokens = '';
     document.claimed_futties = '';
@@ -201,6 +211,7 @@
       document.claimed_futties.forEach(function (token) {
         $('div[data-base-id="' + token + '"]').addClass('token-claimed');
       });
+      update_futties_counter();
 
     } else {
       if (playerIdentity !== '') {
@@ -263,6 +274,7 @@
           } else {
             localStorage.setItem("document.claimed_futties", JSON.stringify(document.claimed_futties));
           }
+          update_futties_counter();
         } else {
           let index = document.claimed_tokens.indexOf(token_id);
           document.claimed_tokens.splice(index, 1);
@@ -292,6 +304,7 @@
         } else {
           localStorage.setItem("document.claimed_futties", JSON.stringify(document.claimed_futties));
         }
+        update_futties_counter();
       } else {
         document.claimed_tokens.push($(parent).data('base-id'));
         if (playerIdentity !== '') {
@@ -600,7 +613,7 @@
 
 
     });
-    $("#counters").html("");
+    $("#counters").hide();
   }
 
 
