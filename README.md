@@ -24,6 +24,8 @@ Images are loaded from the CDN of [WeFUT.com](http://WeFUT.com) and I'm also usi
 
 There is no license attached, and you are free to use and modify the code however you wish. I would however prefer it if you raised an issue/create a pull request for new features.
 
+The tracker is provided free to use, and will not be financed by ads or other methods. I would appreciate a follow on [Twitter](https://twitter.com/freakpants) though, to motivate me to create other projects for the FUT community and to make this tool more widely known.
+
 ## Database
 The code to generate the json file with the tokens in it, is not maintained in this repo. That's not because I'm hiding it, but because it's part of a repo that uses the entire database of players, and other functionality that is outside the scope of the tracker. The database is based on player data from WeFUT.com.
 Basically, I added a few extra fields to the database that assign a player as a token: 

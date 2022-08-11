@@ -298,6 +298,18 @@ a {
   text-align: center;
 }
 
+#docs{
+  position: absolute;
+  top: 32px;
+  right: 98px;
+  font-size: 65px;
+  border: 6px solid white;
+  border-radius: 46px;
+  width: 82px;
+  text-align: center;
+  cursor: pointer;
+}
+
 .token_objective {
   width: 113px;
   font-size: 18px;
