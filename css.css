@@ -5640,7 +5640,9 @@ h2 {
     justify-content: center;
   }
   #tokens {
-    gap: 75px;
+    gap: 95px;
+    margin-top: 107px;
+    margin-left: 58px;
   }
   .btn-standard {
     width: 435px;
@@ -5699,15 +5701,17 @@ h2 {
     height: 35px;
   }
   .token_source {
-    width: 145px;
-    font-size: 28px;
+    width: 170px;
+    font-size: 22px;
   }
   .token_objective {
-    font-size: 28px;
+    font-size: 22px;
     width: 140px;
   }
-  .card.fifa22 {
-    height: 260px;
+  .card.fifa22.bronze {
+    height: 300px;
+    display: inline-block;
+    transform: scale(1.50);
   }
   .token_objective_wrapper {
     width: 140px;
@@ -5717,7 +5721,7 @@ h2 {
   [data-type="pack"]::before {
     width: 55px;
     left: -20px;
-    bottom: -100px;
+    bottom: -60px;
   }
   .token-claimed::before {
     top: 68px;
@@ -5762,4 +5766,6 @@ h2 {
     border-radius: 42px;
     width: 72px;
   }
+
+
 }
