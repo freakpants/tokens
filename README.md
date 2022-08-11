@@ -19,4 +19,4 @@ https://freakpants.github.io/tokens/?roadtoglory
 
 ## Attribution
 This tracker is inspired by the idea and layout of the trackers that [https://twitter.com/Criminal__x](https://twitter.com/Criminal__x) is updating every day on Twitter.
-Images are loaded from the CDN of [WeFUT.com](WeFUT.com)
+Images are loaded from the CDN of [WeFUT.com](http://WeFUT.com)
