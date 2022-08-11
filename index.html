@@ -13,8 +13,62 @@
   <div class="futties-header">
     <h1>Futties Collector</h1>
     <button id="futties_reset" class="reset btn-standard call-to-action">
-      <span class="button__text">Reset</span>
+      <span class="button__text">Reset Collection</span>
     </button>
+    <div id="checkbox_wrapper" class="checkbox_wrapper_futties">
+      <div>
+        <input type="checkbox" id="toggleall" name="toggleall" checked>
+        <label for="toggleall">Toggle All</label>
+      </div>
+      <div>
+        <input type="checkbox" id="shapeshifters" name="shapeshifters" checked>
+        <label for="sbc">Shapeshifters</label>
+      </div>
+      <div>
+        <input type="checkbox" id="tots" name="tots" checked>
+        <label for="objectives">TOTS</label>
+      </div>
+      <div>
+        <input type="checkbox" id="toty" name="toty" checked>
+        <label for="toty">TOTY</label>
+      </div>
+      <div>
+        <input type="checkbox" id="fantasy" name="fantasy" checked>
+        <label for="toty">FUT Fantasy</label>
+      </div>
+      <div>
+        <input type="checkbox" id="uecl" name="uecl" checked>
+        <label for="uecl">CL Live</label>
+      </div>
+      <div>
+        <input type="checkbox" id="captains" name="captains" checked>
+        <label for="captains">FUT Captains</label>
+      </div>
+      <div>
+        <input type="checkbox" id="birthday" name="birthday" checked>
+        <label for="birthday">FUT Birthday</label>
+      </div>
+      <div>
+        <input type="checkbox" id="elfinal" name="elfinal" checked>
+        <label for="elfinal">EL Live</label>
+      </div>
+      <div>
+        <input type="checkbox" id="futurestars" name="futurestars" checked>
+        <label for="futurestars">Future Stars</label>
+      </div>
+      <div>
+        <input type="checkbox" id="totw" name="totw" checked>
+        <label for="totw">TOTW</label>
+      </div>
+      <div>
+        <input type="checkbox" id="motm" name="motm" checked>
+        <label for="totw">MOTM</label>
+      </div>
+      <div>
+        <input type="checkbox" id="gold" name="gold" checked>
+        <label for="totw">Gold</label>
+      </div>
+    </div>
   </div>
   <div id="counters">
     <h3>Claimed: <span id="claimed"></span></h3>
@@ -44,7 +98,7 @@
       </button>
 
     </div>
-    <div id="checkbox_wrapper">
+    <div id="checkbox_wrapper" class="checkbox_wrapper_tokens">
       <div>
         <input type="checkbox" id="sbc" name="sbc" checked>
         <label for="sbc">SBC's</label>
@@ -393,6 +447,7 @@
     $(".header").hide();
     $(".futties-header").show();
     $("#overlay_bg").show();
+
     // add futties class to token div
     $('#tokens').addClass('futties');
     $.ajax({
@@ -417,7 +472,135 @@
       add_darken_class();
 
       mark_tokens();
+
+      $("#shapeshifters").click(function () {
+        if (this.checked) {
+          $(".card.shapeshifters").fadeIn();
+        } else {
+          $(".card.shapeshifters").fadeOut();
+        }
+      });
+
+      $("#tots").click(function () {
+        if (this.checked) {
+          $(".card.goldblue").fadeIn();
+        } else {
+          $(".card.goldblue").fadeOut();
+        }
+      });
+
+      $("#toty").click(function () {
+        if (this.checked) {
+          $(".card.toty").fadeIn();
+        } else {
+          $(".card.toty").fadeOut();
+        }
+      });
+
+
+      $("#fantasy").click(function () {
+        if (this.checked) {
+          $(".card.fantasypurple").fadeIn();
+        } else {
+          $(".card.fantasypurple").fadeOut();
+        }
+      });
+
+      $("#uecl").click(function () {
+        if (this.checked) {
+          $(".card.championsleague").fadeIn();
+        } else {
+          $(".card.championsleague").fadeOut();
+        }
+      });
+
+      $("#captains").click(function () {
+        if (this.checked) {
+          $(".card.futcaptains").fadeIn();
+          $(".card.futcaptainsheroes").fadeIn();
+          
+        } else {
+          $(".card.futcaptains").fadeOut();
+          $(".card.futcaptainsheroes").fadeOut();
+        }
+      });
+
+      $("#birthday").click(function () {
+        if (this.checked) {
+          $(".card.birthday").fadeIn();
+        } else {
+          $(".card.birthday").fadeOut();
+        }
+      });
+
+      
+      $("#elfinal").click(function () {
+        if (this.checked) {
+          $(".card.elfinal").fadeIn();
+        } else {
+          $(".card.elfinal").fadeOut();
+        }
+      });
+
+      // toggle future stars
+      $("#futurestars").click(function () {
+        if (this.checked) {
+          $(".card.futurestars").fadeIn();
+        } else {
+          $(".card.futurestars").fadeOut();
+        }
+      });
+
+      // toggle totw
+      $("#totw").click(function () {
+        if (this.checked) {
+          $(".card.goldif").fadeIn();
+        } else {
+          $(".card.goldif").fadeOut();
+        }
+      });
+
+      // toggle motm
+      $("#motm").click(function () {
+        if (this.checked) {
+          $(".card.motm").fadeIn();
+        } else {
+          $(".card.motm").fadeOut();
+        }
+      });
+
+      // toggle gold
+      $("#gold").click(function () {
+        if (this.checked) {
+          $(".card.goldrare").fadeIn();
+        } else {
+          $(".card.goldrare").fadeOut();
+        }
+      });
+
+      // toggle all cards
+      $("#toggleall").click(function () {
+        if (this.checked) {
+          $(".card").fadeIn();
+          $(".checkbox_wrapper_futties input").each(function(){
+            $(this).prop("checked", true);
+          });
+
+        } else {
+          $(".card").fadeOut();
+                    // uncheck all checkboxes in the checkbox_wrapper_futties
+                    $(".checkbox_wrapper_futties input").each(function(){
+            $(this).prop("checked", false);
+          });
+        }
+      });
+
+
+
+
+
     });
+    $("#counters").html("");
   }
 
 
