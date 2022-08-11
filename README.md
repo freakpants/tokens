@@ -16,3 +16,7 @@ In case you claimed a token in the Tracker by mistake, you have to hit the uncla
 Handling multiple accounts is possible. There is a default profile. Adding a question mark and any text will create a different profile:
 https://freakpants.github.io/tokens/?roadtoglory  
 **NOTE:** This does not mean you can access that profile from anywhere else, or that other people can access that profile. The data is still only saved on your machine.
+
+## Attribution
+This tracker is inspired by the idea and layout of the trackers that [https://twitter.com/Criminal__x](https://twitter.com/Criminal__x) is updating every day on Twitter.
+Images are loaded from the CDN of [WeFUT.com](WeFUT.com)
