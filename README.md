@@ -18,12 +18,12 @@ https://freakpants.github.io/tokens/?roadtoglory
 
 ## Attribution
 This tracker is inspired by the idea and layout of the trackers that [https://twitter.com/Criminal__x](https://twitter.com/Criminal__x) is updating every day on Twitter.
-Images are loaded from the CDN of [WeFUT.com](http://WeFUT.com)
+Images are loaded from the CDN of [WeFUT.com](http://WeFUT.com) and I'm also using player data from them.
 
 There is no license attached, and you are free to use and modify the code however you wish. I would however prefer it if you raised an issue/create a pull request for new features.
 
 ## Database
-The code to generate the json file with the tokens in it, is not maintained in this repo. That's not because I'm hiding it, but because it's part of a repo that uses the entire database of players, and other functionality that is outside the scope of the tracker. The database is imported from the json files that are on WeFUT.com and I don't intend to publish their whole dataset without permission. 
+The code to generate the json file with the tokens in it, is not maintained in this repo. That's not because I'm hiding it, but because it's part of a repo that uses the entire database of players, and other functionality that is outside the scope of the tracker. The database is baased on player data from WeFUT.com.
 Basically, I added a few extra fields to the database that assign a player as a token: 
 ![image](https://user-images.githubusercontent.com/12885929/184117414-1581c155-dbfb-4b5c-b7e6-87bac08e4e10.png)
 Whenever a new token is released, I just update those corresponding fields in my local database and export the whole set of tokens as the [json file](https://github.com/freakpants/tokens/blob/main/players.json) that the tracker uses. The JSON file is basically the pure html of each card, with some modifications in structure for interacting with the cards.
