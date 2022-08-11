@@ -5,7 +5,6 @@ If you've never used the tracker before, I suggest navigating to your club on th
 
 Expiring Tokens will display a warning exclamation mark if there is less than 24 hours left. This is based on your system time. It SHOULD correctly handle Timezones, but please make sure that the time displayed actually matches the daily reset time where you live. Obviously if your system has a different timezone than the one you are actually in, this will display incorrect information. If your timezone is correct, please create an [Issue](https://github.com/freakpants/tokens/issues/new)
 
-
 ## Copy Player Name
 Hovering the Player name will display a clipboard icon as the cursor. Pressing down while this cursor is active will not claim the token, but will copy the Full Name or the "Known As" (e.g. Pele) Name to your clipboard, so you can search the corresponding player in the webapp, if you just need to check whether you do or do not have a specific player.
 
@@ -27,6 +26,10 @@ There is no license attached, and you are free to use and modify the code howeve
 The code to generate the json file with the tokens in it, is not maintained in this repo. That's not because I'm hiding it, but because it's part of a repo that uses the entire database of players, and other functionality that is outside the scope of the tracker. The database is imported from the json files that are on WeFUT.com and I don't intend to publish their whole dataset without permission. 
 Basically, I added a few extra fields to the database that assign a player as a token: 
 ![image](https://user-images.githubusercontent.com/12885929/184117414-1581c155-dbfb-4b5c-b7e6-87bac08e4e10.png)
+Whenever a new token is released, I just update those corresponding fields in my local database and export the whole set of tokens as the [json file](https://github.com/freakpants/tokens/blob/main/players.json) that the tracker uses. The JSON file is basically the pure html of each card, with some modifications in structure for interacting with the cards.
+
+# Other Swaps
+This tracker is written in a way, that will make it easy to reuse for future swaps. That is assuming no massive changes to the way Ultimate Team works.
 
 
 
