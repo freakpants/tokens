@@ -209,7 +209,6 @@
         document.claimed_futties = JSON.parse(document.claimed_futties);
       }
       document.claimed_futties.forEach(function (token) {
-        alert(token);
         const parts = token.split('-');
         $('div[data-base-id="' + parts[0] + '"][data-rarity-id="' + parts[1] + '"]').addClass('token-claimed');
       });
