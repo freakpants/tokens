@@ -13,7 +13,7 @@
   <div class="futties-header">
     <h1>Futties Collector</h1>
     <div id="futties_counters">
-      <h3>Collected: <span id="collected">0/200</span></h3>
+      <h3>Collected: <span id="collected">0/307</span></h3>
     </div>
     <button id="futties_reset" class="reset btn-standard call-to-action">
       <span class="button__text">Reset Collection</span>
@@ -21,6 +21,24 @@
     <button class="unclaim btn-standard call-to-action">
       <span class="button__text">Uncollect</span>
     </button>
+    <div id="batch_wrapper">
+      <div>
+        <input type="checkbox" id="toggleallbatches" name="toggleallbatches" checked>
+        <label for="toggleallbatches">Toggle All Batches</label>
+      </div>
+      <div>
+        <input type="checkbox" id="togglebatch1" name="togglebatch1" checked>
+        <label for="togglebatch1l">Batch 1</label>
+      </div>
+      <div>
+        <input type="checkbox" id="togglebatch2" name="togglebatch2" checked>
+        <label for="togglebatch2">Batch 2</label>
+      </div>
+      <div>
+        <input type="checkbox" id="togglebatch3" name="togglebatch3" checked>
+        <label for="togglebatch3">Batch 3</label>
+      </div>
+    </div>
     <div id="checkbox_wrapper" class="checkbox_wrapper_futties">
       <div>
         <input type="checkbox" id="toggleall" name="toggleall" checked>
@@ -190,7 +208,7 @@
   }
 
   function update_futties_counter() {
-    $("#collected").text(document.claimed_futties.length + "/" + 200);
+    $("#collected").text(document.claimed_futties.length + "/" + 307);
   }
 
   function mark_tokens() {
@@ -521,7 +539,7 @@
         if (this.checked) {
           $(".card.futcaptains").fadeIn();
           $(".card.futcaptainsheroes").fadeIn();
-          
+
         } else {
           $(".card.futcaptains").fadeOut();
           $(".card.futcaptainsheroes").fadeOut();
@@ -536,7 +554,7 @@
         }
       });
 
-      
+
       $("#elfinal").click(function () {
         if (this.checked) {
           $(".card.elfinal").fadeIn();
@@ -581,18 +599,45 @@
         }
       });
 
+      // toggle batch 1
+      $("#togglebatch1").click(function () {
+        if (this.checked) {
+          $("div[data-futties-1").fadeIn();
+        } else {
+          $("div[data-futties-1").fadeOut();
+        }
+      });
+
+      // toggle batch 2
+      $("#togglebatch2").click(function () {
+        if (this.checked) {
+          $("div[data-futties-2").fadeIn();
+        } else {
+          $("div[data-futties-2").fadeOut();
+        }
+      });
+
+      // toggle batch 3
+      $("#togglebatch3").click(function () {
+        if (this.checked) {
+          $("div[data-futties-3").fadeIn();
+        } else {
+          $("div[data-futties-3").fadeOut();
+        }
+      });
+
       // toggle all cards
       $("#toggleall").click(function () {
         if (this.checked) {
           $(".card").fadeIn();
-          $(".checkbox_wrapper_futties input").each(function(){
+          $(".checkbox_wrapper_futties input").each(function () {
             $(this).prop("checked", true);
           });
 
         } else {
           $(".card").fadeOut();
-                    // uncheck all checkboxes in the checkbox_wrapper_futties
-                    $(".checkbox_wrapper_futties input").each(function(){
+          // uncheck all checkboxes in the checkbox_wrapper_futties
+          $(".checkbox_wrapper_futties input").each(function () {
             $(this).prop("checked", false);
           });
         }
