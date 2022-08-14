@@ -209,7 +209,9 @@
         document.claimed_futties = JSON.parse(document.claimed_futties);
       }
       document.claimed_futties.forEach(function (token) {
-        $('div[data-base-id="' + token + '"]').addClass('token-claimed');
+        alert(token);
+        const parts = token.split('-');
+        $('div[data-base-id="' + parts[0] + '"][data-rarity-id="' + parts[1] + '"]').addClass('token-claimed');
       });
       update_futties_counter();
 
@@ -267,6 +269,7 @@
         let token_id = $(this).data('base-id');
 
         if (document.futtiescollector) {
+          token_id = $(this).data('base-id') + "-" + $(this).data('rarity-id');
           let index = document.claimed_futties.indexOf(token_id);
           document.claimed_futties.splice(index, 1);
           if (playerIdentity !== '') {
@@ -298,7 +301,7 @@
       $(parent).addClass('token-claimed');
 
       if (document.futtiescollector) {
-        document.claimed_futties.push($(parent).data('base-id'));
+        document.claimed_futties.push($(parent).data('base-id') + "-" + $(parent).data('rarity-id'));
         if (playerIdentity !== '') {
           localStorage.setItem("document.claimed_futties" + playerIdentity, JSON.stringify(document.claimed_futties));
         } else {
@@ -438,18 +441,6 @@
     update_token_count();
 
   });
-
-
-
-
-
-
-
-
-
-
-
-
 
   function enable_futties() {
     document.futtiescollector = true;
@@ -608,25 +599,13 @@
         }
       });
 
-
-
-
-
     });
     $("#counters").hide();
   }
 
-
-
-
-
   if (document.futtiescollector) {
     enable_futties();
   }
-
-
-
-
 
 </script>
 
