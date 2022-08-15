@@ -187,7 +187,7 @@
 
   const playerIdentity = window.location.search.substr(1);
 
-  document.futtiescollector = false;
+  document.futtiescollector = true;
 
   document.futties_collected = 0;
 
@@ -198,7 +198,6 @@
   let tokens_number = 0;
 
   $(document).ready(function () {
-    enable_futties_collector();
     $(".reset").click(function () {
       if (document.futtiescollector) {
 
@@ -399,20 +398,23 @@
     event.stopPropagation();
   }
 
-  $.ajax({
-    url: "https://freakpants.github.io/tokens/tokens.json",
-  }).done(function (result) {
-    console.log(result);
-    result.forEach(function (player) {
-      $('#tokens').append(player);
-      tokens_number++;
+  if (document.futtiescollector) {
+    enable_futties();
+  } else {
+    ajax({
+      url: "https://freakpants.github.io/tokens/tokens.json",
+    }).done(function (result) {
+      console.log(result);
+      result.forEach(function (player) {
+        $('#tokens').append(player);
+        tokens_number++;
 
-    });
-    // remember how many tokens are available
-    document.available_tokens = tokens_number;
-    // generate the rest of the empty divs
-    for (let i = tokens_number; i < 50; i++) {
-      $('#tokens').append(`
+      });
+      // remember how many tokens are available
+      document.available_tokens = tokens_number;
+      // generate the rest of the empty divs
+      for (let i = tokens_number; i < 50; i++) {
+        $('#tokens').append(`
       <div class="card bronze fifa22 inactive" data-base-id="" data-club-id="1929" data-nation-id="14" data-league-id="60" data-rareflag="0">
           <div class="token_number">${i + 1}</div>
           <div class="scard bronze fifa22 style="position: relative; z-index: 2">
@@ -432,75 +434,76 @@
       </div>
       </div>
       `);
-    }
-    mark_tokens();
-    add_darken_class();
-    $('#tokens .card.fifa22').click(function () {
-      const element = $(this);
-      card_click(element);
+      }
+      mark_tokens();
+      add_darken_class();
+      $('#tokens .card.fifa22').click(function () {
+        const element = $(this);
+        card_click(element);
+      });
+
+      $(".marquee").click(function (event) {
+        name_copy(event);
+      });
+
+      $("#futties").click(function () {
+        enable_futties();
+      }
+      );
+
+      $("#objectives").click(function () {
+        if (this.checked) {
+          $("[data-type='objective']").closest(".fifa22.card").fadeIn();
+        } else {
+          $("[data-type='objective']").closest(".fifa22.card").fadeOut();
+        }
+      });
+
+      $("#sbc").click(function () {
+        if (this.checked) {
+          $("[data-type='sbc']").closest(".fifa22.card").fadeIn();
+        } else {
+          $("[data-type='sbc']").closest(".fifa22.card").fadeOut();
+        }
+      });
+
+      $("#packs").click(function () {
+        if (this.checked) {
+          $("[data-type='pack']").closest(".fifa22.card").fadeIn();
+        } else {
+          $("[data-type='pack']").closest(".fifa22.card").fadeOut();
+        }
+      });
+
+      $(".token_objective_wrapper").each(function (index) {
+        const timeStamp = $(this).attr('data-timestamp');
+        if (timeStamp == 0) {
+          return;
+        }
+        const timeLeft = timeStamp - (Math.floor(Date.now() / 1000));
+        if (timeLeft < 0) {
+          document.tokens_expired++;
+          document.missed++;
+          const closest = $(this).closest(".card.fifa22");
+          $(closest).addClass("expired");
+          $(closest).find(".token_objective_wrapper").addClass("expired");
+          $(closest).find(".token_objective").html("EXPIRED");
+          return;
+        }
+        const timeLeftDays = Math.floor(timeLeft / 86400);
+        if (timeLeftDays <= 2) {
+          const timeLeftHours = Math.floor(timeLeft / 3600);
+          $(this).find(".token_objective").append('<b> (' + timeLeftHours + 'H)</b>');
+        }
+        if (timeLeftDays == 0) {
+          $(this).closest(".card.fifa22").addClass("warning");
+        }
+      }
+      );
+      update_token_count();
+
     });
-
-    $(".marquee").click(function (event) {
-      name_copy(event);
-    });
-
-    $("#futties").click(function () {
-      enable_futties();
-    }
-    );
-
-    $("#objectives").click(function () {
-      if (this.checked) {
-        $("[data-type='objective']").closest(".fifa22.card").fadeIn();
-      } else {
-        $("[data-type='objective']").closest(".fifa22.card").fadeOut();
-      }
-    });
-
-    $("#sbc").click(function () {
-      if (this.checked) {
-        $("[data-type='sbc']").closest(".fifa22.card").fadeIn();
-      } else {
-        $("[data-type='sbc']").closest(".fifa22.card").fadeOut();
-      }
-    });
-
-    $("#packs").click(function () {
-      if (this.checked) {
-        $("[data-type='pack']").closest(".fifa22.card").fadeIn();
-      } else {
-        $("[data-type='pack']").closest(".fifa22.card").fadeOut();
-      }
-    });
-
-    $(".token_objective_wrapper").each(function (index) {
-      const timeStamp = $(this).attr('data-timestamp');
-      if (timeStamp == 0) {
-        return;
-      }
-      const timeLeft = timeStamp - (Math.floor(Date.now() / 1000));
-      if (timeLeft < 0) {
-        document.tokens_expired++;
-        document.missed++;
-        const closest = $(this).closest(".card.fifa22");
-        $(closest).addClass("expired");
-        $(closest).find(".token_objective_wrapper").addClass("expired");
-        $(closest).find(".token_objective").html("EXPIRED");
-        return;
-      }
-      const timeLeftDays = Math.floor(timeLeft / 86400);
-      if (timeLeftDays <= 2) {
-        const timeLeftHours = Math.floor(timeLeft / 3600);
-        $(this).find(".token_objective").append('<b> (' + timeLeftHours + 'H)</b>');
-      }
-      if (timeLeftDays == 0) {
-        $(this).closest(".card.fifa22").addClass("warning");
-      }
-    }
-    );
-    update_token_count();
-
-  });
+  }
 
   function update_batches(trigger) {
     let batches = [];
