@@ -14,6 +14,7 @@
     <h1>Futties Collector</h1>
     <div id="futties_counters">
       <h3>Collected: <span id="collected">0/307</span></h3>
+      <h3>Displaying: <span id="displaying">307/307</span></h3>
     </div>
     <button id="futties_reset" class="reset btn-standard call-to-action">
       <span class="button__text">Reset Collection</span>
@@ -49,40 +50,80 @@
         <label for="sbc">Shapeshifters</label>
       </div>
       <div>
-        <input type="checkbox" id="tots" name="tots" checked>
-        <label for="objectives">TOTS</label>
-      </div>
-      <div>
         <input type="checkbox" id="toty" name="toty" checked>
         <label for="toty">TOTY</label>
       </div>
       <div>
-        <input type="checkbox" id="fantasy" name="fantasy" checked>
-        <label for="toty">FUT Fantasy</label>
+        <input type="checkbox" id="tots" name="tots" checked>
+        <label for="objectives">TOTS</label>
       </div>
       <div>
         <input type="checkbox" id="uecl" name="uecl" checked>
         <label for="uecl">CL Live</label>
       </div>
       <div>
+        <input type="checkbox" id="fantasy" name="fantasy" checked>
+        <label for="toty">FUT Fantasy</label>
+      </div>
+      <div>
+        <input type="checkbox" id="headliners" name="headliners" checked>
+        <label for="headliners">Headliners</label>
+      </div>
+      <div>
         <input type="checkbox" id="captains" name="captains" checked>
         <label for="captains">FUT Captains</label>
       </div>
       <div>
-        <input type="checkbox" id="birthday" name="birthday" checked>
-        <label for="birthday">FUT Birthday</label>
-      </div>
-      <div>
-        <input type="checkbox" id="elfinal" name="elfinal" checked>
-        <label for="elfinal">EL Live</label>
+        <input type="checkbox" id="promo" name="promo" checked>
+        <label for="promo">TOTGS</label>
       </div>
       <div>
         <input type="checkbox" id="futurestars" name="futurestars" checked>
         <label for="futurestars">Future Stars</label>
       </div>
       <div>
+        <input type="checkbox" id="birthday" name="birthday" checked>
+        <label for="birthday">FUT Birthday</label>
+      </div>
+      <div>
+        <input type="checkbox" id="wildcard" name="wildcard" checked>
+        <label for="wildcard">Winter Wildcards</label>
+      </div>
+      <div>
+        <input type="checkbox" id="signature" name="signature" checked>
+        <label for="signature">Signature Signings</label>
+      </div>
+      <div>
+        <input type="checkbox" id="numbersup" name="numbersup" checked>
+        <label for="numbersup">Numbersup</label>
+      </div>
+      <div>
         <input type="checkbox" id="totw" name="totw" checked>
         <label for="totw">TOTW</label>
+      </div>
+      <div>
+        <input type="checkbox" id="elfinal" name="elfinal" checked>
+        <label for="elfinal">EL Live</label>
+      </div>
+      <div>
+        <input type="checkbox" id="halloween" name="halloween" checked>
+        <label for="halloween">Rulebreakers</label>
+      </div>
+      <div>
+        <input type="checkbox" id="rttk" name="rttk" checked>
+        <label for="rttk">RTTK</label>
+      </div>
+      <div>
+        <input type="checkbox" id="otw" name="otw" checked>
+        <label for="otw">Ones To Watch</label>
+      </div>
+      <div>
+        <input type="checkbox" id="versusfire" name="versusfire" checked>
+        <label for="versusfire">Versus Fire</label>
+      </div>
+      <div>
+        <input type="checkbox" id="versusice" name="versusice" checked>
+        <label for="versusice">Versus Ice</label>
       </div>
       <div>
         <input type="checkbox" id="motm" name="motm" checked>
@@ -209,6 +250,7 @@
 
   function update_futties_counter() {
     $("#collected").text(document.claimed_futties.length + "/" + 307);
+    $("#displaying").text($("#tokens .card:visible").length + "/" + 307);
   }
 
   function mark_tokens() {
@@ -459,6 +501,92 @@
 
   });
 
+  function update_batches(trigger) {
+    let batches = [];
+    batches[1] = $("#togglebatch1").prop("checked");
+    batches[2] = $("#togglebatch2").prop("checked");
+    batches[3] = $("#togglebatch3").prop("checked");
+    switch (trigger) {
+      case 1:
+        if (batches[1]) {
+          // fade in batch 1
+          $("[data-futties-1]").closest(".card.fifa22").fadeIn(update_futties_counter);
+        } else {
+          if (batches[2]) {
+            if (batches[3]) {
+              // fade out batch 1 only
+              $("[data-futties-1][data-futties-2!=1][data-futties-3!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
+            } else {
+              // fade out batch 1 and 3
+              $("[data-futties-1][data-futties-2!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
+              $("[data-futties-3][data-futties-2!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
+            }
+          } else {
+            if (batches[3]) {
+              // fade out batch 1 and 2
+              $("[data-futties-1][data-futties-3!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
+              $("[data-futties-2][data-futties-3!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
+            } else {
+              // fade out all
+              $(".card.fifa22").fadeOut(update_futties_counter);
+            }
+          }
+        }
+        break;
+      case 2:
+        if (batches[2]) {
+          // fade in batch 2
+          $("[data-futties-2]").closest(".card.fifa22").fadeIn(update_futties_counter);
+        } else {
+          if (batches[1]) {
+            if (batches[3]) {
+              // fade out batch 2 only
+              $("[data-futties-2][data-futties-1!=1][data-futties-3!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
+            } else {
+              // fade out batch 2 and 3
+              $("[data-futties-2][data-futties-1!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
+              $("[data-futties-3][data-futties-1!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
+            }
+          } else {
+            if (batches[3]) {
+              // fade out batch 1 and 2
+              $("[data-futties-1][data-futties-3!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
+              $("[data-futties-2][data-futties-3!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
+            } else {
+              // fade out all
+              $(".card.fifa22").fadeOut(update_futties_counter);
+            }
+          }
+        }
+        break;
+      case 3:
+        if (batches[3]) {
+          // fade in batch 3
+          $("[data-futties-3]").closest(".card.fifa22").fadeIn(update_futties_counter);
+        } else {
+          if (batches[1]) {
+            if (batches[2]) {
+              // fade out batch 3 only
+              $("[data-futties-3][data-futties-1!=1][data-futties-2!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
+            } else {
+              // fade out batch 3 and 2
+              $("[data-futties-3][data-futties-1!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
+              $("[data-futties-2][data-futties-1!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
+            }
+          } else {
+            if (batches[2]) {
+              // fade out batch 3 and 1
+              $("[data-futties-3][data-futties-2!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
+              $("[data-futties-1][data-futties-2!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
+            } else {
+              // fade out all
+              $(".card.fifa22").fadeOut(update_futties_counter);
+            }
+          }
+        }
+    }
+  }
+
   function enable_futties() {
     document.futtiescollector = true;
     let player_number = 0;
@@ -496,151 +624,224 @@
 
       $("#shapeshifters").click(function () {
         if (this.checked) {
-          $(".card.shapeshifters").fadeIn();
+          $(".card.shapeshifters").fadeIn(update_futties_counter);
         } else {
-          $(".card.shapeshifters").fadeOut();
+          $(".card.shapeshifters").fadeOut(update_futties_counter);
         }
+
       });
 
       $("#tots").click(function () {
         if (this.checked) {
-          $(".card.goldblue").fadeIn();
+          $(".card.goldblue").fadeIn(update_futties_counter);
         } else {
-          $(".card.goldblue").fadeOut();
+          $(".card.goldblue").fadeOut(update_futties_counter);
         }
       });
 
       $("#toty").click(function () {
         if (this.checked) {
-          $(".card.toty").fadeIn();
+          $(".card.toty").fadeIn(update_futties_counter);
         } else {
-          $(".card.toty").fadeOut();
+          $(".card.toty").fadeOut(update_futties_counter);
         }
       });
 
 
       $("#fantasy").click(function () {
         if (this.checked) {
-          $(".card.fantasypurple").fadeIn();
+          $(".card.fantasypurple").fadeIn(update_futties_counter);
         } else {
-          $(".card.fantasypurple").fadeOut();
+          $(".card.fantasypurple").fadeOut(update_futties_counter);
         }
       });
 
       $("#uecl").click(function () {
         if (this.checked) {
-          $(".card.championsleague").fadeIn();
+          $(".card.championsleague").fadeIn(update_futties_counter);
         } else {
-          $(".card.championsleague").fadeOut();
+          $(".card.championsleague").fadeOut(update_futties_counter);
+        }
+      });
+
+      $("#headliners").click(function () {
+        if (this.checked) {
+          $(".card.futheadliners").fadeIn(update_futties_counter);
+        } else {
+          $(".card.futheadliners").fadeOut(update_futties_counter);
         }
       });
 
       $("#captains").click(function () {
         if (this.checked) {
-          $(".card.futcaptains").fadeIn();
-          $(".card.futcaptainsheroes").fadeIn();
+          $(".card.futcaptains").fadeIn(update_futties_counter);
+          $(".card.futcaptainsheroes").fadeIn(update_futties_counter);
 
         } else {
-          $(".card.futcaptains").fadeOut();
-          $(".card.futcaptainsheroes").fadeOut();
+          $(".card.futcaptains").fadeOut(update_futties_counter);
+          $(".card.futcaptainsheroes").fadeOut(update_futties_counter);
+        }
+      });
+
+      $("#promo").click(function () {
+        if (this.checked) {
+          $(".card.promo").fadeIn(update_futties_counter);
+          $(".card.confleague").fadeIn(update_futties_counter);
+        } else {
+          $(".card.promo").fadeOut(update_futties_counter);
+          $(".card.confleague").fadeOut(update_futties_counter);
         }
       });
 
       $("#birthday").click(function () {
         if (this.checked) {
-          $(".card.birthday").fadeIn();
+          $(".card.birthday").fadeIn(update_futties_counter);
         } else {
-          $(".card.birthday").fadeOut();
+          $(".card.birthday").fadeOut(update_futties_counter);
         }
       });
 
+      $("#otw").click(function () {
+        if (this.checked) {
+          $(".card.onestowatch").fadeIn(update_futties_counter);
+        } else {
+          $(".card.onestowatch").fadeOut(update_futties_counter);
+        }
+      });
+
+      $("#wildcard").click(function () {
+        if (this.checked) {
+          $(".card.wildcard").fadeIn(update_futties_counter);
+        } else {
+          $(".card.wildcard").fadeOut(update_futties_counter);
+        }
+      });
+
+      $("#signature").click(function () {
+        if (this.checked) {
+          $(".card.signature").fadeIn(update_futties_counter);
+        } else {
+          $(".card.signature").fadeOut(update_futties_counter);
+        }
+      });
+
+      $("#numbersup").click(function () {
+        if (this.checked) {
+          $(".card.numbersup").fadeIn(update_futties_counter);
+        } else {
+          $(".card.numbersup").fadeOut(update_futties_counter);
+        }
+      });
 
       $("#elfinal").click(function () {
         if (this.checked) {
-          $(".card.elfinal").fadeIn();
+          $(".card.elfinal").fadeIn(update_futties_counter);
         } else {
-          $(".card.elfinal").fadeOut();
+          $(".card.elfinal").fadeOut(update_futties_counter);
+        }
+      });
+
+      $("#halloween").click(function () {
+        if (this.checked) {
+          $(".card.halloween").fadeIn(update_futties_counter);
+        } else {
+          $(".card.halloween").fadeOut(update_futties_counter);
+        }
+      });
+
+      $("#rttk").click(function () {
+        if (this.checked) {
+          $(".card.clfinal").fadeIn(update_futties_counter);
+        } else {
+          $(".card.clfinal").fadeOut(update_futties_counter);
         }
       });
 
       // toggle future stars
       $("#futurestars").click(function () {
         if (this.checked) {
-          $(".card.futurestars").fadeIn();
+          $(".card.futurestars").fadeIn(update_futties_counter);
         } else {
-          $(".card.futurestars").fadeOut();
+          $(".card.futurestars").fadeOut(update_futties_counter);
         }
       });
 
       // toggle totw
       $("#totw").click(function () {
         if (this.checked) {
-          $(".card.goldif").fadeIn();
+          $(".card.goldif").fadeIn(update_futties_counter);
         } else {
-          $(".card.goldif").fadeOut();
+          $(".card.goldif").fadeOut(update_futties_counter);
+        }
+      });
+
+      // toggle versus fire
+      $("#versusfire").click(function () {
+        if (this.checked) {
+          $(".card.versusfire").fadeIn(update_futties_counter);
+        } else {
+          $(".card.versusfire").fadeOut(update_futties_counter);
+        }
+      });
+
+      // toggle versus ice
+      $("#versusice").click(function () {
+        if (this.checked) {
+          $(".card.versusice").fadeIn(update_futties_counter);
+        } else {
+          $(".card.versusice").fadeOut(update_futties_counter);
         }
       });
 
       // toggle motm
       $("#motm").click(function () {
         if (this.checked) {
-          $(".card.motm").fadeIn();
+          $(".card.motm").fadeIn(update_futties_counter);
         } else {
-          $(".card.motm").fadeOut();
+          $(".card.motm").fadeOut(update_futties_counter);
         }
       });
 
       // toggle gold
       $("#gold").click(function () {
         if (this.checked) {
-          $(".card.goldrare").fadeIn();
+          $(".card.goldrare").fadeIn(update_futties_counter);
         } else {
-          $(".card.goldrare").fadeOut();
+          $(".card.goldrare").fadeOut(update_futties_counter);
         }
       });
 
       // toggle batch 1
       $("#togglebatch1").click(function () {
-        if (this.checked) {
-          $("div[data-futties-1").fadeIn();
-        } else {
-          $("div[data-futties-1").fadeOut();
-        }
+        update_batches(1);
       });
 
       // toggle batch 2
       $("#togglebatch2").click(function () {
-        if (this.checked) {
-          $("div[data-futties-2").fadeIn();
-        } else {
-          $("div[data-futties-2").fadeOut();
-        }
+        update_batches(2);
       });
 
       // toggle batch 3
       $("#togglebatch3").click(function () {
-        if (this.checked) {
-          $("div[data-futties-3").fadeIn();
-        } else {
-          $("div[data-futties-3").fadeOut();
-        }
+        update_batches(3);
       });
 
       // toggle all cards
       $("#toggleall").click(function () {
         if (this.checked) {
-          $(".card").fadeIn();
+          $(".card").fadeIn(update_futties_counter);
           $(".checkbox_wrapper_futties input").each(function () {
             $(this).prop("checked", true);
           });
 
         } else {
-          $(".card").fadeOut();
+          $(".card").fadeOut(update_futties_counter);
           // uncheck all checkboxes in the checkbox_wrapper_futties
           $(".checkbox_wrapper_futties input").each(function () {
             $(this).prop("checked", false);
           });
         }
+
       });
 
     });

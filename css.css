@@ -65,6 +65,8 @@
 #checkbox_wrapper{
   display: flex;
   margin-bottom: 30px;
+  flex-wrap: wrap;
+    max-width: 1530px;
 }
 
 .checkbox_wrapper_tokens{
@@ -130,10 +132,6 @@ label {
   cursor: pointer;
 }
 
-.futties #wefut{
-}
-
-
 .link::after {
   content: "";
   display: block;
@@ -168,7 +166,7 @@ label {
 #batch_wrapper{
   position: absolute;
   top: 59px;
-  right: 349px;
+  right: 400px;
   font-size: 14px;
     line-height: 9px
 }    
@@ -196,7 +194,7 @@ label {
 
 .futties #tokens {
   position: absolute;
-  top: 185px;
+  top: 245px;
   left: 65px;
   right: 120px;
   bottom: 110px;
