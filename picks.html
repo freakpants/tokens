@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Picks Display</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="picks.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Secular+One">
+</head>
+
+<body class="futties">
+    <div id="tokens" class="futties"></div>
+</body>
+<script>
+    // add futties class to token div
+    $.ajax({
+        url: "https://freakpants.github.io/collector/french_campaign.json",
+    }).done(function (result) {
+        result.forEach(function (player) {
+            $('#tokens').append(player);
+        });
+
+    });
+
+</script>
+
+</html>
