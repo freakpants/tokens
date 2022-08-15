@@ -102,6 +102,10 @@
         <label for="totw">TOTW</label>
       </div>
       <div>
+        <input type="checkbox" id="honourable" name="honourable" checked>
+        <label for="honourable">TOTY Honour</label>
+      </div>
+      <div>
         <input type="checkbox" id="elfinal" name="elfinal" checked>
         <label for="elfinal">EL Live</label>
       </div>
@@ -812,6 +816,15 @@
           $(".card.goldrare").fadeIn(update_futties_counter);
         } else {
           $(".card.goldrare").fadeOut(update_futties_counter);
+        }
+      });
+
+            // toggle toty honourable mentions
+            $("#honourable").click(function () {
+        if (this.checked) {
+          $("[data-rareflag=64]").fadeIn(update_futties_counter);
+        } else {
+          $("[data-rareflag=64]").fadeOut(update_futties_counter);
         }
       });
 
