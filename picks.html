@@ -13,8 +13,9 @@
 </body>
 <script>
     // add futties class to token div
+    pick = window.location.search.substr(1);
     $.ajax({
-        url: "https://freakpants.github.io/collector/french_campaign.json",
+        url: "https://freakpants.github.io/collector/" + pick + ".json",
     }).done(function (result) {
         result.forEach(function (player) {
             $('#tokens').append(player);
