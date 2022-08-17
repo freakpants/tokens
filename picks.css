@@ -10,10 +10,10 @@
 
 .xbox-price{
   position: relative;
-  font-size: 55px;
+  font-size: 48px;
   color: white;
   top: -41px;
-  left: -38px;
+  left: -21px;
   z-index: 2;
   font-family: 'UltimateTeamCondensed';
   text-shadow: 1px 1px 2px black;
@@ -30,7 +30,7 @@
   height: 80px;
   display: inline-block;
   position: relative;
-  left: 2px;
+  left: -12px;
   top: 16px;
   -webkit-filter: drop-shadow(1px 1px 4px rgba(0,0,0,0.75));
     -moz-filter: drop-shadow(1px 1px 4px rgba(0,0,0,0.75));
@@ -123,7 +123,7 @@
 .futties .card{
   transform: scale(0.6);
   width: 158px;
-  height: 289px
+  height: 438px;
 }
 
 .futties.futties.futties .name{

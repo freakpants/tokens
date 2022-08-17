@@ -26,6 +26,16 @@
             $(this).append("<div class='xbox-price'><div><img src='xbox_green.png' /><span>" + price + "</span></div></div>");
         });
 
+        $("[data-pc-price]").each(function () {
+            var price = parseInt($(this).data("pc-price")).toLocaleString();
+            $(this).append("<div class='xbox-price'><div><img src='pc_orange.png' /><span>" + price + "</span></div></div>");
+        });
+
+        $("[data-ps-price]").each(function () {
+            var price = parseInt($(this).data("ps-price")).toLocaleString();
+            $(this).append("<div class='xbox-price'><div><img src='ps_blue.png' /><span>" + price + "</span></div></div>");
+        });
+
         $("div.card").click(function(){
             $(this).hide();
         });
