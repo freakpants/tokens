@@ -876,6 +876,11 @@
 
       });
 
+      // lower case all names
+      $(".marquee").each(function () {
+        $(this).text($(this).text().toLowerCase());
+      });
+
       // remove the html in all token numbers
       $('.token_number').remove();
       $("[data-futties-1]").append("<div class='token_number'>1</div>");
