@@ -7,6 +7,34 @@
   font-style: normal;
 }
 
+
+.xbox-price{
+  position: relative;
+  font-size: 55px;
+  color: white;
+  top: -139px;
+  left: -38px;
+  z-index: 2;
+  font-family: 'UltimateTeamCondensed';
+  text-shadow: 1px 1px 2px black;
+  width: 270px;
+  display: flex;
+  justify-content: center;
+}
+
+.xbox-price img{
+  width: 80px;
+  height: 80px;
+  display: inline-block;
+  position: relative;
+  left: 2px;
+  top: 16px;
+  -webkit-filter: drop-shadow(1px 1px 4px rgba(0,0,0,0.75));
+    -moz-filter: drop-shadow(1px 1px 4px rgba(0,0,0,0.75));
+    -ms-filter: drop-shadow(1px 1px 4px rgba(0,0,0,0.75));
+    -o-filter: drop-shadow(1px 1px 4px rgba(0,0,0,0.75));
+}
+
 #futties_reset{
   position: absolute;
   left: 114px;

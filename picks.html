@@ -21,6 +21,11 @@
             $('#tokens').append(player);
         });
 
+        $("[data-xbox-price]").each(function () {
+            var price = parseInt($(this).data("xbox-price")).toLocaleString();
+            $(this).append("<div class='xbox-price'><div><img src='xbox_green.png' /><span>" + price + "</span></div></div>");
+        });
+
         $("div.card").click(function(){
             $(this).hide();
         });
