@@ -196,6 +196,12 @@ label {
   filter: brightness(1);
 }
 
+#search{
+  position: absolute;
+  left: 50%;
+  top: 20px;
+}
+
 .futties #tokens {
   position: absolute;
   top: 245px;

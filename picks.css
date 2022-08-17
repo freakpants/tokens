@@ -8,11 +8,16 @@
 }
 
 body {
-  /* background-size: cover;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) , url("white.jpg");
-   background-image: url(white.jpg); */
-   background-color: #e9f3ea;
+  
+  background-size: cover;
+  /* background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) , url("futties_wall.png"); */
+   background-image: url("futties_wall.png");
+   /* background-color: #e9f3ea; */
 }
+
+body::-webkit-scrollbar {
+  display: none;
+} 
 
 .xbox-price.ps{
   left: -18px;
@@ -137,15 +142,14 @@ body {
 
 
 .futties h1 {
-  color: rgb(255, 255, 255);
-  margin-bottom: 2rem;
-  font-size: 36px;
+  margin-bottom: 0;
+  font-size: 72px;
 }
 
 .futties .card{
-  transform: scale(0.6);
-  width: 158px;
-  height: 257px;
+  transform: scale(1.1);
+  width: 328px;
+  height: 477px;
 }
 
 .futties.futties.futties .name{
@@ -215,15 +219,11 @@ label {
 }    
 
 .futties h1{
-  background: linear-gradient(
-    99deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(207, 70, 153, 1) 0%,
-    rgba(208, 28, 98, 1) 100%
-  );
+  background: rgb(2,0,36);
+  background: linear-gradient(113deg, rgba(2,0,36,1) 0%, rgba(255,0,0,1) 0%, rgba(255,0,0,1) 35%, rgba(255,255,0,1) 35%, rgba(255,255,0,1) 66%, rgba(255,0,0,1) 66%, rgba(255,0,0,1) 100%);
   -webkit-background-clip: text;
-  background-clip: text;
   -webkit-text-fill-color: transparent;
+  filter: drop-shadow(1px 1px 4px rgba(0,0,0,0.75));
 }
 
 .futties .token-claimed{
@@ -355,16 +355,25 @@ a {
 }
 
 #tokens {
-  justify-content: center;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   gap: 8px;
-  max-width: 97vw;
 }
 
 #tokens.futties {
-  gap: 20px;
+  gap: 70px;
+  justify-content: center;
+  margin-top: 150px;
+}
+
+.kimpembro{
+  width: 400px;
+  height: auto;
+  filter: drop-shadow(0px 0px 10px rgb(14, 14, 15));
+  position: absolute;
+  right: 786px;
+  bottom: 200px;
 }
 
 .token_number {

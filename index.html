@@ -16,6 +16,9 @@
       <h3>Collected: <span id="collected">0/307</span></h3>
       <h3>Displaying: <span id="displaying">307/307</span></h3>
     </div>
+    <div id="search">
+      <input type="text">
+    </div>
     <button id="futties_reset" class="reset btn-standard call-to-action">
       <span class="button__text">Reset Collection</span>
     </button>
@@ -242,6 +245,13 @@
       location.href = "https://github.com/freakpants/tokens/blob/main/README.md";
     }
     );
+  });
+
+  $("#search").on('input', function (e) {
+    let string = $(e.target).val();
+    $('.marquee:not(:contains('+ string +'))').closest('.card').hide();
+    $('.marquee:contains('+ string +')').closest('.card.hidden-by-search').show();
+    $('.marquee:not(:contains('+ string +'))').closest('.card').addClass("hidden-by-search");
   });
 
   function update_token_count() {
@@ -819,8 +829,8 @@
         }
       });
 
-            // toggle toty honourable mentions
-            $("#honourable").click(function () {
+      // toggle toty honourable mentions
+      $("#honourable").click(function () {
         if (this.checked) {
           $("[data-rareflag=64]").fadeIn(update_futties_counter);
         } else {
