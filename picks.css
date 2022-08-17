@@ -7,33 +7,52 @@
   font-style: normal;
 }
 
+body {
+  background-size: cover;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) , url("white.jpg");
+  background-image: url(white.jpg);
+}
+
+.xbox-price.ps{
+  left: -18px;
+  top: -95px;
+}
+.xbox-price.pc{
+  left: 51px;
+  top: -165px;
+}
+.xbox-price.xbox{
+  left: 120px;
+  top: -166px;
+} 
 
 .xbox-price{
   position: relative;
-  font-size: 30px;
+  font-size: 23px;
   color: white;
-  top: -41px;
-  left: -21px;
+  top: -185px;
+  left: 120px;
   z-index: 2;
   font-family: 'UltimateTeamCondensed';
   text-shadow: 1px 1px 2px black;
-  width: 270px;
+  width: 132px;
   display: flex;
   justify-content: center;
   border: 1px solid black;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.8);
   opacity: 0.;
   padding-bottom: 20px;
   margin-bottom: 2px;
+  border-radius: 35px;
 }
 
 .xbox-price img{
-  width: 55px;
-  height: 55px;
+  width: 40px;
+  height: 40px;
   display: inline-block;
   position: relative;
-  left: -12px;
-  top: 16px;
+  left: -5px;
+  top: 8px;
   -webkit-filter: drop-shadow(1px 1px 4px rgba(0,0,0,0.75));
     -moz-filter: drop-shadow(1px 1px 4px rgba(0,0,0,0.75));
     -ms-filter: drop-shadow(1px 1px 4px rgba(0,0,0,0.75));
@@ -125,7 +144,7 @@
 .futties .card{
   transform: scale(0.6);
   width: 158px;
-  height: 371px;
+  height: 257px;
 }
 
 .futties.futties.futties .name{
