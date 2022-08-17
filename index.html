@@ -249,9 +249,9 @@
 
   $("#search").on('input', function (e) {
     let string = $(e.target).val();
-    $('.marquee:not(:contains('+ string +'))').closest('.card').hide();
-    $('.marquee:contains('+ string +')').closest('.card.hidden-by-search').show();
-    $('.marquee:not(:contains('+ string +'))').closest('.card').addClass("hidden-by-search");
+    $('.marquee:not(:contains(' + string + '))').closest('.card').hide();
+    $('.marquee:contains(' + string + ')').closest('.card.hidden-by-search').show();
+    $('.marquee:not(:contains(' + string + '))').closest('.card').addClass("hidden-by-search");
   });
 
   function update_token_count() {
@@ -424,6 +424,9 @@
         tokens_number++;
 
       });
+
+
+
       // remember how many tokens are available
       document.available_tokens = tokens_number;
       // generate the rest of the empty divs
@@ -455,6 +458,8 @@
         const element = $(this);
         card_click(element);
       });
+
+
 
       $(".marquee").click(function (event) {
         name_copy(event);
@@ -870,6 +875,25 @@
         }
 
       });
+
+      // remove the html in all token numbers
+      $('.token_number').remove();
+      $("[data-futties-1]").append("<div class='token_number'>1</div>");
+      $("[data-futties-2]").append("<div class='token_number'>2</div>");
+      $("[data-futties-3]").append("<div class='token_number'>3</div>");
+      /* 
+        $(this).html("");
+        if (typeof $(this).parent().data('futties-1') !== 'undefined') {
+          $(this).html("1");
+        }
+        if (typeof $(this).parent().data('futties-2') !== 'undefined') {
+          $(this).append("2");
+        }
+        if (typeof $(this).parent().data('futties-3') !== 'undefined') {
+          $(this).append("3");
+        }
+
+      }); */
 
     });
     $("#counters").hide();
