@@ -252,6 +252,7 @@
     $('.marquee:not(:contains(' + string + '))').closest('.card').hide();
     $('.marquee:contains(' + string + ')').closest('.card.hidden-by-search').show();
     $('.marquee:not(:contains(' + string + '))').closest('.card').addClass("hidden-by-search");
+    update_futties_counter();
   });
 
   function update_token_count() {
