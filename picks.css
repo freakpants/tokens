@@ -218,13 +218,21 @@ label {
     line-height: 9px
 }    
 
+/*
+spanish
 .futties h1{
   background: rgb(2,0,36);
   background: linear-gradient(113deg, rgba(2,0,36,1) 0%, rgba(255,0,0,1) 0%, rgba(255,0,0,1) 35%, rgba(255,255,0,1) 35%, rgba(255,255,0,1) 66%, rgba(255,0,0,1) 66%, rgba(255,0,0,1) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   filter: drop-shadow(1px 1px 4px rgba(0,0,0,0.75));
+} */
+
+.futties h1{
+  color: rgb(8, 112, 48);
+  filter: drop-shadow(1px 1px 4px rgba(0,0,0,0.75));
 }
+
 
 .futties .token-claimed{
   filter: grayscale(0);
