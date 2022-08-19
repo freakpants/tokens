@@ -15,8 +15,8 @@
   <div class="futties-header">
     <h1>Futties Collector</h1>
     <div id="futties_counters">
-      <h3>Collected: <span id="collected">0/307</span></h3>
-      <h3>Displaying: <span id="displaying">307/307</span></h3>
+      <h3>Collected: <span id="collected">0/361</span></h3>
+      <h3>Displaying: <span id="displaying">361/361</span></h3>
     </div>
     <div id="search">
       <input type="text" placeholder="..player name (lowercase)">
@@ -867,6 +867,11 @@
       // toggle batch 3
       $("#togglebatch3").click(function () {
         update_batches(3);
+      });
+
+      // toggle preseason 1
+      $("#togglepre1").click(function () {
+        update_batches(4);
       });
 
       // toggle all cards
