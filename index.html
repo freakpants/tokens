@@ -4,7 +4,9 @@
 <head>
   <title>Futties Collector</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="jQuery.print.min.js"></script>
   <link rel="stylesheet" href="css.css">
+
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Secular+One">
 </head>
 
@@ -24,6 +26,9 @@
     </button>
     <button class="unclaim btn-standard call-to-action">
       <span class="button__text">Uncollect</span>
+    </button>
+    <button class="print btn-standard call-to-action">
+      <span class="button__text">Print</span>
     </button>
     <div id="batch_wrapper">
       <div>
@@ -233,6 +238,11 @@
         document.unclaim_mode = true;
         $(".unclaim").addClass("mode-active");
       }
+    }
+    );
+
+    $(".print").click(function () {
+      $("#tokens").print({stylesheet: "print.css"});
     }
     );
 
