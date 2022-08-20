@@ -16,7 +16,7 @@
     <h1>Futties Collector</h1>
     <div id="futties_counters">
       <h3>Collected: <span id="collected">0/361</span></h3>
-      <h3>Displaying: <span id="displaying">361/361</span></h3>
+      <h3>Displaying: <span id="displaying">100/361</span></h3>
     </div>
     <div id="search">
       <input type="text" placeholder="..player name (lowercase)">
@@ -274,8 +274,8 @@
   }
 
   function update_futties_counter() {
-    $("#collected").text(document.claimed_futties.length + "/" + 307);
-    $("#displaying").text($("#tokens .card:visible").length + "/" + 307);
+    $("#collected").text(document.claimed_futties.length + "/" + 361);
+    $("#displaying").text($("#tokens .card:visible").length + "/" + 361);
   }
 
   function mark_tokens() {
@@ -1033,11 +1033,20 @@
         $(this).text($(this).text().toLowerCase());
       });
 
+      $("[data-futties-1]").prop("checked", false);
+      $("[data-futties-2]").prop("checked", false);
+      $("[data-futties-3]").prop("checked", false);
+      // hide all cards
+      $(".card").hide();
+      // show all cards that are in the current batch
+      ("[data-preseason-1]").show();
+
       // remove the html in all token numbers
       $('.token_number').remove();
       $("[data-futties-1]").append("<div class='token_number'>1</div>");
       $("[data-futties-2]").append("<div class='token_number'>2</div>");
       $("[data-futties-3]").append("<div class='token_number'>3</div>");
+      $("[data-preseason-1]").append("<div class='token_number'>4</div>");
       /* 
         $(this).html("");
         if (typeof $(this).parent().data('futties-1') !== 'undefined') {
