@@ -1033,13 +1033,14 @@
         $(this).text($(this).text().toLowerCase());
       });
 
-      $("[data-futties-1]").prop("checked", false);
-      $("[data-futties-2]").prop("checked", false);
-      $("[data-futties-3]").prop("checked", false);
+      $("#togglebatch1").prop("checked", false);
+      $("#togglebatch2").prop("checked", false);
+      $("#togglebatch3").prop("checked", false);
       // hide all cards
       $(".card").hide();
       // show all cards that are in the current batch
-      ("[data-preseason-1]").show();
+      $("[data-preseason-1]").show();
+      update_futties_counter();
 
       // remove the html in all token numbers
       $('.token_number').remove();
