@@ -11,7 +11,7 @@ body {
   
   background-size: cover;
   /* background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) , url("futties_wall.png"); */
-   background-image: url("preseason.jpg");
+   background-image: url("shapeshifters.png");
    /* background-color: #e9f3ea; */
 }
 
@@ -147,9 +147,9 @@ body::-webkit-scrollbar {
 }
 
 .futties .card{
-  transform: scale(0.69);
-  width: 125px;
-  height: 260px;
+  transform: scale(0.8);
+  width: 208px;
+  height: 304px;
 }
 
 .futties.futties.futties .name{
@@ -374,7 +374,7 @@ a {
 #tokens.futties {
   gap: 70px;
   justify-content: center;
-  margin-top: -39px;
+  margin-top: 50px;
 }
 
 .kimpembro{
