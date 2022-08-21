@@ -1691,33 +1691,33 @@ h2 {
 }
 .scard .red .pace,
 .scard.legend .pace {
-  top: 116px;
+  top: 236px;
   left: 26px;
 }
 .scard .red .shooting,
 .scard.legend .shooting {
-  top: 135px;
+  top: 260px;
   left: 26px;
 }
 .scard .red .passing,
 .scard.legend .passing {
-  top: 154px;
+  top: 285px;
   left: 26px;
 }
 .scard .red .dribbling,
 .scard.legend .dribbling {
-  top: 116px;
-  left: 74px;
+  top: 236px;
+  left: 114px;
 }
 .scard .red .defending,
 .scard.legend .defending {
-  top: 135px;
-  left: 74px;
+  top: 260px;
+  left: 114px;
 }
 .scard .red .heading,
 .scard.legend .heading {
-  top: 154px;
-  left: 74px;
+  top: 285px;
+  left: 114px;
 }
 .player .card.fifa13 .clubbadge {
   top: 113px;
