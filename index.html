@@ -31,22 +31,15 @@
       <span class="button__text">Print</span>
     </button>
     <div id="batch_wrapper">
-      <div>
-        <input type="checkbox" id="togglebatch1" name="togglebatch1" checked>
-        <label for="togglebatch1l">Futties 1</label>
-      </div>
-      <div>
-        <input type="checkbox" id="togglebatch2" name="togglebatch2" checked>
-        <label for="togglebatch2">Futties 2</label>
-      </div>
-      <div>
-        <input type="checkbox" id="togglebatch3" name="togglebatch3" checked>
-        <label for="togglebatch3">Futties 3</label>
-      </div>
-      <div>
-        <input type="checkbox" id="togglepre1" name="togglepre1" checked>
-        <label for="togglepre1">Preseason 1</label>
-      </div>
+      <select id="batch_select">
+        <option selected value="preseason_1">Preseason 1</option>
+        <option value="futties_1">Futties 1</option>
+        <option value="futties_2">Futties 2</option>
+        <option value="futties_3">Futties 3</option>
+        <option value="futties_123">Futties 1-3</option>
+      </select>
+
+
     </div>
     <div id="checkbox_wrapper" class="checkbox_wrapper_futties">
       <div>
@@ -536,224 +529,25 @@
   }
 
   function update_batches(trigger) {
-    let batches = [];
-    batches[1] = $("#togglebatch1").prop("checked");
-    batches[2] = $("#togglebatch2").prop("checked");
-    batches[3] = $("#togglebatch3").prop("checked");
-    batches[4] = $("#togglepre1").prop("checked");
-    switch (trigger) {
-      case 1:
-        if (batches[1]) {
-          // fade in batch 1
-          $("[data-futties-1]").closest(".card.fifa22").fadeIn(update_futties_counter);
-        } else {
-          if (batches[2]) {
-            if (batches[3]) {
-              if (batches[4]) {
-                // fade out batch 1 only
-                $("[data-futties-1][data-futties-2!=1][data-futties-3!=1][data-preseason-1!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
-              } else {
-                // fade out batch 1 and 4
-                $("[data-futties-1][data-futties-2!=1][data-futties-3!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
-                $("[data-preseason-1][data-futties-2!=1][data-futties-3!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
-              }
-
-            } else {
-              if (batches[4]) {
-                // fade out batch 1 and 3
-                $("[data-futties-1][data-futties-2!=1][data-preseason-1!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
-                $("[data-futties-3][data-futties-2!=1][data-preseason-1!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
-              } else {
-                // fade out batch 1 and 3 and 4
-                $("[data-futties-1][data-futties-2!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
-                $("[data-futties-3][data-futties-2!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
-                $("[data-preseason-1][data-futties-2!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
-              }
-            }
-          } else {
-            if (batches[3]) {
-              if (batches[4]) {
-                // fade out batch 1 and 2
-                $("[data-futties-1][data-futties-3!=1][data-preseason-1!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
-                $("[data-futties-2][data-futties-3!=1][data-preseason-1!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
-              } else {
-                // fade out batch 1 and 2 and 4
-                $("[data-futties-1][data-futties-3!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
-                $("[data-futties-2][data-futties-3!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
-                $("[data-preseason-1][data-futties-3!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
-              }
-            } else {
-              if (batches[4]) {
-                // fade out batch 1 and 2 and 3
-                $("[data-futties-1][data-preseason-1!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
-                $("[data-futties-2][data-preseason-1!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
-                $("[data-futties-3][data-preseason-1!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
-              } else {
-                // fade out all
-                $(".card.fifa22").fadeOut(update_futties_counter);
-              }
-            }
-          }
-        }
+    // fade out all
+    $(".card.fifa22").fadeOut();
+    switch(trigger){
+      case "futties_1":
+        $(".card.fifa22[data-futties-1='1']").fadeIn(update_futties_counter);
         break;
-      case 2:
-        if (batches[2]) {
-          // fade in batch 2
-          $("[data-futties-2]").closest(".card.fifa22").fadeIn(update_futties_counter);
-        } else {
-          if (batches[1]) {
-            if (batches[3]) {
-              if (batches[4]) {
-                // fade out batch 2 only
-                $("[data-futties-2][data-futties-1!=1][data-futties-3!=1][data-preseason-1!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
-              } else {
-                // fade out batch 2 and 4
-                $("[data-futties-2][data-futties-1!=1][data-futties-3!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
-                $("[data-preseason-1][data-futties-1!=1][data-futties-3!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
-              }
-            } else {
-              if (batches[4]) {
-                // fade out batch 2 and 3
-                $("[data-futties-2][data-futties-1!=1][data-preseason-1!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
-                $("[data-futties-3][data-futties-1!=1][data-preseason-1!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
-              } else {
-                // fade out batch 2 and 3 and 4
-                $("[data-futties-2][data-futties-1!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
-                $("[data-futties-3][data-futties-1!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
-                $("[data-preseason-1][data-futties-1!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
-              }
-            }
-          } else {
-            if (batches[3]) {
-              if (batches[4]) {
-                // fade out batch 2 and 1
-                $("[data-futties-2][data-futties-3!=1][data-preseason-1!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
-                $("[data-futties-1][data-futties-3!=1][data-preseason-1!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
-              } else {
-                // fade out batch 4 and 2 and 1
-                $("[data-futties-2][data-futties-3!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
-                $("[data-futties-3][data-futties-3!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
-                $("[data-preseason-1][data-futties-3!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
-              }
-            } else {
-              if (batches[4]) {
-                // fade out batch 2 and 1 and 3
-                $("[data-futties-2][data-preseason-1!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
-                $("[data-futties-1][data-preseason-1!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
-                $("[data-futties-3][data-preseason-1!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
-              } else {
-                // fade out all
-                $(".card.fifa22").fadeOut(update_futties_counter);
-              }
-            }
-          }
-        }
+        case "futties_2":
+        $(".card.fifa22[data-futties-2='1']").fadeIn(update_futties_counter);
         break;
-      case 3:
-        if (batches[3]) {
-          // fade in batch 3
-          $("[data-futties-3]").closest(".card.fifa22").fadeIn(update_futties_counter);
-        } else {
-          if (batches[1]) {
-            if (batches[2]) {
-              if (batches[4]) {
-                // fade out batch 3 only
-                $("[data-futties-3][data-futties-1!=1][data-futties-2!=1][data-preseason-1!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
-              } else {
-                // fade out batch 3 and 4
-                $("[data-futties-3][data-futties-1!=1][data-futties-2!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
-                $("[data-preseason-1][data-futties-1!=1][data-futties-2!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
-              }
-            } else {
-              if (batches[4]) {
-                // fade out batch 3 and 2
-                $("[data-futties-3][data-futties-1!=1][data-preseason-1!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
-                $("[data-futties-2][data-futties-1!=1][data-preseason-1!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
-              } else {
-                // fade out batch 3 and 2 and 4
-                $("[data-futties-3][data-futties-1!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
-                $("[data-futties-2][data-futties-1!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
-                $("[data-preseason-1][data-futties-1!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
-              }
-            }
-          } else {
-            if (batches[2]) {
-              if (batches[4]) {
-                // fade out batch 3 and 1
-                $("[data-futties-3][data-futties-2!=1][data-preseason-1!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
-                $("[data-futties-1][data-futties-2!=1][data-preseason-1!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
-              } else {
-                // fade out batch 3 and 1 and 4
-                $("[data-futties-3][data-futties-2!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
-                $("[data-futties-1][data-futties-2!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
-                $("[data-preseason-1][data-futties-1!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
-              }
-            } else {
-              if (batches[4]) {
-                // fade out batch 3 and 1 and 2
-                $("[data-futties-3][data-futties-1!=1][data-preseason-1!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
-                $("[data-futties-2][data-futties-1!=1][data-preseason-1!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
-              } else {
-                // fade out all
-                $(".card.fifa22").fadeOut(update_futties_counter);
-              }
-            }
-          }
-        }
+        case "futties_3":
+        $(".card.fifa22[data-futties-3='1']").fadeIn(update_futties_counter);
         break;
-      case 4:
-        if (batches[4]) {
-          // fade in batch 4
-          $("[data-preseason-1]").closest(".card.fifa22").fadeIn(update_futties_counter);
-        } else {
-          if (batches[1]) {
-            if (batches[2]) {
-              if (batches[3]) {
-                // fade out batch 4 only
-                $("[data-preseason-1][data-futties-1!=1][data-futties-2!=1][data-futties-3!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
-              } else {
-                // fade out batch 4 and 3
-                $("[data-preseason-1][data-futties-1!=1][data-futties-2!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
-                $("[data-futties-3][data-futties-1!=1][data-futties-2!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
-              }
-            } else {
-              if (batches[3]) {
-                // fade out batch 4 and 2
-                $("[data-preseason-1][data-futties-1!=1][data-futties-3!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
-                $("[data-futties-2][data-futties-1!=1][data-futties-3!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
-              } else {
-                // fade out batch 4 and 2 and 3
-                $("[data-preseason-1][data-futties-1!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
-                $("[data-futties-2][data-futties-1!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
-                $("[data-futties-3][data-futties-1!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
-              }
-            }
-          } else {
-            if (batches[2]) {
-              if (batches[3]) {
-                // fade out batch 4 and 1
-                $("[data-preseason-1][data-futties-2!=1][data-futties-3!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
-                $("[data-futties-1][data-futties-2!=1][data-futties-3!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
-              } else {
-                // fade out batch 4 and 1 and 2
-                $("[data-preseason-1][data-futties-2!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
-                $("[data-futties-1][data-futties-2!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
-                $("[data-futties-2][data-futties-1!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
-              }
-            } else {
-              if (batches[3]) {
-                // fade out batch 4 and 1 and 2
-                $("[data-preseason-1][data-futties-3!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
-                $("[data-futties-1][data-futties-3!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
-                $("[data-futties-2][data-futties-3!=1]").closest(".card.fifa22").fadeOut(update_futties_counter);
-              } else {
-                // fade out all
-                $(".card.fifa22").fadeOut(update_futties_counter);
-              }
-            }
-          }
-        }
-      break;
+        case "futties_123":
+        // fade in all cards that have at least one futties
+        $("[data-futties-1='1'],[data-futties-2='1'],[data-futties-3='1']").closest(".card.fifa22").fadeIn(update_futties_counter);
+        break;
+        case "preseason_1":
+        $("[data-preseason-1='1']").closest(".card.fifa22").fadeIn(update_futties_counter);
+        break;
     }
   }
 
@@ -990,25 +784,11 @@
         }
       });
 
-      // toggle batch 1
-      $("#togglebatch1").click(function () {
-        update_batches(1);
-      });
 
-      // toggle batch 2
-      $("#togglebatch2").click(function () {
-        update_batches(2);
-      });
-
-      // toggle batch 3
-      $("#togglebatch3").click(function () {
-        update_batches(3);
-      });
-
-      // toggle preseason 1
-      $("#togglepre1").click(function () {
-        update_batches(4);
-      });
+     $("#batch_select").change((e) => {
+      const batch = e.target.value;
+      update_batches(batch);
+     });
 
       // toggle all cards
       $("#toggleall").click(function () {

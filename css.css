@@ -41,7 +41,16 @@
   width: 92px;
 }
 
-.checkbox_wrapper_futties, #futties_counters h3, #batch_wrapper{
+#batch_select{
+  top: 26px;
+    position: absolute;
+    right: 0px;
+    font-family: 'UltimateTeamCondensed';
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+.checkbox_wrapper_futties, #futties_counters h3{
 
   background: linear-gradient( 99deg, rgba(2, 0, 36, 1) 0%, rgba(207, 70, 153, 1) 0%, rgba(208, 28, 98, 1) 100% );
     -webkit-background-clip: text;
