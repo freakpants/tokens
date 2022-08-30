@@ -13,7 +13,7 @@
 <body>
   <div id="overlay_bg"></div>
   <div class="futties-header">
-    <h1>Futties Collector</h1>
+    <h1>FUT22 Collector</h1>
     <div id="futties_counters">
       <h3>Collected: <span id="collected">0/361</span></h3>
       <h3>Displaying: <span id="displaying">100/361</span></h3>
@@ -32,10 +32,10 @@
     </button>
     <div id="batch_wrapper">
       <select id="batch_select">
-        <option selected value="preseason_1">Preseason 1</option>
-        <option value="futties_1">Futties 1</option>
-        <option value="futties_2">Futties 2</option>
-        <option value="futties_3">Futties 3</option>
+        <option selected value="preseason_1">Preseason 1 (4)</option>
+        <option value="futties_1">Futties 1 (1)</option>
+        <option value="futties_2">Futties 2 (2)</option>
+        <option value="futties_3">Futties 3 (3)</option>
         <option value="futties_123">Futties 1-3</option>
         <option value="campaign">Campaign Bag PP</option>
       </select>
@@ -548,6 +548,9 @@
         break;
         case "preseason_1":
         $("[data-preseason-1='1']").closest(".card.fifa22").fadeIn(update_futties_counter);
+        break;
+        case "campaign":
+        $("[data-campaign-bag='1']").closest(".card.fifa22").fadeIn(update_futties_counter);
         break;
     }
   }
