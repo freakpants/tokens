@@ -7,11 +7,15 @@
   font-style: normal;
 }
 
+#roundlogo{
+  left: 226px;
+}
+
 body {
   
   background-size: cover;
   /* background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) , url("futties_wall.png"); */
-   background-image: url("preseason.jpg");
+   background-image: url("shapeshifters.png");
    /* background-color: #e9f3ea; */
 }
 
@@ -148,9 +152,9 @@ body::-webkit-scrollbar {
 }
 
 .futties .card{
-  transform: scale(0.65);
-  width: 124px;
-  height: 244px;
+  transform: scale(1.10);
+  width: 254px;
+  height: 551px;
 }
 
 .futties.futties.futties .name{
@@ -245,7 +249,7 @@ spanish
 }
 
 .futties #tokens {
-  margin-left: 50px;
+  margin-left: 120px;
   margin-right: 118px;
 }
 
@@ -374,13 +378,17 @@ a {
 #tokens.futties {
   gap: 70px;
   justify-content: center;
-  margin-top: 10px;
+  margin-top: 90px;
+}
+
+#kimpembro{
+  filter: brightness(2) drop-shadow(0px 0px 10px rgb(14, 14, 15));
 }
 
 .kimpembro{
   width: 250px;
   height: auto;
-  filter: drop-shadow(0px 0px 10px rgb(14, 14, 15));
+
   position: absolute;
   right: 226px;
   bottom: 52px;
