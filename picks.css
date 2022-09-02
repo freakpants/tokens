@@ -152,9 +152,9 @@ body::-webkit-scrollbar {
 }
 
 .futties .card{
-  transform: scale(1.10);
-  width: 254px;
-  height: 551px;
+  transform: scale(0.70);
+  width: 133px;
+  height: 250px;
 }
 
 .futties.futties.futties .name{
@@ -378,7 +378,7 @@ a {
 #tokens.futties {
   gap: 70px;
   justify-content: center;
-  margin-top: 90px;
+  margin-top: 0px;
 }
 
 #kimpembro{
