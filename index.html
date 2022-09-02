@@ -32,7 +32,8 @@
     </button>
     <div id="batch_wrapper">
       <select id="batch_select">
-        <option selected value="preseason_1">Preseason 1 (4)</option>
+        <option value="preseason_1">Preseason 1 (4)</option>
+        <option selected value="preseason_2">Preseason 2 (5)</option>
         <option value="futties_1">Futties 1 (1)</option>
         <option value="futties_2">Futties 2 (2)</option>
         <option value="futties_3">Futties 3 (3)</option>
@@ -549,6 +550,9 @@
         case "preseason_1":
         $("[data-preseason-1='1']").closest(".card.fifa22").fadeIn(update_futties_counter);
         break;
+        case "preseason_2":
+        $("[data-preseason-2='1']").closest(".card.fifa22").fadeIn(update_futties_counter);
+        break;
         case "campaign":
         $("[data-campaign-bag='1']").closest(".card.fifa22").fadeIn(update_futties_counter);
         break;
@@ -823,7 +827,7 @@
       // hide all cards
       $(".card").hide();
       // show all cards that are in the current batch
-      $("[data-preseason-1]").show();
+      $("[data-preseason-2]").show();
       update_futties_counter();
 
       // remove the html in all token numbers
@@ -832,6 +836,7 @@
       $("[data-futties-2]").append("<div class='token_number'>2</div>");
       $("[data-futties-3]").append("<div class='token_number'>3</div>");
       $("[data-preseason-1]").append("<div class='token_number'>4</div>");
+      $("[data-preseason-2]").append("<div class='token_number'>5</div>");
       /* 
         $(this).html("");
         if (typeof $(this).parent().data('futties-1') !== 'undefined') {
