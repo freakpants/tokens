@@ -15,8 +15,8 @@
   <div class="futties-header">
     <h1>FUT22 Collector</h1>
     <div id="futties_counters">
-      <h3>Collected: <span id="collected">0/361</span></h3>
-      <h3>Displaying: <span id="displaying">100/361</span></h3>
+      <h3>Collected: <span id="collected">0/429</span></h3>
+      <h3>Displaying: <span id="displaying">200/429</span></h3>
     </div>
     <div id="search">
       <input type="text" placeholder="..player name (lowercase)">
@@ -269,8 +269,8 @@
   }
 
   function update_futties_counter() {
-    $("#collected").text(document.claimed_futties.length + "/" + 361);
-    $("#displaying").text($("#tokens .card:visible").length + "/" + 361);
+    $("#collected").text(document.claimed_futties.length + "/" + 429);
+    $("#displaying").text($("#tokens .card:visible").length + "/" + 429);
   }
 
   function mark_tokens() {
