@@ -801,7 +801,30 @@
       // toggle all cards
       $("#toggleall").click(function () {
         if (this.checked) {
-          $(".card").fadeIn(update_futties_counter);
+          const batch = $("#batch_select").val();
+          let selector = '';
+          switch(batch){
+            case "preseason_1":
+              selector = "[data-preseason-1=1]";	
+              break;
+            case "preseason_2":
+              selector = "[data-preseason-2=1]";
+            break;
+            case "futties_1":
+              selector = "[data-futties-1=1]";
+            break;
+            case "futties_2":
+              selector = "[data-futties-2=1]";
+            break;
+            case "futties_3":
+              selector = "[data-futties-3=1]";
+            break;
+            case "futties_123":
+              selector = "[data-futties-1=1],[data-futties-2=1],[data-futties-3=1]";
+            break;  
+            
+          }
+          $(selector).fadeIn(update_futties_counter);
           $(".checkbox_wrapper_futties input").each(function () {
             $(this).prop("checked", true);
           });
