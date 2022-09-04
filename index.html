@@ -13,6 +13,7 @@
 <body>
   <div id="overlay_bg"></div>
   <div class="futties-header">
+    <div id="show_legend" class='token_number_legend'>?</div>
     <h1>FUT22 Collector</h1>
     <div id="futties_counters">
       <h3>Collected: <span id="collected">0/429</span></h3>
@@ -32,13 +33,13 @@
     </button>
     <div id="batch_wrapper">
       <select id="batch_select">
-        <option value="preseason_1">Preseason 1 (4)</option>
         <option selected value="preseason_2">Preseason 2 (5)</option>
-        <option value="futties_1">Futties 1 (1)</option>
-        <option value="futties_2">Futties 2 (2)</option>
+        <option value="futties_123">Futties 1-3 PP</option>
+        <option value="campaign">Campaign Bag PP (6)</option>
+        <option value="preseason_1">Preseason 1 (4)</option>
         <option value="futties_3">Futties 3 (3)</option>
-        <option value="futties_123">Futties 1-3</option>
-        <option value="campaign">Campaign Bag PP</option>
+        <option value="futties_2">Futties 2 (2)</option>
+        <option value="futties_1">Futties 1 (1)</option>
       </select>
 
 
@@ -50,7 +51,7 @@
       </div>
       <div>
         <input type="checkbox" id="shapeshifters" name="shapeshifters" checked>
-        <label for="sbc">Shapeshifters</label>
+        <label for="shapeshifters">Shapeshifters</label>
       </div>
       <div>
         <input type="checkbox" id="toty" name="toty" checked>
@@ -58,15 +59,15 @@
       </div>
       <div>
         <input type="checkbox" id="tots" name="tots" checked>
-        <label for="objectives">TOTS</label>
+        <label for="tots">TOTS</label>
       </div>
       <div>
-        <input type="checkbox" id="uecl" name="uecl" checked>
-        <label for="uecl">CL Live</label>
+        <input type="checkbox" id="uefa" name="uefa" checked>
+        <label for="uefa">UEFA Leagues</label>
       </div>
       <div>
         <input type="checkbox" id="fantasy" name="fantasy" checked>
-        <label for="toty">FUT Fantasy</label>
+        <label for="fantasy">FUT Fantasy</label>
       </div>
       <div>
         <input type="checkbox" id="headliners" name="headliners" checked>
@@ -109,38 +110,35 @@
         <label for="honourable">TOTY Honour</label>
       </div>
       <div>
-        <input type="checkbox" id="elfinal" name="elfinal" checked>
-        <label for="elfinal">EL Live</label>
+        <input type="checkbox" id="libertadores" name="libertadores" checked>
+        <label for="libertadores">Libertadores</label>
       </div>
       <div>
         <input type="checkbox" id="halloween" name="halloween" checked>
         <label for="halloween">Rulebreakers</label>
       </div>
       <div>
-        <input type="checkbox" id="rttk" name="rttk" checked>
-        <label for="rttk">RTTK</label>
-      </div>
-      <div>
         <input type="checkbox" id="otw" name="otw" checked>
         <label for="otw">Ones To Watch</label>
       </div>
       <div>
-        <input type="checkbox" id="versusfire" name="versusfire" checked>
-        <label for="versusfire">Versus Fire</label>
-      </div>
-      <div>
-        <input type="checkbox" id="versusice" name="versusice" checked>
-        <label for="versusice">Versus Ice</label>
+        <input type="checkbox" id="versus" name="versus" checked>
+        <label for="versus">FUT Versus</label>
       </div>
       <div>
         <input type="checkbox" id="motm" name="motm" checked>
-        <label for="totw">MOTM</label>
-      </div>
-      <div>
-        <input type="checkbox" id="gold" name="gold" checked>
-        <label for="totw">Gold</label>
+        <label for="motm">MOTM</label>
       </div>
     </div>
+  </div>
+  <div id="legend_wrapper">
+    The numbers above each card tell you in which batch or player pick the card was/is available. <br>
+    <div class="legend_line_wrapper"><div class='token_number_legend'>1</div><div class="legend_text">Futties Batch 1 (available in Futties 1-3 Pick)</div></div>
+    <div class="legend_line_wrapper"><div class='token_number_legend'>2</div><div class="legend_text">Futties Batch 2 (available in Futties 1-3 Pick)</div></div>
+    <div class="legend_line_wrapper"><div class='token_number_legend'>3</div><div class="legend_text">Futties Batch 3 (available in Futties 1-3 Pick)</div></div>
+    <div class="legend_line_wrapper"><div class='token_number_legend'>4</div><div class="legend_text">Preseason Batch 1 (unavailable)</div> </div>
+    <div class="legend_line_wrapper"><div class='token_number_legend'>5</div><div class="legend_text">Preseason Batch 2 (in Packs until FIFA 23)</div> </div>
+    <div class="legend_line_wrapper"><div class='token_number_legend'>6</div><div class="legend_text">Campaign Bag Player Pick</div> </div>
   </div>
   <div id="counters">
     <h3>Claimed: <span id="claimed"></span></h3>
@@ -205,6 +203,19 @@
   let tokens_number = 0;
 
   $(document).ready(function () {
+
+    $("#legend_wrapper").click(function () {
+        $(this).hide();
+        localStorage.setItem("legend_hidden", "true");
+        $("#show_legend").css("display", "flex");
+      });
+
+    $("#show_legend").click(function () {
+        $(this).hide();
+        localStorage.setItem("legend_hidden", "false");
+        $("#legend_wrapper").show();
+      });
+
     $(".reset").click(function () {
       if (document.futtiescollector) {
 
@@ -269,8 +280,124 @@
   }
 
   function update_futties_counter() {
-    $("#collected").text(document.claimed_futties.length + "/" + 429);
+    $("#collected").text($("#tokens .token-claimed.card:visible").length + "/" + $("#tokens .card:visible").length);
     $("#displaying").text($("#tokens .card:visible").length + "/" + 429);
+  }
+
+  function fade_in_promo(promo){
+    const batch = $("#batch_select").val();
+    const selector = get_batch_selector(batch);
+    $(".card" + promo + selector).fadeIn(update_futties_counter);
+  }
+
+  function display_filters(){
+    const batch = $("#batch_select").val();
+    // hide all specific filter checkboxes
+    $("#checkbox_wrapper input").hide();
+    $("#checkbox_wrapper label").hide();
+    // show the toggle all
+    $("#toggleall").show();
+    $("[for=toggleall]").show();
+    switch(batch){
+      case "preseason_1":
+        show_checkbox("shapeshifters");
+        show_checkbox("tots");
+        show_checkbox("toty");
+        show_checkbox("fantasy");
+        show_checkbox("libertadores");
+      break;
+      case "preseason_2": 
+        show_checkbox("shapeshifters");
+        show_checkbox("tots");
+        show_checkbox("toty");
+        show_checkbox("fantasy");
+        show_checkbox("uefa");
+        show_checkbox("captains");
+        show_checkbox("birthday");
+        show_checkbox("futurestars");
+        show_checkbox("wildcard");
+      break;
+      case "futties_1":
+        show_checkbox("toty");
+        show_checkbox("fantasy");
+        show_checkbox("uefa");
+        show_checkbox("birthday");
+        show_checkbox("futurestars");
+        show_checkbox("wildcard");
+        show_checkbox("headliners");
+        show_checkbox("signature");
+        show_checkbox("totw");
+        show_checkbox("numbersup");
+        show_checkbox("honourable");
+        show_checkbox("halloween");
+        show_checkbox("otw");
+        show_checkbox("versus");
+        show_checkbox("motm");
+      break;
+      case "futties_2":
+        show_checkbox("tots");
+        show_checkbox("toty");
+        show_checkbox("fantasy");
+        show_checkbox("captains");
+        show_checkbox("uefa");
+        show_checkbox("birthday");
+        show_checkbox("futurestars");
+        show_checkbox("wildcard");
+        show_checkbox("headliners");
+        show_checkbox("signature");
+        show_checkbox("totw");
+        show_checkbox("numbersup");
+        show_checkbox("honourable");
+        show_checkbox("halloween");
+        show_checkbox("otw");
+        show_checkbox("versus");
+        show_checkbox("motm");
+      break;
+      case "futties_3":
+        show_checkbox("shapeshifters");
+        show_checkbox("tots");
+        show_checkbox("toty");
+        show_checkbox("fantasy");
+        show_checkbox("captains");
+        show_checkbox("uefa");
+        show_checkbox("birthday");
+        show_checkbox("futurestars");
+        show_checkbox("totw");
+        show_checkbox("motm");
+      break;
+      case "futties_123":
+        show_checkbox("shapeshifters");
+        show_checkbox("tots");
+        show_checkbox("toty");
+        show_checkbox("fantasy");
+        show_checkbox("captains");
+        show_checkbox("uefa");
+        show_checkbox("birthday");
+        show_checkbox("futurestars");
+        show_checkbox("wildcard");
+        show_checkbox("headliners");
+        show_checkbox("signature");
+        show_checkbox("totw");
+        show_checkbox("numbersup");
+        show_checkbox("honourable");
+        show_checkbox("halloween");
+        show_checkbox("otw");
+        show_checkbox("versus");
+        show_checkbox("motm");
+        show_checkbox("captains");
+        show_checkbox("shapeshifters");
+      break;
+      case "campaign":
+        show_checkbox("fantasy");
+        show_checkbox("birthday");
+        show_checkbox("wildcard");
+      break;
+    }
+  }
+
+  function show_checkbox(promo){
+    $("#" + promo).show();
+    $("[for=" + promo + "]").show();
   }
 
   function mark_tokens() {
@@ -326,7 +453,32 @@
   //   $(this).attr('data-token-id', index + 1);
   // });
 
-
+  function get_batch_selector(batch){
+    switch(batch){
+            case "preseason_1":
+              selector = "[data-preseason-1=1]";	
+              break;
+            case "preseason_2":
+              selector = "[data-preseason-2=1]";
+            break;
+            case "futties_1":
+              selector = "[data-futties-1=1]";
+            break;
+            case "futties_2":
+              selector = "[data-futties-2=1]";
+            break;
+            case "futties_3":
+              selector = "[data-futties-3=1]";
+            break;
+            case "futties_123":
+              selector = "[data-futties-1=1],[data-futties-2=1],[data-futties-3=1]";
+            break;  
+            case "campaign":
+              selector = "[data-campaign-bag=1]";
+            break;
+          }
+          return selector;
+  }
 
   function add_darken_class() {
     $('#tokens div').each(function (index) {
@@ -467,6 +619,7 @@
 
 
 
+
       $(".marquee").click(function (event) {
         name_copy(event);
       });
@@ -596,7 +749,7 @@
 
       $("#shapeshifters").click(function () {
         if (this.checked) {
-          $(".card.shapeshifters").fadeIn(update_futties_counter);
+          fade_in_promo(".shapeshifters");
         } else {
           $(".card.shapeshifters").fadeOut(update_futties_counter);
         }
@@ -605,7 +758,7 @@
 
       $("#tots").click(function () {
         if (this.checked) {
-          $(".card.goldblue").fadeIn(update_futties_counter);
+          fade_in_promo(".goldblue");
         } else {
           $(".card.goldblue").fadeOut(update_futties_counter);
         }
@@ -613,7 +766,7 @@
 
       $("#toty").click(function () {
         if (this.checked) {
-          $("[data-rareflag=5]").fadeIn(update_futties_counter);
+          fade_in_promo("[data-rareflag=5]");
         } else {
           $("[data-rareflag=5]").fadeOut(update_futties_counter);
         }
@@ -622,23 +775,33 @@
 
       $("#fantasy").click(function () {
         if (this.checked) {
-          $(".card.fantasypurple").fadeIn(update_futties_counter);
+          fade_in_promo(".fantasypurple");
+          fade_in_promo(".fantasyblue");
         } else {
           $(".card.fantasypurple").fadeOut(update_futties_counter);
+          $(".card.fantasyblue").fadeOut(update_futties_counter);
         }
       });
 
-      $("#uecl").click(function () {
+      $("#uefa").click(function () {
         if (this.checked) {
-          $(".card.championsleague").fadeIn(update_futties_counter);
+          fade_in_promo(".championsleague");
+          fade_in_promo(".elfinal");
+          fade_in_promo(".clfinal");
+          fade_in_promo(".promo");
+          fade_in_promo(".confleague");
         } else {
           $(".card.championsleague").fadeOut(update_futties_counter);
+          $(".card.elfinal").fadeOut(update_futties_counter);
+          $(".card.clfinal").fadeOut(update_futties_counter);
+          $(".card.promo").fadeOut(update_futties_counter);
+          $(".card.confleague").fadeOut(update_futties_counter);
         }
       });
 
       $("#headliners").click(function () {
         if (this.checked) {
-          $(".card.futheadliners").fadeIn(update_futties_counter);
+          fade_in_promo(".futheadliners");
         } else {
           $(".card.futheadliners").fadeOut(update_futties_counter);
         }
@@ -646,28 +809,17 @@
 
       $("#captains").click(function () {
         if (this.checked) {
-          $(".card.futcaptains").fadeIn(update_futties_counter);
-          $(".card.futcaptainsheroes").fadeIn(update_futties_counter);
-
+          fade_in_promo(".futcaptains");
+          fade_in_promo(".futcaptainsheroes");
         } else {
           $(".card.futcaptains").fadeOut(update_futties_counter);
           $(".card.futcaptainsheroes").fadeOut(update_futties_counter);
         }
       });
 
-      $("#promo").click(function () {
-        if (this.checked) {
-          $(".card.promo").fadeIn(update_futties_counter);
-          $(".card.confleague").fadeIn(update_futties_counter);
-        } else {
-          $(".card.promo").fadeOut(update_futties_counter);
-          $(".card.confleague").fadeOut(update_futties_counter);
-        }
-      });
-
       $("#birthday").click(function () {
         if (this.checked) {
-          $(".card.birthday").fadeIn(update_futties_counter);
+          fade_in_promo(".birthday");
         } else {
           $(".card.birthday").fadeOut(update_futties_counter);
         }
@@ -675,7 +827,7 @@
 
       $("#otw").click(function () {
         if (this.checked) {
-          $(".card.onestowatch").fadeIn(update_futties_counter);
+          fade_in_promo(".onestowatch");
         } else {
           $(".card.onestowatch").fadeOut(update_futties_counter);
         }
@@ -683,7 +835,7 @@
 
       $("#wildcard").click(function () {
         if (this.checked) {
-          $(".card.wildcard").fadeIn(update_futties_counter);
+          fade_in_promo(".wildcard");
         } else {
           $(".card.wildcard").fadeOut(update_futties_counter);
         }
@@ -691,7 +843,7 @@
 
       $("#signature").click(function () {
         if (this.checked) {
-          $(".card.signature").fadeIn(update_futties_counter);
+          fade_in_promo(".signature");
         } else {
           $(".card.signature").fadeOut(update_futties_counter);
         }
@@ -699,40 +851,24 @@
 
       $("#numbersup").click(function () {
         if (this.checked) {
-          $(".card.numbersup").fadeIn(update_futties_counter);
+          fade_in_promo(".numbersup");
         } else {
           $(".card.numbersup").fadeOut(update_futties_counter);
         }
       });
 
-      $("#elfinal").click(function () {
-        if (this.checked) {
-          $(".card.elfinal").fadeIn(update_futties_counter);
-        } else {
-          $(".card.elfinal").fadeOut(update_futties_counter);
-        }
-      });
-
       $("#halloween").click(function () {
         if (this.checked) {
-          $(".card.halloween").fadeIn(update_futties_counter);
+          fade_in_promo(".halloween");
         } else {
           $(".card.halloween").fadeOut(update_futties_counter);
-        }
-      });
-
-      $("#rttk").click(function () {
-        if (this.checked) {
-          $(".card.clfinal").fadeIn(update_futties_counter);
-        } else {
-          $(".card.clfinal").fadeOut(update_futties_counter);
         }
       });
 
       // toggle future stars
       $("#futurestars").click(function () {
         if (this.checked) {
-          $(".card.futurestars").fadeIn(update_futties_counter);
+          fade_in_promo(".futurestars");
         } else {
           $(".card.futurestars").fadeOut(update_futties_counter);
         }
@@ -741,26 +877,19 @@
       // toggle totw
       $("#totw").click(function () {
         if (this.checked) {
-          $(".card.goldif").fadeIn(update_futties_counter);
+          fade_in_promo(".goldif");
         } else {
           $(".card.goldif").fadeOut(update_futties_counter);
         }
       });
 
-      // toggle versus fire
-      $("#versusfire").click(function () {
+      // toggle versus 
+      $("#versus").click(function () {
         if (this.checked) {
-          $(".card.versusfire").fadeIn(update_futties_counter);
+          fade_in_promo(".versusice");
+          fade_in_promo(".versusfire");
         } else {
           $(".card.versusfire").fadeOut(update_futties_counter);
-        }
-      });
-
-      // toggle versus ice
-      $("#versusice").click(function () {
-        if (this.checked) {
-          $(".card.versusice").fadeIn(update_futties_counter);
-        } else {
           $(".card.versusice").fadeOut(update_futties_counter);
         }
       });
@@ -768,27 +897,27 @@
       // toggle motm
       $("#motm").click(function () {
         if (this.checked) {
-          $(".card.motm").fadeIn(update_futties_counter);
+          fade_in_promo(".motm");
         } else {
           $(".card.motm").fadeOut(update_futties_counter);
-        }
-      });
-
-      // toggle gold
-      $("#gold").click(function () {
-        if (this.checked) {
-          $(".card.goldrare").fadeIn(update_futties_counter);
-        } else {
-          $(".card.goldrare").fadeOut(update_futties_counter);
         }
       });
 
       // toggle toty honourable mentions
       $("#honourable").click(function () {
         if (this.checked) {
-          $("[data-rareflag=64]").fadeIn(update_futties_counter);
+          fade_in_promo("[data-rareflag=64]");
         } else {
           $("[data-rareflag=64]").fadeOut(update_futties_counter);
+        }
+      });
+
+      // toggle libertadores
+      $("#libertadores").click(function () {
+        if (this.checked) {
+          fade_in_promo("[data-rareflag=143]");
+        } else {
+          $("[data-rareflag=143]").fadeOut(update_futties_counter);
         }
       });
 
@@ -796,12 +925,18 @@
      $("#batch_select").change((e) => {
       const batch = e.target.value;
       update_batches(batch);
+      display_filters();
+      // check all filter checkboxes
+      $(".checkbox_wrapper_futties input").prop("checked", true);
      });
 
       // toggle all cards
       $("#toggleall").click(function () {
         if (this.checked) {
-          $(".card").fadeIn(update_futties_counter);
+          const batch = $("#batch_select").val();
+          const selector = get_batch_selector(batch);
+
+          $(selector).fadeIn(update_futties_counter);
           $(".checkbox_wrapper_futties input").each(function () {
             $(this).prop("checked", true);
           });
@@ -828,7 +963,14 @@
       $(".card").hide();
       // show all cards that are in the current batch
       $("[data-preseason-2]").show();
+      display_filters();
       update_futties_counter();
+
+      if(localStorage.getItem("legend_hidden") === null || localStorage.getItem("legend_hidden") === "false") {
+        $("#legend_wrapper").css("display", "flex");
+      } else {
+        $("#show_legend").css("display", "flex");
+      }
 
       // remove the html in all token numbers
       $('.token_number').remove();
@@ -837,6 +979,7 @@
       $("[data-futties-3]").append("<div class='token_number'>3</div>");
       $("[data-preseason-1]").append("<div class='token_number'>4</div>");
       $("[data-preseason-2]").append("<div class='token_number'>5</div>");
+      $("[data-campaign-bag]").append("<div class='token_number'>6</div>");
       /* 
         $(this).html("");
         if (typeof $(this).parent().data('futties-1') !== 'undefined') {
