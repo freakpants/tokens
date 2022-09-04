@@ -269,7 +269,7 @@
   }
 
   function update_futties_counter() {
-    $("#collected").text(document.claimed_futties.length + "/" + 429);
+    $("#collected").text($("#tokens .token-claimed.card:visible").length + "/" + $("#tokens .card:visible").length);
     $("#displaying").text($("#tokens .card:visible").length + "/" + 429);
   }
 
@@ -822,6 +822,9 @@
             case "futties_123":
               selector = "[data-futties-1=1],[data-futties-2=1],[data-futties-3=1]";
             break;  
+            case "campaign":
+              selector = "[data-campaign-bag=1]";
+            break;
             
           }
           $(selector).fadeIn(update_futties_counter);
